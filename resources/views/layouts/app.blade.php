@@ -34,7 +34,6 @@
 <!-- Scripts -->
     <link rel="canonical" href="{{url()->current()}}">
     <link rel="prefetch" href="{{config('app.url')}}">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
         button {
             text-decoration: none;
@@ -111,5 +110,6 @@
 @include('includes/modalLogin')
 @include('includes/modalRegister')
 
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </body>
 </html>
