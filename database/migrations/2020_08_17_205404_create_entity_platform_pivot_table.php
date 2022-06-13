@@ -17,7 +17,6 @@ class CreateEntityPlatformPivotTable extends Migration
                 $table->id();
                 $table->bigInteger('entity_id')->unsigned();
                 $table->bigInteger('platform_id')->unsigned();
-                $table->primary(['entity_id', 'platform_id']);
             });
     }
 
