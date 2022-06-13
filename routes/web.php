@@ -8,6 +8,8 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\EntityController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\SitemapController;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 Auth::routes();
 
