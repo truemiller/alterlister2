@@ -14,7 +14,7 @@ class CreateEntityTagsTable extends Migration
     public function up()
     {
         Schema::create('entity_tags', function (Blueprint $table) {
-            $table->bigIncrements('id')->index();
+            $table->id();
             $table->string("tag");
             $table->string("entity_slug");
             $table->timestamps();

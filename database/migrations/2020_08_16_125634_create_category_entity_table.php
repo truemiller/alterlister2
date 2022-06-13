@@ -16,7 +16,7 @@ class CreateCategoryEntityTable extends Migration
 
         Schema::disableForeignKeyConstraints();
         Schema::create('category_entity', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->unsignedBigInteger('entity_id');
             $table->unsignedBigInteger('category_id');
             $table->unique(['category_id', 'entity_id']);

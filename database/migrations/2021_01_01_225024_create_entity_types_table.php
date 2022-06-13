@@ -14,7 +14,7 @@ class CreateEntityTypesTable extends Migration
     public function up()
     {
         Schema::create('entity_types', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->text('title');
             $table->text('slug');
             $table->timestamps();
