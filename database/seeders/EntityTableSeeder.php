@@ -2131,7 +2131,7 @@ class EntityTableSeeder extends Seeder
                 'slug' => 'share-locker',
                 'title' => 'Share Locker',
                 'short_description' => '',
-                'long_description' => 'Buffer is an active social media marketing tool that helps you keep the news flowing. Buffer is used by brands and content creators to share news, tips and more.<br><br>Buffer is an open-source solution that allows you to publish text, images, videos and links on social media sites like Facebook, Twitter and Tumblr with a click of a button.<br><br>Buffer was founded in 2010 by Buffer\'s co-founders Ben Silbermann and Joel Gascoigne as a way for their company to bypass their own internal communications system. They wanted to have a way for everyone at Buffer to express themselves in the form of blog posts or tweets without having to worry about managing communications internally.<br><br>Buffersify had its beginnings in 2009 when Ben Silbermann used his personal blog as a platform to post thoughts on Buffer itself, while Joel Gascoigne was inspired by his experience taking Care2\'s Vacation Guide series off the internet and putting it on the Buffer blog.',
+                'long_description' => 'Make your content go viral. Lock links. Promote lockers. Get users to share like its going out of fashion.',
                 'logo' => asset('/img/logo/share-locker.png'),
                 'link_1' => 'https://sharelocker.io/',
                 'platforms' => 'windows,mac,android,ios,web',
