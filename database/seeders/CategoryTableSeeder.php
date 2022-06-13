@@ -53,8 +53,7 @@ class CategoryTableSeeder extends Seeder
         $this->seedCategory('live-streaming', 'Live Streaming', 'Streaming software for live streaming on sites like Twitch, YouTube, Facebook, ...', 'videos-movies');
         $this->seedCategory('video-editor', 'Video Editor', 'Software for video editing and production.', 'videos-movies');
 
-        $this->seedCategory('audio-music', "Audio & Music", "Sites and software for audio and music means.");
-        $this->seedCategory('music-production', 'Music Production', "Software for producing music.", 'audio-music');
+        $this->seedCategory('music-production', 'Music Production', "Software for producing music.", 'music');
 
         $this->seedCategory('webcam-software', 'Webcam Software', 'Software for webcams.');
         $this->seedCategory('web-hosting', 'Web Hosting', 'Hosting for websites, webapps, and more.');

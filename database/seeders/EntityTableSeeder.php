@@ -19,7 +19,6 @@ class EntityTableSeeder extends Seeder
      */
     public function run()
     {
-        $this->seedAudioMusic();
         $this->seedBrowsers();
         $this->seedSocialCommunications();
         $this->seedDevelopment();
@@ -123,44 +122,6 @@ class EntityTableSeeder extends Seeder
         }
 
     }
-
-    private function seedAudioMusic()
-    {
-        $this->entitySeederLoop([],'audio-music');
-        $this->entitySeederLoop([
-            [
-                'slug' => 'fl-studio',
-                'title' => 'FL Studio',
-                'short_description' => '',
-                'long_description' => "<p>FL Studio is one of the best software for music production that we can find today, as it contains all the tools and is more economical than other software of lower quality. It has an easy-to-use interface and is easy to configure to your liking. In addition, you can control the patterns with the virtual mixer to create music with effects. Also, it has an editor included with which you can improve the audio quality, among other things.</p>
-
-<p>Another feature that makes FL Studio stand out is the large library of inbuilt samples and plugins you have at your disposal, which you can use to create original music, the combinations and effects you can achieve are endless. This software is so easy to use that it is recommended for amateurs who just want to have fun mixing, but at the same time, it has the quality to be used by professionals. The only downside is that if you don't have a computer with a graphic card, it may not work in optimal conditions since it will force the CPU to the maximum.</p>",
-                'logo' => asset('img/logo/fl-studio.png'),
-                'link_1' => 'https://www.image-line.com/',
-                'platforms' => 'windows,mac,android,ios',
-                'image_1' => asset('img/featured/fl-studio.png'),
-                'video_1' => "",
-                'publisher_slug' => 'image-line',
-                'entity_type' => 'software',
-                'tags' => ['DAW', 'Music Production']
-            ],
-            [
-                'slug' => 'ableton-live',
-                'title' => 'Ableton Live',
-                'short_description' => '',
-                'long_description' => "<p>When it comes to making music, having a different frame of mind is absolutely necessary when using Ableton Live. It is easy for me to understand why Live has such a large number of followers. This piece of software has garnered a lot of praise over the years from users who credit it as an essential part of their songwriting process, particularly when it comes to live performances of their music. It has a clip-based live performance and composition workflow that is both inspiring and motivating, as well as excellent new Mood Reel and Drone Lab packs, and it is incredibly easy to navigate. But do consider that it doesn't have a notation view or a pitch correction tool, and despite its high price, it's not a DAW that can do everything. Having said all that, in its most recent iteration, Ableton Live is indeed still a powerful all-in-the-box solution that can be used for composing and performing live music, especially live music influenced by electronic tunes.</p>",
-                'logo' => asset('img/logo/ableton-live.png'),
-                'link_1' => 'https://www.ableton.com/en/',
-                'platforms' => 'windows,mac',
-                'image_1' => asset('img/featured/ableton-live.png'),
-                'video_1' => "",
-                'publisher_slug' => 'ableton',
-                'entity_type' => 'software',
-                'tags' => ['DAW', 'Music Production']
-            ],
-        ],'music-production');
-    }
-
 
     private function seedBrowsers(): void
     {
@@ -993,6 +954,38 @@ class EntityTableSeeder extends Seeder
 
             ]
         ], 'music');
+        $this->entitySeederLoop([
+            [
+                'slug' => 'fl-studio',
+                'title' => 'FL Studio',
+                'short_description' => '',
+                'long_description' => "<p>FL Studio is one of the best software for music production that we can find today, as it contains all the tools and is more economical than other software of lower quality. It has an easy-to-use interface and is easy to configure to your liking. In addition, you can control the patterns with the virtual mixer to create music with effects. Also, it has an editor included with which you can improve the audio quality, among other things.</p>
+
+<p>Another feature that makes FL Studio stand out is the large library of inbuilt samples and plugins you have at your disposal, which you can use to create original music, the combinations and effects you can achieve are endless. This software is so easy to use that it is recommended for amateurs who just want to have fun mixing, but at the same time, it has the quality to be used by professionals. The only downside is that if you don't have a computer with a graphic card, it may not work in optimal conditions since it will force the CPU to the maximum.</p>",
+                'logo' => asset('img/logo/fl-studio.png'),
+                'link_1' => 'https://www.image-line.com/',
+                'platforms' => 'windows,mac,android,ios',
+                'image_1' => asset('img/featured/fl-studio.png'),
+                'video_1' => "",
+                'publisher_slug' => 'image-line',
+                'entity_type' => 'software',
+                'tags' => ['DAW', 'Music Production']
+            ],
+            [
+                'slug' => 'ableton-live',
+                'title' => 'Ableton Live',
+                'short_description' => '',
+                'long_description' => "<p>When it comes to making music, having a different frame of mind is absolutely necessary when using Ableton Live. It is easy for me to understand why Live has such a large number of followers. This piece of software has garnered a lot of praise over the years from users who credit it as an essential part of their songwriting process, particularly when it comes to live performances of their music. It has a clip-based live performance and composition workflow that is both inspiring and motivating, as well as excellent new Mood Reel and Drone Lab packs, and it is incredibly easy to navigate. But do consider that it doesn't have a notation view or a pitch correction tool, and despite its high price, it's not a DAW that can do everything. Having said all that, in its most recent iteration, Ableton Live is indeed still a powerful all-in-the-box solution that can be used for composing and performing live music, especially live music influenced by electronic tunes.</p>",
+                'logo' => asset('img/logo/ableton-live.png'),
+                'link_1' => 'https://www.ableton.com/en/',
+                'platforms' => 'windows,mac',
+                'image_1' => asset('img/featured/ableton-live.png'),
+                'video_1' => "",
+                'publisher_slug' => 'ableton',
+                'entity_type' => 'software',
+                'tags' => ['DAW', 'Music Production']
+            ],
+        ],'music-production');
     }
 
     private function seedOfficeProductivity(): void
