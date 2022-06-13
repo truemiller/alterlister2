@@ -15,9 +15,9 @@ class CreateEntityPlatformPivotTable extends Migration
         if(!Schema::hasTable('entity_platform'))
             Schema::create('entity_platform', function (Blueprint $table) {
                 $table->id();
-                $table->bigInteger('entity_id')->unsigned()->index();
+                $table->bigInteger('entity_id')->unsigned();
                 $table->foreign('entity_id')->references('id')->on('entities')->onDelete('cascade');
-                $table->bigInteger('platform_id')->unsigned()->index();
+                $table->bigInteger('platform_id')->unsigned();
                 $table->foreign('platform_id')->references('id')->on('platforms')->onDelete('cascade');
                 $table->primary(['entity_id', 'platform_id']);
             });
