@@ -1,0 +1,1 @@
+<small><i class="fas fa-star text-warning small"></i></small><small><i class="fas fa-star text-warning small"></i></small><small><i class="fas fa-star text-warning small"></i></small><small><i class="fas fa-star text-warning small"></i></small><small><i class="fas fa-star-half-alt text-warning small"></i></small>
