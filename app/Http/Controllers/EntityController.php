@@ -23,7 +23,7 @@ class EntityController extends Controller
         $views = $entity->events->count();
 
         // Return the view to the user
-        return view('entity')
+        return view('entity.view')
             ->with([
                 'entity' => $entity,
                 'alternatives' => $alternatives,

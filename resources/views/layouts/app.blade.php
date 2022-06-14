@@ -43,7 +43,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3541252731032050"
             crossorigin="anonymous"></script>
 </head>
-<body class="">
+<body class="bg-light">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WH2KTPT"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -71,16 +71,6 @@
                 </div>
             </div>
         </div>
-
-        <form action="{{route('search')}}" method="get" class="me-3">
-            <div class="input-group">
-                <input id="search" class="typeahead form-control mr-sm-1 flex-grow-1" type="text"
-                       placeholder="Input software name" aria-label="Search" name="query">
-                <div class="input-group-append">
-                    <button type="submit" class="btn btn-primary">Search</button>
-                </div>
-            </div>
-        </form>
 
         <div class="btn-group">
             @if(Auth::check())

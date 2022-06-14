@@ -19,13 +19,18 @@
 @section('main')
     <div class="container">
         <div class="row py-4 mt-5">
-            <div class=""></div>
             <div class="col">
-                <div class="d-block text-center">
+                <div class="d-flex flex-column justify-content-center text-center">
                     <h1 class="mb-0 " style="">
                         AlterLister
                     </h1>
                     <p class="h4">We find the best alternatives for you.</p>
+
+                                <form action="{{route('search')}}" method="get">
+                                    <input id="search" class="typeahead form-control mr-sm-1 flex-grow-1" type="text"
+                                           placeholder="Input software name" aria-label="Search" name="query">
+                                </form>
+
                 </div>
             </div>
         </div>

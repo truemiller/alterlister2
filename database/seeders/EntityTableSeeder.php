@@ -985,6 +985,20 @@ class EntityTableSeeder extends Seeder
                 'entity_type' => 'software',
                 'tags' => ['DAW', 'Music Production']
             ],
+            [
+                'slug' => 'ableton-live',
+                'title' => 'Ableton Live',
+                'short_description' => '',
+                'long_description' => "<p>On Atari ST in the 1980s, Steinberg Cubase debuted before moving to Mac and PC operating systems in that same year. When it comes to recording and production, Cubase Pro 12 is unmatched in power and flexibility. This digital audio workstation (DAW) is best suited for MIDI creation using virtual syntheses, but it is also a strong audio editing and post-production tool thanks to its superb MixConsole and versatile editing capabilities.</p><p>The removal of the need for an eLicenser hardware dongle is one of the most major changes in this upgrade to Cubase. Since the introduction of the new Steinberg activation manager, you can now run Cubase on three machines, with licensing controlled through the Steinberg Activation Manager. The software can be used without an Internet connection on a day-to-day basis, but you must first log in to your My Steinberg account in order to do so. Although you may still have earlier Steinberg instruments that require the dongle, you will need to wait for an upgrade before you can go bluetooth adapter before using those.</p><p>Cubase isn't the cheapest DAW out there, but you get a lot of bang for your buck with it. There is a lot of return on your initial investment once you get to the top of the ladder, because the annual updates are so inexpensive. A DAW that is as powerful and cutting-edge today as it was when Steinberg introduced it more than 30 years ago is the most crucial result of his constant ingenuity.</p>",
+                'logo' => asset('img/logo/cubase.png'),
+                'link_1' => 'https://www.ableton.com/en/',
+                'platforms' => 'windows,mac',
+                'image_1' => asset(''),
+                'video_1' => "",
+                'publisher_slug' => 'ableton',
+                'entity_type' => 'software',
+                'tags' => ['DAW', 'Music Production']
+            ],
         ],'music-production');
     }
 

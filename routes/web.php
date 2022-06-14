@@ -18,9 +18,9 @@ Auth::routes();
 Route::middleware("auth")->group(function(){
 
     Route::get('/home', [\App\Http\Controllers\HomeController::class, "index"]);
-
-    Route::get('/submit', [\App\Http\Controllers\SubmitController::class, "index"]);
-    Route::post('/submit_post', [\App\Http\Controllers\SubmitController::class, "submit"])->name("submit.post");
+//
+//    Route::get('/submit', [\App\Http\Controllers\SubmitController::class, "index"]);
+//    Route::post('/submit_post', [\App\Http\Controllers\SubmitController::class, "submit"])->name("submit.post");
 });
 
 Route::get('/',  [\App\Http\Controllers\HomeController::class, "index"])
