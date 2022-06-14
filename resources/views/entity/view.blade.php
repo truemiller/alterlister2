@@ -77,7 +77,6 @@
                             <div class="col-lg-8 my-auto">
                                 <h1 class=""><a href="{{$entity->link_1}}"
                                                 title="{{$entity->title}}">{{$entity->title}}</a></h1>
-                                <span class="badge bg-light mb-2">{{$entity->events()->count()}} views</span>
 
                                 <span class="badge bg-light mb-2">{{$entity->parent->title}}</span>
                                 <br>

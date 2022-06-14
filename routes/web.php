@@ -20,8 +20,8 @@ Route::middleware("auth")->group(function(){
     Route::get('/home', [\App\Http\Controllers\HomeController::class, "index"]);
     Route::get('/review_post', [\App\Http\Controllers\ReviewController::class, "postReview"])->name("review.post");
 //
-//    Route::get('/submit', [\App\Http\Controllers\SubmitController::class, "index"]);
-//    Route::post('/submit_post', [\App\Http\Controllers\SubmitController::class, "submit"])->name("submit.post");
+    Route::get('/submit', [\App\Http\Controllers\SubmitController::class, "index"])->name('submit');
+    Route::post('/submit_post', [\App\Http\Controllers\SubmitController::class, "submit"])->name("submit.post");
 });
 
 Route::get('/',  [\App\Http\Controllers\HomeController::class, "index"])

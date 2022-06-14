@@ -14,7 +14,7 @@
                     </tr>
                     </thead>
                     @foreach(\App\Models\Entity::all()->sortByDesc('id') as $entity)
-                    <tr><td>{{$entity->title}}</td><td>{{$entity->getViews()}}</td><td><a href="{{}}" class="btn btn-sm btn-primary">Edit</a></td></tr>
+                    <tr><td>{{$entity->title}}</td><td><a href="{{}}" class="btn btn-sm btn-primary">Edit</a></td></tr>
                     @endforeach
                 </table>
             </div>

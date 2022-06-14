@@ -19,10 +19,10 @@
                             <textarea class="form-control" rows="10" name="description" required></textarea>
                             <br>
                             <label for="logo">Logo (Max Size 10MB)</label>
-                            <input type="file" name="logo">
+                            <input type="file" name="logo" class="form-control">
                             <br>
                             <label for="featured_image">Featured Image (Max Size 10MB)</label>
-                            <input type="file" name="featured_image">
+                            <input type="file" name="featured_image" class="form-control">
                             <br>
                             <br>
                             <input type="submit" class="btn btn-primary" value="Submit">
