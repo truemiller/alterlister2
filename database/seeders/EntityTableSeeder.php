@@ -43,58 +43,37 @@ class EntityTableSeeder extends Seeder
         foreach ($software_array as $entityData) {
             print_r($entityData["slug"] . "\n");
             // TRY GET ENTITY
-
             $_ent = Entity::firstWhere("slug", $entityData["slug"]);
 
-            if (!$_ent) {
-                // CREATE ENTITY INSIDE CATEGORY ASSOCIATION
-                $_ent = (new Entity)->updateOrCreate([
-                    'slug' => $entityData["slug"],
-                ],
-                    [
-                        'title' => $entityData["title"],
-                        'description' => $entityData["description"] ?? "",
-                        'logo' => $entityData["logo"] ?? "",
-                        'link_1' => $entityData["link_1"] ?? "",
-                        'category_id' => Category::firstWhere("slug", $category_slug)->id
-                    ]
-                );
 
-                // Create platform associations
-                if (isset($entityData["platforms"])) {
-                    $platforms = [];
-                    $platforms = explode(',', $entityData["platforms"]);
-                    if ($platforms ?? false) {
-                        foreach ($platforms as $platform) {
-                            $_platformEntity = (new Entity)->firstWhere('slug', $entityData["slug"]);
-                            if ($_platformEntity) {
-                                $_platform = (new Platform)->where('slug', '=', $platform)->first();
-                                if ($_platform) {
-                                    $_platformEntity->platforms()
-                                                    ->attach(
-                                                        $_platform->id
-                                                    );
-                                }
-                            }
-                        }
+            // CREATE ENTITY
+            $_ent = (new Entity)->updateOrCreate([
+                'slug' => $entityData["slug"],
+            ],
+                [
+                    'title' => $entityData["title"],
+                    'description' => $entityData["description"] ?? "",
+                    'logo' => $entityData["logo"] ?? "",
+                    'link_1' => $entityData["link_1"] ?? "",
+                    'category_id' => Category::firstWhere("slug", $category_slug)->id
+                ]
+            );
+
+            // Create platform associations
+            $platforms = [];
+            $platforms = explode(',', $entityData["platforms"]);
+            if ($platforms ?? false) {
+                foreach ($platforms as $platform) {
+                    $_platform = (new Platform)->where('slug', $platform)->first();
+                    if ($_platform) {
+                        $_ent->platforms()
+                             ->attach(
+                                 $_platform->id
+                             );
                     }
                 }
-
-                if (isset($entityData["publisher_slug"])) {
-                    $publisher = Publisher::firstWhere("slug", $entityData["publisher_slug"]);
-                    $entity = Entity::firstWhere("slug", $entityData["slug"]);
-                    $entity->publisher()->associate($publisher);
-                    $entity->save();
-                }
-
-            } else {
-                //update
-                unset($entityData['platforms']); // removes platforms as not used
-                $_ent->description = $entityData['description'];
-                $_ent->link_1 = $entityData["link_1"] ?? "";
-                $_ent->logo = $entityData["logo"] ?? "";
-                $_ent->save();
             }
+
             // drop tags
             EntityTag::where("entity_slug", "$_ent->slug")->delete();
 
@@ -110,7 +89,8 @@ class EntityTableSeeder extends Seeder
 
     }
 
-    private function seedBrowsers(): void
+    private
+    function seedBrowsers(): void
     {
         $this->entitySeederLoop([
             [
@@ -244,7 +224,8 @@ class EntityTableSeeder extends Seeder
         ], 'browser');
     }
 
-    private function seedCryptocurrency()
+    private
+    function seedCryptocurrency()
     {
 
         $this->entitySeederLoop(
@@ -483,7 +464,8 @@ class EntityTableSeeder extends Seeder
         );
     }
 
-    private function seedDevelopment(): void
+    private
+    function seedDevelopment(): void
     {
         $this->entitySeederLoop([
             [
@@ -658,7 +640,8 @@ class EntityTableSeeder extends Seeder
 
     }
 
-    public function seedEducationReference()
+    public
+    function seedEducationReference()
     {
         $this->entitySeederLoop([
             [
@@ -730,12 +713,14 @@ class EntityTableSeeder extends Seeder
         ], "education-reference");
     }
 
-    public function seedGames()
+    public
+    function seedGames()
     {
 
     }
 
-    private function seedLiveStreaming(): void
+    private
+    function seedLiveStreaming(): void
     {
         $this->entitySeederLoop([
             [
@@ -794,7 +779,8 @@ class EntityTableSeeder extends Seeder
         ], "live-streaming");
     }
 
-    private function seedMusic(): void
+    private
+    function seedMusic(): void
     {
         $this->entitySeederLoop([
             /*Spotify*/
@@ -948,7 +934,8 @@ class EntityTableSeeder extends Seeder
         ], 'music-production');
     }
 
-    private function seedOfficeProductivity(): void
+    private
+    function seedOfficeProductivity(): void
     {
         $this->entitySeederLoop([
             [
@@ -1191,7 +1178,8 @@ class EntityTableSeeder extends Seeder
             , "spreadsheet");
     }
 
-    private function seedOperatingSystem(): void
+    private
+    function seedOperatingSystem(): void
     {
         $this->entitySeederLoop([
             [
@@ -1439,7 +1427,8 @@ class EntityTableSeeder extends Seeder
     }
 
 
-    private function seedPhotosGraphics(): void
+    private
+    function seedPhotosGraphics(): void
     {
 
         $this->entitySeederLoop([
@@ -1665,7 +1654,8 @@ class EntityTableSeeder extends Seeder
     }
 
 
-    private function seedPrivacySecurity()
+    private
+    function seedPrivacySecurity()
     {
         $this->entitySeederLoop([
             [
@@ -1741,7 +1731,8 @@ class EntityTableSeeder extends Seeder
         ], 'cdn');
     }
 
-    private function seedSocialCommunications(): void
+    private
+    function seedSocialCommunications(): void
     {
         $this->entitySeederLoop([
             [
@@ -2046,7 +2037,8 @@ class EntityTableSeeder extends Seeder
         ], "random-video-chat");
     }
 
-    private function seedTorrents(): void
+    private
+    function seedTorrents(): void
     {
         $this->entitySeederLoop([
             [
@@ -2119,7 +2111,8 @@ class EntityTableSeeder extends Seeder
         ], "torrent-search-engine");
     }
 
-    private function seedTrading(): void
+    private
+    function seedTrading(): void
     {
         $this->entitySeederLoop([
             [
@@ -2181,7 +2174,8 @@ class EntityTableSeeder extends Seeder
         ], 'trading');
     }
 
-    private function seedVideoMovies(): void
+    private
+    function seedVideoMovies(): void
     {
         $this->entitySeederLoop([
             [
@@ -2301,7 +2295,8 @@ class EntityTableSeeder extends Seeder
         ], 'video-editor');
     }
 
-    private function seedVPN(): void
+    private
+    function seedVPN(): void
     {
         $this->entitySeederLoop(
             [
@@ -2391,7 +2386,8 @@ class EntityTableSeeder extends Seeder
         );
     }
 
-    private function seedWebcamSoftware(): void
+    private
+    function seedWebcamSoftware(): void
     {
         $this->entitySeederLoop([
             [
@@ -2420,7 +2416,8 @@ class EntityTableSeeder extends Seeder
         ], "webcam-software");
     }
 
-    private function seedWebHosting(): void
+    private
+    function seedWebHosting(): void
     {
         $this->entitySeederLoop([
             [
@@ -2569,7 +2566,8 @@ class EntityTableSeeder extends Seeder
         ], 'web-hosting');
     }
 
-    private function seedWordProcessor()
+    private
+    function seedWordProcessor()
     {
         $this->entitySeederLoop(
             [
