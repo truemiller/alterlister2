@@ -82,19 +82,16 @@
                                 <span class="badge bg-light mb-2">{{$entity->parent->title}}</span>
                                 <br>
                                 <strong>Description</strong>
-                                <p>
-                                    <style>
-                                        #entity-long-desc {
-                                            display: none;
-                                        }
-                                    </style>
-                                    <span id="entity-short-desc">
+                                <div>
+                                    <div id="entity-short-desc">
                                         {!! Str::words($entity->description, "40", "...") !!}
-                                        <a href="#" onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read more</a></span>
-                                    <span id="entity-long-desc">
+                                        <a href="#" onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read more</a>
+                                    </div>
+                                    <div id="entity-long-desc" style="display: none">
                                         {!! $entity->description !!}
-                                        <a href="#" onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read less</a></span>
-                                </p>
+                                        <a href="#" onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read less</a>
+                                    </div>
+                                </div>
                                 <strong>Links</strong>
                                 <br>
                                 <a href="{{$entity->link_1}}" class="btn btn-primary">Goto Homepage</a>
