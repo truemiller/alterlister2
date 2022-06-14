@@ -16,8 +16,7 @@ class EntitiesAddPublisher extends Migration
         //
         Schema::disableForeignKeyConstraints();
             Schema::table('entities', function($table){
-                $table->string('publisher_slug')->nullable();
-                //$table->foreign('publisher_slug')->references('slug')->on('publisher')->onDelete('cascade');
+                $table->unsignedBigInteger('publisher_id')->nullable();
             });
         Schema::enableForeignKeyConstraints();
     }

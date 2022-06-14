@@ -17,7 +17,7 @@
                         <li>Platforms: @foreach($alternative->platforms as $platform)<span class="badge bg-light me-1">{{$platform->title}}</span>@endforeach</li>
                         <li>Features: @foreach($alternative->tags as $tag)<span class="badge bg-light text-capitalize me-1">{{$tag->tag}}</span>@endforeach</li>
                     </ul>
-                    <p>{!! Str::words($alternative->long_description, "40", "...") !!}</p>
+                    <p>{!! Str::words($alternative->description, "40", "...") !!}</p>
                 </div>
             </section>
         @endforeach

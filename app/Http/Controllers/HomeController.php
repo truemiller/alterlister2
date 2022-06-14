@@ -47,9 +47,6 @@ class HomeController extends Controller
             })
             ->take(32);
 
-        $categories = Category::whereHas('entities', function ($q) {
-            return $q;
-        })->get();
 
         return view('homepage')->with(
             [

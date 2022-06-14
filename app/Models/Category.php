@@ -61,7 +61,7 @@ class Category extends Model
     public function entities()
     {
         return $this
-            ->belongsToMany(Entity::class, 'category_entity', 'category_id', 'entity_id');
+            ->hasMany(Entity::class, 'category_id', 'id');
     }
 
 }

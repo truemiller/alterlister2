@@ -6,55 +6,13 @@ use App\Models\EntityType;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-/**
- * App\Models\Entity
- *
- * @property int $id
- * @property string $slug
- * @property string $title
- * @property string|null $short_description
- * @property string|null $long_description
- * @property string $logo
- * @property string|null $link_1
- * @property \Illuminate\Support\Carbon|null $created_at
- * @property \Illuminate\Support\Carbon|null $updated_at
- * @property string $price
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Event[] $events
- * @property-read int|null $events_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Category[] $parents
- * @property-read int|null $parents_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Platform[] $platforms
- * @property-read int|null $platforms_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Review[] $reviews
- * @property-read int|null $reviews_count
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Tag[] $tags
- * @property-read int|null $tags_count
- * @method static \Illuminate\Database\Eloquent\Builder|Entity newModelQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Entity newQuery()
- * @method static \Illuminate\Database\Eloquent\Builder|Entity query()
- * @method static \Illuminate\Database\Eloquent\Builder|Entity whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Entity whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Entity whereLink1($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Entity whereLogo($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Entity whereLongDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Entity wherePrice($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Entity whereShortDescription($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Entity whereSlug($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Entity whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Entity whereUpdatedAt($value)
- * @mixin \Eloquent
- */
 class Entity extends Model
 {
     //
     protected $table = 'entities';
     protected $fillable = [
         'title',
-        'short_description',
-        'long_description',
         'logo',
-        'image_1',
-        'video_1',
         'slug',
         'price',
         'link_1'
@@ -69,9 +27,9 @@ class Entity extends Model
     }
 
     //  Parent containing category
-    public function parents()
+    public function parent()
     {
-        return $this->belongsToMany(Category::class, 'category_entity', 'entity_id', 'category_id');
+        return $this->belongsTo(Category::class, 'category_id', 'id');
     }
 
     public function reviews()
@@ -110,7 +68,7 @@ class Entity extends Model
 
     public function publisher()
     {
-        return $this->belongsTo('App\Models\Publisher','publisher_slug', 'slug');
+        return $this->belongsTo('App\Models\Publisher','publisher_id', 'id');
     }
 
     #endregion

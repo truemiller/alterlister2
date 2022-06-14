@@ -83,7 +83,8 @@ class CategoryTableSeeder extends Seeder
             'slug' => $slug
         ], [
             'title' => $title,
-            'description' => $description]);
+            'description' => $description
+        ]);
 
         // if has parent then associate with parent
         if ($parent) {

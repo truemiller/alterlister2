@@ -15,14 +15,10 @@ class CreateEntitiesTable extends Migration
     {
         Schema::create('entities', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('category_id')->nullable();
-            $table->foreign('category_id')
-                ->references('id')
-                ->on('categories')->onDelete('cascade');
+            $table->unsignedBigInteger('category_id');
             $table->string('slug', 50)->unique();
             $table->string('title');
-            $table->text('short_description')->nullable();
-            $table->text('long_description')->nullable();
+            $table->text('description')->nullable();
             $table->text('logo');
             $table->string('link_1')->nullable();
             $table->timestamps();

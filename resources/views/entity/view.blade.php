@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    {{$entity->title}} Alternatives: {{count($alternatives)}}+ Similar {{$entity->parents->first()->title}} Apps for {{today()->format('Y')}} -
+    {{$entity->title}} Alternatives: {{count($alternatives)}}+ Similar {{$entity->parent->first()->title}} Apps for {{today()->format('Y')}} -
 @endsection
 
 @section ('og_tags')
@@ -50,17 +50,11 @@
         <ol class="breadcrumb">
             <div class="container flex-row d-flex">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
-                @if(isset($entity->parents->first()->parent))
+                @if(isset($entity->parent->parent))
                     <li class="breadcrumb-item"><a
-                            href="{{route("cat", ["cat"=>$entity->parents->first()->parent->slug])}}">{{$entity->parents->first()->parent->title}}</a>
+                            href="{{route("cat", ["cat"=>$entity->parent->parent->slug])}}">{{$entity->parent->parent->title}}</a>
                     </li>
                 @endif
-                @foreach($entity->parents as $category)
-                    <li class="breadcrumb-item"><a
-                            href="{{route("cat", ["cat"=>$category->slug])}}">{{$category->title}}</a>
-                    </li>
-                @endforeach
-
             </div>
         </ol>
     </nav>
@@ -78,16 +72,15 @@
                                 <h1 class=""><a href="{{$entity->link_1}}"
                                                 title="{{$entity->title}}">{{$entity->title}}</a></h1>
                                 <span class="badge bg-light mb-2">{{$entity->events()->count()}} views</span>
-                                @foreach($entity->parents as $category)
-                                    <span class="badge bg-light mb-2">{{$category->title}}</span>
-                                @endforeach
+
+                                    <span class="badge bg-light mb-2">{{$entity->parent->title}}</span>
                                 <br>
                                 <strong>Description</strong>
                                 <p>
-                                    <span id="entity-short-desc">{!!Str::words($entity->long_description, "40", "...")!!} <a
+                                    <span id="entity-short-desc">{!!Str::words($entity->description, "40", "...")!!} <a
                                             href="#"
                                             onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read more</a></span>
-                                    <span id="entity-long-desc" style="display: none;">{!! $entity->long_description !!} <a
+                                    <span id="entity-long-desc" style="display: none;">{!! $entity->description !!} <a
                                             href="#"
                                             onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read less</a></span>
                                 </p>
