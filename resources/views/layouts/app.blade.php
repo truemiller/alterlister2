@@ -35,6 +35,7 @@
     <link rel="canonical" href="{{url()->current()}}">
     <link rel="prefetch" href="{{config('app.url')}}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <script src="{{asset('js/app.js')}}"></script>
     <style>
         button {
             text-decoration: none;
@@ -44,7 +45,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3541252731032050"
             crossorigin="anonymous"></script>
 </head>
-<body class="bg-light">
+<body class="bg-light vh-100 d-flex flex-column">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WH2KTPT"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -72,7 +73,12 @@
                     @endforeach
                 </div>
             </div>
+
         </div>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
         <div class="btn-group">
             @if(Auth::check())

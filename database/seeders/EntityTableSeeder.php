@@ -920,15 +920,24 @@ class EntityTableSeeder extends Seeder
                 'tags' => ['DAW', 'Music Production']
             ],
             [
-                'slug' => 'ableton-live',
-                'title' => 'Ableton Live',
-                'description' => "<p>On Atari ST in the 1980s, Steinberg Cubase debuted before moving to Mac and PC operating systems in that same year. When it comes to recording and production, Cubase Pro 12 is unmatched in power and flexibility. This digital audio workstation (DAW) is best suited for MIDI creation using virtual syntheses, but it is also a strong audio editing and post-production tool thanks to its superb MixConsole and versatile editing capabilities.</p><p>The removal of the need for an eLicenser hardware dongle is one of the most major changes in this upgrade to Cubase. Since the introduction of the new Steinberg activation manager, you can now run Cubase on three machines, with licensing controlled through the Steinberg Activation Manager. The software can be used without an Internet connection on a day-to-day basis, but you must first log in to your My Steinberg account in order to do so. Although you may still have earlier Steinberg instruments that require the dongle, you will need to wait for an upgrade before you can go bluetooth adapter before using those.</p><p>Cubase isn't the cheapest DAW out there, but you get a lot of bang for your buck with it. There is a lot of return on your initial investment once you get to the top of the ladder, because the annual updates are so inexpensive. A DAW that is as powerful and cutting-edge today as it was when Steinberg introduced it more than 30 years ago is the most crucial result of his constant ingenuity.</p>",
-                'logo' => asset('img/logo/cubase.png'),
-                'link_1' => 'https://www.ableton.com/en/',
+                'slug' => 'pro-tools',
+                'title' => 'Avid Pro Tools',
+                'description' => "<p>The workflow effectiveness of Avid's Pro Tools software is unmatched among computer-based digital recording choices today. Since its beginning, the company has worked tirelessly to fine-tune the program. Each improvement has been based only on practical considerations. As a result of Avid's efforts, the production process has become far easier than before.</p><p>To make things simpler, Pro-tools has a two-window user interface. Everything can be accessed from the primary window, and editing can be done in-line without the need for other windows to pop up all over the place. The old plug-in formats from Avid have been replaced with a new AAX plug-in architecture that can compensate for latency.</p><p>For epic memory management, it has a 64-bit audio engine. Even if a project is extremely large, it always performs at its best. Free up resources by using the track commit and track freeze commands to select what's important.</p><p>When it initially hit the market, the Pro Tools recording software suite revolutionized the industry. It's long since changed into something else entirely. Pro Tools is the most popular digital audio workstation (DAW) on the market today, even in the face of stiff competition.</p><p>A total of 128 audio tracks, 500+ instrument tracks, and over 1000 MIDI tracks are available for recording. A variety of tools are at your disposal, including layered editing, real-time fade adjustment, and batch fade optimization.</p>",
+                'logo' => asset('img/logo/pro-tools.png'),
+                'link_1' => 'https://www.avid.com/pro-tools',
                 'platforms' => 'windows,mac',
-                'image_1' => asset(''),
-                'video_1' => "",
-                'publisher_slug' => 'ableton',
+                'publisher_slug' => 'avid',
+                'entity_type' => 'software',
+                'tags' => ['DAW', 'Music Production']
+            ],
+            [
+                'slug' => 'logic-pro',
+                'title' => 'Logic Pro X',
+                'description' => "<p>Apple's Logic Pro X music creation software has been one of the company's hidden gems for a long period of time. Although more people will use iPhones, iPads, and Macs, Logic still has a leg up in terms of quality, value, and the release of new features on a regular basis.</p><p>Logic Pro X is the greatest it's ever been, with to the addition of Apple Silicon compatibility including several entertaining and the forward new features.</p><p>Logic Pro's popularity continues to rise. Users of AirPods or AirPods Max will be happy to know that version 10.7, like previous versions 10.6 and 10.5 before it, allows them to create Spatial Audio mixes. When you factor in the addition of current features like Live Loops and improved support for the Apple environment, Logic Pro is now as much a piece of software for having fun with music as it is a fully-featured recording studio. Aside from that, running Logic on an Apple laptop with Silicon support means you'll get maximum performance and power efficiency, which means you can be creative wherever you are without worrying about your laptop dying because it's running out of juice.</p>",
+                'logo' => asset('img/logo/logic-pro.jpg'),
+                'link_1' => 'https://www.apple.com/uk/logic-pro/',
+                'platforms' => 'mac,ios',
+                'publisher_slug' => 'apple',
                 'entity_type' => 'software',
                 'tags' => ['DAW', 'Music Production']
             ],

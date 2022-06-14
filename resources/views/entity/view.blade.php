@@ -83,7 +83,7 @@
                                 <strong>Description</strong>
                                 <div>
                                     <div id="entity-short-desc">
-                                        {!! Str::words($entity->description, "40", "...") !!}
+                                        {!! Str::words($entity->description, "100", "...") !!}
                                         <a href="#" onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read more</a>
                                     </div>
                                     <div id="entity-long-desc" style="display: none">
@@ -91,6 +91,10 @@
                                         <a href="#" onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read less</a>
                                     </div>
                                 </div>
+                                <br>
+                                <strong>Platforms</strong><br>
+                                @foreach($entity->platforms as $platform)<span class="badge bg-light me-1">{{$platform->title}}</span>@endforeach
+                                <br><br>
                                 <strong>Links</strong>
                                 <br>
                                 <a href="{{$entity->link_1}}" class="btn btn-primary">Goto Homepage</a>

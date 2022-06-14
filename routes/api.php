@@ -15,7 +15,10 @@
 //    return $request->user();
 //});
 
-Route::get('/{ent}/like', 'EventController@createEventEntityLike')
+use App\Http\Controllers\EventController;
+use App\Http\Controllers\SearchController;
+
+Route::get('/{ent}/like', [EventController::class,'createEventEntityLike'])
     ->name('ent.like');
 
-Route::get('/search/{query}', 'SearchController@query');
+Route::get('/search/{query}', [SearchController::class,'query']);
