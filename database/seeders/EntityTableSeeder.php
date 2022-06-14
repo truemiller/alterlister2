@@ -885,7 +885,8 @@ class EntityTableSeeder extends Seeder
                 'video_1' => "",
                 'publisher_slug' => 'jiosaavn',
                 'entity_type' => 'software',
-                "tags" => ["music streaming", "music player"]
+                "tags" => ["music streaming", "music player"],
+                'platforms' => 'windows,mac,ios,android,web',
 
             ]
         ], 'music');

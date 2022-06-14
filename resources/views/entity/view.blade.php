@@ -42,6 +42,7 @@
         alternatives. Including @foreach($alternatives->take(3) as $alternative){{$alternative->title}}, @endforeach ..."
          }
 
+
     </script>
 @endsection
 
@@ -53,6 +54,11 @@
                 @if(isset($entity->parent->parent))
                     <li class="breadcrumb-item"><a
                             href="{{route("cat", ["cat"=>$entity->parent->parent->slug])}}">{{$entity->parent->parent->title}}</a>
+                    </li>
+                @endif
+                @if(isset($entity->parent))
+                    <li class="breadcrumb-item"><a
+                            href="{{route("cat", ["cat"=>$entity->parent->slug])}}">{{$entity->parent->title}}</a>
                     </li>
                 @endif
             </div>
@@ -73,14 +79,23 @@
                                                 title="{{$entity->title}}">{{$entity->title}}</a></h1>
                                 <span class="badge bg-light mb-2">{{$entity->events()->count()}} views</span>
 
-                                    <span class="badge bg-light mb-2">{{$entity->parent->title}}</span>
+                                <span class="badge bg-light mb-2">{{$entity->parent->title}}</span>
                                 <br>
                                 <strong>Description</strong>
                                 <p>
-                                    <span id="entity-short-desc">{!!Str::words($entity->description, "40", "...")!!} <a
+                                    <style>
+                                        #entity-long-desc {
+                                            display: none;
+                                        }
+                                    </style>
+                                    <span id="entity-short-desc">
+                                        {!! Str::words($entity->description, "40", "...") !!}
+                                        <a
                                             href="#"
                                             onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read more</a></span>
-                                    <span id="entity-long-desc" style="display: none;">{!! $entity->description !!} <a
+                                    <span id="entity-long-desc">
+                                        {!! $entity->description !!}
+                                        <a
                                             href="#"
                                             onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read less</a></span>
                                 </p>
@@ -89,7 +104,8 @@
                                 <a href="{{$entity->link_1}}" class="btn btn-primary">Goto Homepage</a>
                             </div>
                             <div class="col-md-3 d-flex flex-column align-middle">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="{{Auth::check() ? "#reviewModal" : "#modalRegister"}}">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                        data-bs-target="{{Auth::check() ? "#reviewModal" : "#modalRegister"}}">
                                     Post a review
                                 </button>
                             </div>
