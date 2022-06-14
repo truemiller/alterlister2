@@ -90,14 +90,10 @@
                                     </style>
                                     <span id="entity-short-desc">
                                         {!! Str::words($entity->description, "40", "...") !!}
-                                        <a
-                                            href="#"
-                                            onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read more</a></span>
+                                        <a href="#" onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read more</a></span>
                                     <span id="entity-long-desc">
                                         {!! $entity->description !!}
-                                        <a
-                                            href="#"
-                                            onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read less</a></span>
+                                        <a href="#" onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read less</a></span>
                                 </p>
                                 <strong>Links</strong>
                                 <br>
