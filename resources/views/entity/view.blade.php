@@ -95,8 +95,10 @@
                                 <br>
                                 <a href="{{$entity->link_1}}" class="btn btn-primary">Goto Homepage</a>
                             </div>
-                            <div class="col-md-3">
-
+                            <div class="col-md-3 d-flex flex-column align-middle">
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="{{Auth::check() ? "#reviewModal" : "#modalRegister"}}">
+                                    Post a review
+                                </button>
                             </div>
                         </div>
                     </div>
