@@ -29,6 +29,7 @@
                     <form action="{{route('search')}}" method="get">
                         <input id="search" class="typeahead form-control mr-sm-1 flex-grow-1" type="text"
                                placeholder="Input software name" aria-label="Search" name="query">
+                        <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
 
                 </div>
