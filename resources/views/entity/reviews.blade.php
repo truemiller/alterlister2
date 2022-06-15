@@ -12,7 +12,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
-                    <form action="{{route('review.post')}}">
+                    <form action="/review_post">
                         <div class="modal-body">
                             @csrf
                             <input type="hidden" value="{{$entity->id}}" name="entity_id">
