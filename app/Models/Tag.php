@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Model;
 class Tag extends Model
 {
     //
-    protected $fillable = ['slug'];
+    protected $fillable = ['tag'];
 
     public function entities()
     {

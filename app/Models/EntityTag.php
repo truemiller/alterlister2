@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class EntityTag extends Model
 {
+    protected $fillable = ["entity_slug", "tag"];
     //
     public function tag()
     {

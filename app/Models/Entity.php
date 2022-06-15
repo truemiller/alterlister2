@@ -13,9 +13,11 @@ class Entity extends Model
     protected $fillable = [
         'title',
         'logo',
+        'description',
         'slug',
         'price',
-        'link_1'
+        'link_1',
+        "category_id"
     ];
 
     #region Relations
