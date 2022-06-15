@@ -83,11 +83,11 @@
                                 <strong>Description</strong>
                                 <div>
                                     <div id="entity-short-desc">
-                                        {!! Str::words($entity->description, "100", "...") !!}
+                                        {{ Str::words($entity->description, "100", "...") }}
                                         <a href="#" onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read more</a>
                                     </div>
                                     <div id="entity-long-desc" style="display: none">
-                                        {!! $entity->description !!}
+                                        {{ $entity->description }}
                                         <a href="#" onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read less</a>
                                     </div>
                                 </div>

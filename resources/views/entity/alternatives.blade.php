@@ -10,14 +10,14 @@
                         {{$loop->index+1}}. <a
                             href="{{route('ent', ["ent"=>$alternative->slug])}}"
                             rel="external"
-                            class=" text-primary"
+                            class="text-primary"
                             title="{{$alternative->title}}">{{$alternative->title}}</a>
                     </h2>
                     <ul>
-                        <li>Platforms: @foreach($alternative->platforms as $platform)<span class="badge bg-light me-1">{{$platform->title}}</span>@endforeach</li>
-                        <li>Features: @foreach($alternative->tags as $tag)<span class="badge bg-light text-capitalize me-1">{{$tag->tag}}</span>@endforeach</li>
+                        <li><strong>Platforms</strong>: @foreach($alternative->platforms as $platform)<span class="badge bg-light me-1">{{$platform->title}}</span>@endforeach</li>
+                        <li><strong>Tags</strong>: @foreach($alternative->tags as $tag)<span class="badge bg-light text-capitalize me-1">{{$tag->tag}}</span>@endforeach</li>
                     </ul>
-                    <p>{!! Str::words($alternative->description, "100", "...") !!}</p>
+                    <p>{{ Str::words($alternative->description, "100", "...") }}</p>
                 </div>
             </section>
         @endforeach
