@@ -34,7 +34,15 @@ Route::middleware("firewall.all")->group(function (){
 // About
     Route::get('/about', function (){
         return view('pages.about');
-    });
+    })->name("about");
+
+    Route::get('/privacy', function (){
+        return view('pages.privacy');
+    })->name("privacy");
+
+    Route::get('/terms', function (){
+        return view('pages.terms');
+    })->name("terms");
 
 // Sitemap
     Route::get('/sitemap.xml', [SitemapController::class,'index'])

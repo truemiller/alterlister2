@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row py-3 mt-3">
             <div class="col-md-4">
-                {{env('APP_NAME')}}
-                <p>We list alternatives to popular software.</p>
+                <strong>{{env('APP_NAME')}}</strong>
+                <em>We list alternatives to popular software.</em>
                 <p>&copy; MLXN Ltd. 2022</p>
             </div>
             <div class="col-md-4">
@@ -15,16 +15,13 @@
 
             </div>
             <div class="col-md-4">
-                <h3>Links</h3>
+                <strong>Pagess</strong>
                 <ul>
-                    <li><a href="//gameslike.co">GamesLike</a></li>
+                    <li><a href="/about">About</a></li>
                     <li><a href="//similar.software">SimilarSoftware</a></li>
                     <li><a href="//similar.best">SimilarBest</a></li>
                 </ul>
             </div>
-        </div>
-        <div class="row">
-            <div class="col">&copy; MLXN 2022. All rights reserved.</div>
         </div>
     </div>
 </footer>
