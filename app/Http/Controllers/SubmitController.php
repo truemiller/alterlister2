@@ -24,7 +24,7 @@ class SubmitController extends Controller
 
         $validator = $request->validate([
             "title" => "required|string|max:255",
-            "description" => "required|string|max:1000",
+            "description" => "required|string|max:10000",
             "logo" => "required|image|max:10000",
             "category_id" => "required|integer|min:0",
             "tags" => "required|string|min:1"
