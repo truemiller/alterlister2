@@ -50,7 +50,8 @@ class SubmitController extends Controller
                 "title" => $request->title,
                 "description" => $request->description,
                 "logo" => asset('img/logo/created/' . $slug . "." . $logoExtension),
-                "category_id" => Category::firstWhere("id", $request->category_id)->id
+                "category_id" => Category::firstWhere("id", $request->category_id)->id,
+                "user_id"=> Auth::id()
             ]);
 
 //            TAGS
