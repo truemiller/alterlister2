@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Intervention\Image\Facades\Image;
 
 class SubmitController extends Controller
 {
@@ -36,17 +37,21 @@ class SubmitController extends Controller
             $logo = $request->file("logo");
             $logoExtension = $logo->extension();
             $slug = Str::slug($request->title, "-");
+            $filename = "$slug.$logoExtension";
+            $path = public_path("img/logo/created/$filename");
+            $resize = Image::make($logo->getRealPath());
+            $resize->resize(100,100)->save($path, 90);
 
-            $logo->storeAs("public/img/logo/created", $slug . "." . $logoExtension);
-
+//            ENTITY
             $entity = Entity::create([
                 "slug" => $slug,
                 "title" => $request->title,
                 "description" => $request->description,
-                "logo" => asset('storage/img/logo/created/' . $slug . "." . $logoExtension),
+                "logo" => asset('img/logo/created/' . $slug . "." . $logoExtension),
                 "category_id" => Category::firstWhere("id", $request->category_id)->id
             ]);
 
+//            TAGS
             $tags = explode(",", $request->tags);
             foreach ($tags as $tag) {
                 $_tag = Tag::updateOrCreate([
@@ -58,6 +63,7 @@ class SubmitController extends Controller
                 ]);
             }
 
+//            PLATFORMS
             foreach ($request->platform as $platform_id) {
                 $platform = Platform::firstWhere('id', $platform_id);
                 $entity->platforms()->attach($platform);
