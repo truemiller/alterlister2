@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Entity;
 use App\Models\EntityTag;
+use App\Models\Platform;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -30,6 +31,7 @@ class SubmitController extends Controller
             "tags" => "required|string|min:1"
         ]);
 
+
         if ($validator) {
             $logo = $request->file("logo");
             $logoExtension = $logo->extension();
@@ -38,7 +40,7 @@ class SubmitController extends Controller
             $logo->storeAs("public/img/logo/created", $slug . "." . $logoExtension);
 
             $entity = Entity::create([
-                "slug"=>$slug,
+                "slug" => $slug,
                 "title" => $request->title,
                 "description" => $request->description,
                 "logo" => asset('storage/img/logo/created/' . $slug . "." . $logoExtension),
@@ -46,14 +48,19 @@ class SubmitController extends Controller
             ]);
 
             $tags = explode(",", $request->tags);
-            foreach ($tags as $tag){
+            foreach ($tags as $tag) {
                 $_tag = Tag::updateOrCreate([
                     "tag" => Str::slug(Str::lower($tag), " ")
                 ]);
                 $_entityTag = EntityTag::updateOrCreate([
-                    "entity_slug"=> $entity->slug,
-                    "tag"=>$_tag->tag
+                    "entity_slug" => $entity->slug,
+                    "tag" => $_tag->tag
                 ]);
+            }
+
+            foreach ($request->platform as $platform_id) {
+                $platform = Platform::firstWhere('id', $platform_id);
+                $entity->platforms()->attach($platform);
             }
 
             return Redirect::back()->with(["msg" => "Submitted successfully $slug", "class" => "alert-success"]);

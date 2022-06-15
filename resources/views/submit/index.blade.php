@@ -18,6 +18,7 @@
                                     <option value="{{$category->id}}">{{$category->title}}</option>
                                 @endforeach
                             </select>
+                            <br>
                             <label for="title" class="form-label">Title (Max 255 characters)</label>
                             <input type="text" class="form-control" name="title" required>
                             <br>
@@ -27,7 +28,15 @@
                             <label for="logo" class="form-label">Logo (Max Size 10MB)</label>
                             <input type="file" name="logo" class="form-control" required>
                             <br>
-                            <label for="tags">Tags (comma seperated)</label>
+                            <label for="logo" class="form-label">Platforms</label><br>
+                            @foreach(\App\Models\Platform::all() as $platform)
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" name="platform[]" value="{{$platform->id}}">
+                                    <label class="form-check-label" for="platform">{{$platform->title}}</label>
+                                </div>
+                            @endforeach
+                            <br><br>
+                            <label for="tags" class="form-label">Tags (comma seperated)</label>
                             <input type="text" class="form-control" name="tags">
                             <br>
                             <input type="submit" class="btn btn-primary" value="Submit">
