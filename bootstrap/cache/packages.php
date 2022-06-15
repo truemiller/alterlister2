@@ -6,6 +6,13 @@
       0 => 'Akaunting\\Firewall\\Provider',
     ),
   ),
+  'akaunting/laravel-firewall' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Akaunting\\Firewall\\Provider',
+    ),
+  ),
   'jenssegers/agent' => 
   array (
     'providers' => 
