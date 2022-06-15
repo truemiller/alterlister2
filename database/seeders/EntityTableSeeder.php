@@ -55,7 +55,8 @@ class EntityTableSeeder extends Seeder
                     'description' => $entityData["description"] ?? "",
                     'logo' => $entityData["logo"] ?? "",
                     'link_1' => $entityData["link_1"] ?? "",
-                    'category_id' => Category::firstWhere("slug", $category_slug)->id
+                    'category_id' => Category::firstWhere("slug", $category_slug)->id,
+                    "user_id"=>1
                 ]
             );
 

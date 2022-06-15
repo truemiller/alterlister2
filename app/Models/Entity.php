@@ -17,10 +17,16 @@ class Entity extends Model
         'slug',
         'price',
         'link_1',
-        "category_id"
+        "category_id",
+        "user_id"
     ];
 
     #region Relations
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     //  Event tracking; views, shares and stuff
     public function events()

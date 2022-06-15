@@ -2,6 +2,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class UserTableSeeder extends Seeder
 {
@@ -13,6 +14,6 @@ class UserTableSeeder extends Seeder
     public function run()
     {
         //
-        \App\Models\User::firstOrCreate(['name'=>'admin', 'email'=>'admin@alterlister.test', 'password'=>'password']);
+        \App\Models\User::firstOrCreate(['name'=>'admin', 'email'=>'admin@alterlister.test', 'password'=>Hash::make("password")]);
     }
 }

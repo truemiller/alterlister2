@@ -8,6 +8,7 @@ use App\Models\EntityTag;
 use App\Models\Platform;
 use App\Models\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -34,6 +35,7 @@ class SubmitController extends Controller
 
 
         if ($validator) {
+//            IMAGE
             $logo = $request->file("logo");
             $logoExtension = $logo->extension();
             $slug = Str::slug($request->title, "-");
@@ -74,5 +76,10 @@ class SubmitController extends Controller
             return Redirect::back()->with(["msg" => "There's something wrong with your submission.", "class" => "alert-danger"]);
         }
 
+    }
+
+    public function list()
+    {
+        return view('submit.list', ["submissions"=>Auth::user()->entities]);
     }
 }

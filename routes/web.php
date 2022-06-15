@@ -24,6 +24,8 @@ Route::middleware("firewall.all")->group(function (){
 //
         Route::get('/submit', [\App\Http\Controllers\SubmitController::class, "index"])->name('submit');
         Route::post('/submit_post', [\App\Http\Controllers\SubmitController::class, "submit"])->name("submit.post");
+
+        Route::get('/submissions', [\App\Http\Controllers\SubmitController::class, 'list'])->name('submissions');
     });
 
     Route::get('/',  [\App\Http\Controllers\HomeController::class, "index"])

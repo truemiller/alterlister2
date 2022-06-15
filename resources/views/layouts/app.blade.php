@@ -61,8 +61,10 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <a href="/" class="nav-link">Home</a>
-            <a href="/about" class="nav-link">About</a>
             <a href="/submit" class="nav-link">Submit</a>
+            @if(Auth::check())
+                <a href="/submissions" class="nav-link">Submissions</a>
+                @endif
             <div class="nav-item dropdown" onclick="$('.dropdown-menu').toggle()" onmouseenter="$('.dropdown-menu').toggle()" onmouseleave="$('.dropdown-menu').hide()">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Categories
