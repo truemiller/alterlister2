@@ -39,7 +39,7 @@ class CategoryController extends Controller
         $latest = [];
         $popular = [];
         $categories = [];
-        $entities = collect($category->entities);
+        $entities = collect($category->entities->where('active',true));
 
         // Get Entities from the category
         foreach ($category->children as $child) {
