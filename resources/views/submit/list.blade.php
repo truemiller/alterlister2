@@ -26,9 +26,7 @@
                             <td>{{$submission->active ? "Yes" : "No"}}</td>
                             <td><a href="#">Edit</a></td>
                             <td>
-                                <form action="/delete_entity">
-                                    <a href="#">Delete</a>
-                                </form>
+                                <a href="{{route('delete.entity', ["entity_id"=>$submission->id])}}">Delete</a>
                             </td>
                         </tr>
                     @endforeach
