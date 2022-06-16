@@ -13,7 +13,6 @@
 //@import "~bootstrap/scss/bootstrap";
 
 ////@import 'variables';
-@import url('https://fonts.googleapis.com/css?family=Merriweather:400,600,700,800,900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,800,900&display=swap');
 
 h1 {
@@ -35,11 +34,7 @@ h3 {
     font-weight: 600;
 }
 
-p {
-    font-family: "Merriweather";
-    font-size:16px;
-    line-height: 27px;
-}
+
 
 h3 a {
     color: dodgerblue;
@@ -71,7 +66,6 @@ h3 a {
     margin-top: 4px;
     padding: 4px 0;
     background-color: #fff;
-    border: 1px solid #ccc;
     border: 1px solid rgba(0, 0, 0, 0.2);
     -webkit-border-radius: 4px;
     -moz-border-radius: 4px;

@@ -19,15 +19,13 @@
         gtag('config', 'UA-148739386-1');
     </script>
 
-
-
     <meta charset="utf-8">
     <meta name="viewport" content=" user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1.0">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#ffffff">
     {{--    Title--}}
-    <title>@yield('title') Alterlister</title>
+    <title>@yield('title') {{env('APP_NAME')}}</title>
 @yield('ld+json')
 
 @yield('og_tags')

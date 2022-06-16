@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Entity;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
 
 class EntityController extends Controller
 {
@@ -33,14 +36,26 @@ class EntityController extends Controller
 
     public function getByCategory($category)
     {
-        $entities = (new Category)->firstWhere('slug', $category);
+        $category = (new Category)->firstWhere('slug', $category);
 
         return view('list')
             ->with([
                 'categories' => CategoryController::getCategoryAll(),
-                'category' => $entities,
-                'entities' => $entities->entities()->where(["active" => true])->get()
+                'category' => $category,
+                'entities' => $category->entities()->where(["active" => true])->get()
             ]);
 
+    }
+
+    public function deleteEntity($entity_id)
+    {
+        if (Auth::check()) {
+            $entity = Auth::user()->entities->where(["id" => $entity_id])->firstOrFail();
+            if (File::exists($entity->logo)) {
+                File::delete($entity->logo);
+            }
+            $entity->delete();
+        }
+        return Redirect::back();
     }
 }
