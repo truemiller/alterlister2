@@ -40,7 +40,7 @@ class SubmitController extends Controller
             $logoExtension = $logo->extension();
             $slug = Str::slug($request->title, "-");
             $filename = "$slug.$logoExtension";
-            $path = ("public/img/logo/created/$filename");
+            $path = public_path("img/logo/created/$filename");
             $resize = Image::make($logo->getRealPath());
             $resize->resize(100,100)->save($path, 90);
 
