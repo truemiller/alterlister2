@@ -37,7 +37,13 @@ class SubmitController extends Controller
 
 
         if ($validator) {
-
+//            IMAGE
+            $logo = $request->file("logo");
+            $logoExtension = $logo->extension();
+            $slug = Str::slug($request->title, "-");
+            $filename = "$slug.$logoExtension";
+            $path = public_path("img/logo/created/$filename");
+            $resize = Image::make($logo->getRealPath());
 
 //            ENTITY
             $entity = Entity::create([
@@ -68,13 +74,7 @@ class SubmitController extends Controller
                 $entity->platforms()->attach($platform);
             }
 
-            //            IMAGE
-            $logo = $request->file("logo");
-            $logoExtension = $logo->extension();
-            $slug = Str::slug($request->title, "-");
-            $filename = "$slug.$logoExtension";
-            $path = public_path("img/logo/created/$filename");
-            $resize = Image::make($logo->getRealPath());
+
             if(File::exists($path)) {
                 File::delete($path);
             }
