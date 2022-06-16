@@ -30,6 +30,7 @@ class SubmitController extends Controller
             "description" => "required|string|max:10000",
             "logo" => "required|image|max:10000",
             "category_id" => "required|integer|min:0",
+            "link_1"=>"required|url",
             "tags" => "required|string|min:1"
         ]);
 
@@ -51,7 +52,8 @@ class SubmitController extends Controller
                 "description" => $request->description,
                 "logo" => asset('img/logo/created/' . $slug . "." . $logoExtension),
                 "category_id" => Category::firstWhere("id", $request->category_id)->id,
-                "user_id"=> Auth::id()
+                "user_id"=> Auth::id(),
+                "link_1"=> "//gate.io"
             ]);
 
 //            TAGS
