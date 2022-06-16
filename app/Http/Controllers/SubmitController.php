@@ -37,17 +37,7 @@ class SubmitController extends Controller
 
 
         if ($validator) {
-//            IMAGE
-            $logo = $request->file("logo");
-            $logoExtension = $logo->extension();
-            $slug = Str::slug($request->title, "-");
-            $filename = "$slug.$logoExtension";
-            $path = public_path("img/logo/created/$filename");
-            $resize = Image::make($logo->getRealPath());
-            if(File::exists($path)) {
-                File::delete($path);
-            }
-            $resize->resize(100, 100)->save($path, 90);
+
 
 //            ENTITY
             $entity = Entity::create([
@@ -77,6 +67,18 @@ class SubmitController extends Controller
                 $platform = Platform::firstWhere('id', $platform_id);
                 $entity->platforms()->attach($platform);
             }
+
+            //            IMAGE
+            $logo = $request->file("logo");
+            $logoExtension = $logo->extension();
+            $slug = Str::slug($request->title, "-");
+            $filename = "$slug.$logoExtension";
+            $path = public_path("img/logo/created/$filename");
+            $resize = Image::make($logo->getRealPath());
+            if(File::exists($path)) {
+                File::delete($path);
+            }
+            $resize->resize(100, 100)->save($path, 90);
 
             return Redirect::back()->with(["msg" => "Submitted successfully $slug", "class" => "alert-success"]);
         } else {
