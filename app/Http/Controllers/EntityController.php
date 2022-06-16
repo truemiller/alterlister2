@@ -13,7 +13,7 @@ class EntityController extends Controller
     {
         // Populate variables for return
         $entity = (new Entity)
-            ->where('slug', '=', $ent)
+            ->where(['slug' => $ent, "active" => true])
             ->firstOrFail();
 
         EventController::createEventEntity('view', $ent);
@@ -27,7 +27,7 @@ class EntityController extends Controller
             ->with([
                 'entity' => $entity,
                 'alternatives' => $alternatives,
-                'views'=>$views
+                'views' => $views
             ]);
     }
 
@@ -39,7 +39,7 @@ class EntityController extends Controller
             ->with([
                 'categories' => CategoryController::getCategoryAll(),
                 'category' => $entities,
-                'entities' => $entities->entities()->get()
+                'entities' => $entities->entities()->where(["active" => true])->get()
             ]);
 
     }

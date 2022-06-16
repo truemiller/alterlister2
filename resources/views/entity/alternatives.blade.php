@@ -18,6 +18,7 @@
                         <li><strong>Tags</strong>: @foreach($alternative->tags as $tag)<span class="badge bg-light text-capitalize me-1">{{$tag->tag}}</span>@endforeach</li>
                     </ul>
                     <p>{{ Str::words($alternative->description, "100", "...") }}</p>
+                    <a href="{{route('ent', ["ent"=>$alternative->slug])}}" class="btn btn-outline-primary">More details</a>
                 </div>
             </section>
         @endforeach

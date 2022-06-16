@@ -18,7 +18,8 @@ class Entity extends Model
         'price',
         'link_1',
         "category_id",
-        "user_id"
+        "user_id",
+        "active"
     ];
 
     #region Relations

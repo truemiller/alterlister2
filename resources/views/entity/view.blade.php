@@ -87,7 +87,7 @@
                                         <a href="#" onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read more</a>
                                     </div>
                                     <div id="entity-long-desc" style="display: none">
-                                        {{ $entity->description }}
+                                        {!! $entity->description !!}
                                         <a href="#" onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read less</a>
                                     </div>
                                 </div>

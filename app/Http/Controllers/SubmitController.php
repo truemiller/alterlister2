@@ -27,13 +27,14 @@ class SubmitController extends Controller
     {
 
         $validator = $request->validate([
-            "title" => "required|string|max:255",
-            "description" => "required|string|max:10000",
-            "logo" => "required|image|max:10000",
+            "title" => "required|string|max:255|unique:entities,title",
+            "description" => "required|string|max:10000|unique:entities,description",
+            "logo" => "required|image|max:10000|mimes:jpg,bmp,png,webp,gif",
             "category_id" => "required|integer|min:0",
-            "link_1" => "required|url",
+            "link_1" => "required|url|unique:entities,link_1",
             "tags" => "required|string|min:1"
         ]);
+
 
 
         if ($validator) {
@@ -53,7 +54,8 @@ class SubmitController extends Controller
                 "logo" => asset('img/logo/created/' . $slug . "." . $logoExtension),
                 "category_id" => Category::firstWhere("id", $request->category_id)->id,
                 "user_id" => Auth::id(),
-                "link_1" => $request->link_1
+                "link_1" => $request->link_1,
+                "active" => false
             ]);
 
 //            TAGS
