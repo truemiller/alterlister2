@@ -7,6 +7,7 @@ use App\Models\Entity;
 use App\Models\EntityTag;
 use App\Models\Platform;
 use App\Models\Tag;
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -30,7 +31,7 @@ class SubmitController extends Controller
             "description" => "required|string|max:10000",
             "logo" => "required|image|max:10000",
             "category_id" => "required|integer|min:0",
-            "link_1"=>"required|url",
+            "link_1" => "required|url",
             "tags" => "required|string|min:1"
         ]);
 
@@ -43,7 +44,10 @@ class SubmitController extends Controller
             $filename = "$slug.$logoExtension";
             $path = public_path("img/logo/created/$filename");
             $resize = Image::make($logo->getRealPath());
-            $resize->resize(100,100)->save($path, 90);
+            if(File::exists($path)) {
+                File::delete($path);
+            }
+            $resize->resize(100, 100)->save($path, 90);
 
 //            ENTITY
             $entity = Entity::create([
@@ -52,8 +56,8 @@ class SubmitController extends Controller
                 "description" => $request->description,
                 "logo" => asset('img/logo/created/' . $slug . "." . $logoExtension),
                 "category_id" => Category::firstWhere("id", $request->category_id)->id,
-                "user_id"=> Auth::id(),
-                "link_1"=> "//gate.io"
+                "user_id" => Auth::id(),
+                "link_1" => "//gate.io"
             ]);
 
 //            TAGS
@@ -83,6 +87,6 @@ class SubmitController extends Controller
 
     public function list()
     {
-        return view('submit.list', ["submissions"=>Auth::user()->entities]);
+        return view('submit.list', ["submissions" => Auth::user()->entities]);
     }
 }
