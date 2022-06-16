@@ -20,7 +20,7 @@
                     @foreach($submissions as $submission)
                         <tr>
                             <td>{{$submission->id}}</td>
-                            <td>{{$submission->slug}}</td>
+                            <td><a href="{{route('ent',["ent"=>$submission->slug])}}">{{$submission->slug}}</a></td>
                             <td>{{$submission->title}}</td>
                             <td>{{$submission->created_at}}</td>
                             <td>{{$submission->active ? "Yes" : "No"}}</td>
