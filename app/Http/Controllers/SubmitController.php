@@ -53,7 +53,7 @@ class SubmitController extends Controller
                 "logo" => asset('img/logo/created/' . $slug . "." . $logoExtension),
                 "category_id" => Category::firstWhere("id", $request->category_id)->id,
                 "user_id" => Auth::id(),
-                "link_1" => "//gate.io"
+                "link_1" => $request->link_1
             ]);
 
 //            TAGS
