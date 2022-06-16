@@ -50,7 +50,7 @@ class EntityController extends Controller
     public function deleteEntity($entity_id)
     {
         if (Auth::check()) {
-            $entity = Auth::user()->entities->where(["id" => $entity_id])->firstOrFail();
+            $entity = Auth::user()->entities->where("id",$entity_id)->firstOrFail();
             if (File::exists($entity->logo)) {
                 File::delete($entity->logo);
             }
