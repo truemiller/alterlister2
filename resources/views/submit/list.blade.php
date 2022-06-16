@@ -12,6 +12,7 @@
                         <th>Slug</th>
                         <th>Title</th>
                         <th>Created At</th>
+                        <th>Active</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -22,6 +23,7 @@
                             <td>{{$submission->slug}}</td>
                             <td>{{$submission->title}}</td>
                             <td>{{$submission->created_at}}</td>
+                            <td>{{$submission->active ? "Yes" : "No"}}</td>
                             <td><a href="#">Edit</a></td>
                             <td>
                                 <form action="/delete_entity">
