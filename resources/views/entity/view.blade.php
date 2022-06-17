@@ -27,9 +27,9 @@
          "headline": "{{count($alternatives)}}+ Best {{$entity->title}} Alternatives for {{date("Y")}}",
          "alternativeHeadline": "{{$entity->title}} Alternatives",
          "author": {
-            type: "Thing",
-            name:"Alterlister",
-            url: "https://alterlister.com"
+            "@type": "Person",
+            "name": "Alterlister",
+            "url": "https://alterlister.com"
          },
          "editor": "Josh Miller",
          "keywords": "@foreach($entity->tags as $tag){{`$tag->title `}}@endforeach",
