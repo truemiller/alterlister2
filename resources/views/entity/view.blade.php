@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('title')
-    {{$entity->title}} Alternatives: {{count($alternatives)}}+ Similar {{$entity->parent->title}} Apps for {{today()->format('Y')}} -
+    {{count($alternatives)}}+ Best {{$entity->title}} Alternatives for {{date("Y")}} -
 @endsection
 
 @section ('og_tags')
     <meta property="og:title"
-          content="{{count($alternatives)}}+ Best {{$entity->title}} Alternatives - {{config('app.name')}}"/>
+          content="{{count($alternatives)}}+ Best {{$entity->title}} Alternatives for {{date("Y")}} - {{config('app.name')}}"/>
     <meta property="og:description"
           content="A list of {{count($alternatives)}} {{$entity->title}}+ alternatives. Including @foreach($alternatives->take(3) as $alternative){{$alternative->title}}, @endforeach ..."/>
     <meta property="og:image" content="{{$entity->image_1}}"/>
@@ -23,9 +23,8 @@
         {
         "@context": "https://schema.org",
          "@type": "Article",
-         "headline": "{{count($alternatives)}}+ {{$entity->title}} Alternatives for {{today()->format('Y')}}",
+         "headline": "{{count($alternatives)}}+ Best {{$entity->title}} Alternatives for {{date("Y")}} -",
          "alternativeHeadline": "{{$entity->title}} Alternatives",
-         "image": "{{$entity->image_1}}",
          "author": "Alterlister",
          "editor": "Josh Miller",
          "keywords": "@foreach($entity->tags as $tag){{`$tag->title `}}@endforeach",
