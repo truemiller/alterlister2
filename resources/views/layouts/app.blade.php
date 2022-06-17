@@ -33,7 +33,6 @@
     <link rel="canonical" href="{{url()->current()}}">
     <link rel="prefetch" href="{{config('app.url')}}">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script src="{{asset('js/app.js')}}"></script>
     <style>
         button {
             text-decoration: none;
