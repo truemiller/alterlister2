@@ -27,6 +27,9 @@ Route::middleware("firewall.all")->group(function (){
 
         Route::get('/delete_entity/{entity_id}', [EntityController::class, "deleteEntity"])->name('entity.delete');
 
+        Route::get('/edit_entity/{entity_id}', [\App\Http\Controllers\SubmitController::class, "edit"])->name('entity.edit');
+        Route::post('/update_entity', [\App\Http\Controllers\SubmitController::class, "update"])->name('entity.update');
+
         Route::get('/submissions', [\App\Http\Controllers\SubmitController::class, 'list'])->name('submissions');
     });
 
