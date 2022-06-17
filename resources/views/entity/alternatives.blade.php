@@ -8,7 +8,11 @@
                     <h2 class="fw-bolder">
                         <img src="{{$alternative->logo}}" alt="{{$alternative->title}} logo"
                              title="{{$alternative->title}} logo"
-                             class="img-fluid mb-3" loading="lazy" style="height: 1em">
+                             class="img-fluid mb-3"
+                             loading="lazy"
+                             style="height: 1em"
+                             itemprop="image"
+                        >
                         <span itemprop="position">{{$loop->index+1}}</span>. <a
                             href="{{route('ent', ["ent"=>$alternative->slug])}}"
                             rel="external"
