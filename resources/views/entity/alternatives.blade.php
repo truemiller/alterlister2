@@ -1,6 +1,6 @@
 <div class="card">
-    <div class="card-body">
-        <h2 id="alternatives">Alternatives to {{$entity->title}}</h2>
+    <div class="card-body" itemtype="https://schema.org/ItemList">
+        <h2 id="alternatives" itemprop="name">Alternatives to {{$entity->title}}</h2>
         @foreach($alternatives as $alternative)
             <section class="row py-3" id="{{$alternative->slug}}" itemprop="itemListElement" itemscope
                      itemtype="https://schema.org/ListItem">
