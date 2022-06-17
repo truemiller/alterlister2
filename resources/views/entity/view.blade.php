@@ -117,7 +117,9 @@
                 </header>
                 <div class="row">
                     <main class="col-lg-8 py-3">
-                        @include('entity.alternatives')
+                        <section itemtype="https://schema.org/ItemList">
+                            @include('entity.alternatives')
+                        </section>
                         @include('entity.reviews')
                     </main>
                     <aside class="col-lg-4 py-3">

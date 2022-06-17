@@ -1,6 +1,6 @@
 <div class="card">
-    <div class="card-body">
-        <h2 id="alternatives">Alternatives to {{$entity->title}}</h2>
+    <div class="card-body" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <h2 id="alternatives" >Alternatives to {{$entity->title}}</h2>
         @foreach($alternatives as $alternative)
             <section class="row py-3" id="{{$alternative->slug}}">
                 <div class="col-lg-12 border-top pt-3">
@@ -8,11 +8,12 @@
                         <img src="{{$alternative->logo}}" alt="{{$alternative->title}} logo"
                              title="{{$alternative->title}} logo"
                              class="img-fluid mb-3" loading="lazy" style="height: 1em">
-                        {{$loop->index+1}}. <a
+                        <span itemprop="position">{{$loop->index+1}}</span>. <a
                             href="{{route('ent', ["ent"=>$alternative->slug])}}"
                             rel="external"
                             class="text-primary"
-                            title="{{$alternative->title}}">{{$alternative->title}}</a>
+                            title="{{$alternative->title}}"
+                            itemprop="name">{{$alternative->title}}</a>
                     </h2>
                     <ul>
                         <li><strong>Platforms</strong>: @foreach($alternative->platforms as $platform)<span
