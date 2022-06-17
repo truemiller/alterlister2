@@ -56,7 +56,7 @@ class SubmitController extends Controller
                 "category_id" => Category::firstWhere("id", $request->category_id)->id,
                 "user_id" => Auth::id(),
                 "link_1" => $request->link_1,
-                "active" => false
+                "active" => true
             ]);
 
 //            TAGS
