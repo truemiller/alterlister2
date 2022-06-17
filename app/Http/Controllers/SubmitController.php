@@ -94,8 +94,10 @@ class SubmitController extends Controller
 
 
 //            PING SITEMAP
-            $client = new Client();
-            $client->request('GET', 'http://www.google.com/webmasters/sitemaps/ping?sitemap='.route('sitemap.index'));
+            if (env("APP_ENV") === "production"){
+                $client = new Client();
+                $client->request('GET', 'http://www.google.com/webmasters/sitemaps/ping?sitemap='.route('sitemap.index'));
+            }
 
             return Redirect::back()->with(["msg" => "Submitted successfully $slug", "class" => "alert-success"]);
         } else {
