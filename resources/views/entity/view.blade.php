@@ -23,9 +23,14 @@
         {
         "@context": "https://schema.org",
          "@type": "Article",
-         "headline": "{{count($alternatives)}}+ Best {{$entity->title}} Alternatives for {{date("Y")}} -",
+         "image": "{{$entity->logo}}",
+         "headline": "{{count($alternatives)}}+ Best {{$entity->title}} Alternatives for {{date("Y")}}",
          "alternativeHeadline": "{{$entity->title}} Alternatives",
-         "author": "Alterlister",
+         "author": {
+            type: "Thing",
+            name:"Alterlister",
+            url: "https://alterlister.com"
+         },
          "editor": "Josh Miller",
          "keywords": "@foreach($entity->tags as $tag){{`$tag->title `}}@endforeach",
         "publisher": {
@@ -40,6 +45,7 @@
          "description": "A list of {{count($alternatives)}} {{$entity->title}}
         alternatives. Including @foreach($alternatives->take(3) as $alternative){{$alternative->title}}, @endforeach ..."
          }
+
     </script>
 @endsection
 
@@ -100,7 +106,7 @@
                                 <strong>Tags</strong><br>
                                 @foreach($entity->tags as $tag)
                                     <span class="badge bg-light me-1">{{$tag->tag}}</span>
-                                    @endforeach
+                                @endforeach
                                 <br><br>
                                 <strong>Links</strong>
                                 <br>
@@ -117,7 +123,7 @@
                 </header>
                 <div class="row">
                     <main class="col-lg-8 py-3">
-                        <section >
+                        <section>
                             @include('entity.alternatives')
                         </section>
                         @include('entity.reviews')
