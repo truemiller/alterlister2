@@ -35,7 +35,7 @@
     </nav>
 
     <div class="container mt-4">
-        <section class="row" itemscope itemtype="https://schema.org/ItemList">
+        <section class="row">
             <h1 itemprop="name">{{$category->title ?? ""}}</h1>
 
             {{--                <table class="table table-borderless">--}}
