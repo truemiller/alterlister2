@@ -61,13 +61,18 @@ class SubmitController extends Controller
 //            TAGS
             $tags = explode(",", $request->tags);
             foreach ($tags as $tag) {
-                $_tag = Tag::updateOrCreate([
-                    "tag" => Str::slug(Str::lower($tag), " ")
-                ]);
-                $_entityTag = EntityTag::updateOrCreate([
-                    "entity_slug" => $entity->slug,
-                    "tag" => $_tag->tag
-                ]);
+                if (strlen($tag) >= 1) {
+                    $_tag = Tag::updateOrCreate([
+                        "tag" => Str::slug(Str::lower($tag), " ")
+                    ]);
+                    $_entityTag = EntityTag::updateOrCreate([
+                        "entity_slug" => $entity->slug,
+                        "tag" => $_tag->tag
+                    ]);
+                } else {
+                    // discard empty tag
+                }
+
             }
 
 //            PLATFORMS

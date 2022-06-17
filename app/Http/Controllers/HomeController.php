@@ -30,9 +30,9 @@ class HomeController extends Controller
         $categories = [];
 
         // Get the newest entities by view count
-//        $latest_entities = Entity::orderBy('id', 'desc')
-//            ->take(132)
-//            ->get();
+        $latest_entities = Entity::orderBy('id', 'desc')
+                                 ->take(24)
+                                 ->get();
 
         // Get the most popular entities by view count
 //        $trending_entities = Entity::get()
@@ -42,15 +42,15 @@ class HomeController extends Controller
 //            ->take(132);
 
         $popular_entities = Entity::get()
-            ->sortByDesc(function ($_ent) {
-                return $_ent->getViews();
-            })
-            ->take(32);
+                                  ->sortByDesc(function ($_ent) {
+                                      return $_ent->getViews();
+                                  })
+                                  ->take(24);
 
 
         return view('homepage')->with(
             [
-//                'latest_entities' => $latest_entities,
+                'latest_entities' => $latest_entities,
                 'popular_entities' => $popular_entities,
 //                'trending_entities' => $trending_entities
             ]

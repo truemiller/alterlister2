@@ -42,15 +42,19 @@
             <div class="col">
                 <h2>Popular</h2>
                 <div class="row">
-                    <div class="col">
-                        <div class="row">
-                            @foreach($popular_entities as $alternative)
-                                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                                    @include('includes.list-media-category', ['alternative'=>$alternative])
-                                </div>
-                            @endforeach
+                    @foreach($popular_entities as $alternative)
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            @include('includes.list-media-category', ['alternative'=>$alternative])
                         </div>
-                    </div>
+                    @endforeach
+                </div>
+                <h2>Latest</h2>
+                <div class="row">
+                    @foreach($latest_entities as $alternative)
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                            @include('includes.list-media-category', ['alternative'=>$alternative])
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </section>
