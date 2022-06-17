@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
+use GuzzleHttp\Client;
 
 class SubmitController extends Controller
 {
@@ -82,6 +83,7 @@ class SubmitController extends Controller
             }
 
 
+//            CREATE IMAGE
             if(File::exists($path)) {
                 File::delete($path);
             }
@@ -89,6 +91,12 @@ class SubmitController extends Controller
                 $constraint->aspectRatio();
                 $constraint->upsize();
             })->save($path, 90);
+
+
+//            PING SITEMAP
+            $client = new Client();
+            $client->request('GET', 'http://www.google.com/webmasters/sitemaps/ping?sitemap='.route('sitemap'));
+            $client->request('GET', 'http://www.bing.com/webmaster/ping.aspx?siteMap='.route('sitemap'));
 
             return Redirect::back()->with(["msg" => "Submitted successfully $slug", "class" => "alert-success"]);
         } else {
