@@ -85,7 +85,10 @@ class SubmitController extends Controller
             if(File::exists($path)) {
                 File::delete($path);
             }
-            $resize->resize(100, 100)->save($path, 90);
+            $resize->resize(100, 100, function ($constraint){
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            })->save($path, 90);
 
             return Redirect::back()->with(["msg" => "Submitted successfully $slug", "class" => "alert-success"]);
         } else {
