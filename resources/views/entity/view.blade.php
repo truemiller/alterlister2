@@ -98,6 +98,11 @@
                                 @foreach($entity->platforms as $platform)<span
                                     class="badge bg-light me-1">{{$platform->title}}</span>@endforeach
                                 <br><br>
+                                <strong>Tags</strong><br>
+                                @foreach($entity->tags as $tag)
+                                    <span class="badge bg-light me-1">{{$tag->tag}}</span>
+                                    @endforeach
+                                <br><br>
                                 <strong>Links</strong>
                                 <br>
                                 <a href="{{$entity->link_1}}" class="btn btn-primary">Goto Homepage</a>
