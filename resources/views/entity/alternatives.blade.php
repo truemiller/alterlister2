@@ -13,7 +13,7 @@
                              width="32"
                              loading="lazy"
                         >
-                        <span itemprop="position">{{$loop->index+1}}</span>. <a
+                        <span>{{$loop->index+1}}</span>. <a
                             href="{{route('ent', ["ent"=>$alternative->slug])}}"
                             rel="external"
                             class="text-primary"
