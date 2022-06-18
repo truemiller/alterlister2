@@ -43,7 +43,7 @@
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3541252731032050"
             crossorigin="anonymous"></script>
 </head>
-<body class="bg-light vh-100 d-flex flex-column" itemscope itemprop="https://schema.org/WebPage">
+<body class="bg-light vh-100 d-flex flex-column" itemscope itemtype="https://schema.org/WebPage">
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WH2KTPT"
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
