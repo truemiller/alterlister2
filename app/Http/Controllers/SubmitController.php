@@ -50,9 +50,9 @@ class SubmitController extends Controller
             $logoResize = Image::make($logo->getRealPath());
 
 //            SCREENSHOT
-            $screenshot = $request->file("logo");
-            $screenshotExtension = $logo->extension();
-            $screenshotFileName = "$slug.$logoExtension";
+            $screenshot = $request->file("image_1");
+            $screenshotExtension = $screenshot->extension();
+            $screenshotFileName = "$slug.$screenshotExtension";
             $screenshotPath = public_path("img/screenshot/created/$screenshotFileName");
             $screenshotResize = Image::make($logo->getRealPath());
 
@@ -62,8 +62,8 @@ class SubmitController extends Controller
                 "slug" => $slug,
                 "title" => $request->title,
                 "description" => $request->description,
-                "logo" => asset('img/logo/created/' . $slug . "." . $logoExtension),
-                "image_1" => asset('img/screenshot/created/' . $slug . "." . $logoExtension),
+                "logo" => asset('img/logo/created/' . $logoFileName),
+                "image_1" => asset('img/screenshot/created/' . $screenshotFileName),
                 "category_id" => Category::firstWhere("id", $request->category_id)->id,
                 "user_id" => Auth::id(),
                 "link_1" => $request->link_1,
