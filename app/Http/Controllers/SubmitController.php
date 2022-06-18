@@ -238,7 +238,7 @@ class SubmitController extends Controller
                 $client->request('GET', 'http://www.google.com/webmasters/sitemaps/ping?sitemap=' . route('sitemap.index'));
             }
 
-            return Redirect::back()->with(["msg" => "Submitted successfully $entity->slug", "class" => "alert-success"]);
+            return Redirect::back()->with(["alert" => "Submitted successfully $entity->slug", "alert-class" => "alert-success"]);
         }
 
 
