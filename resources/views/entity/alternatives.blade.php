@@ -9,7 +9,6 @@
                         <img src="{{$alternative->logo}}" alt="{{$alternative->title}} logo"
                              title="{{$alternative->title}} logo"
                              class="img-fluid mb-3"
-                             loading="lazy"
                              itemprop="image"
                              width="32"
                         >
