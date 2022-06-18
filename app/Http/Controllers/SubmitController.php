@@ -138,12 +138,14 @@ class SubmitController extends Controller
             "description" => "required|string|max:10000",
             "logo" => "nullable|image|max:10000",
             "image_1" => "nullable|image|max:10000",
-            "category_id" => "required|integer|min:0|exists:categories,id",
+            "category_id" => "required|integer|min:1|exists:categories,id",
             "link_1" => "required|url",
             "tags" => "required|string|min:1"
         ]);
 
         if ($validator) {
+
+
             $entity = Entity::firstWhere(["slug" => $request->slug, "user_id" => Auth::id()]);
 
 
@@ -227,7 +229,6 @@ class SubmitController extends Controller
                 })->save($screenshotPath, 90);
             }
 
-            dd();
             // PING SITEMAP
             if (env("APP_ENV") === "production") {
                 $client = new Client();
