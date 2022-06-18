@@ -1,15 +1,15 @@
 <div class="card">
-    <div class="card-body" itemtype="https://schema.org/ItemList">
+    <div class="card-body" itemscope itemtype="https://schema.org/ItemList">
         <h2 id="alternatives" itemprop="name">Alternatives to {{$entity->title}}</h2>
         @foreach($alternatives as $alternative)
             <section class="row py-3" id="{{$alternative->slug}}" itemprop="itemListElement" itemscope
-                     itemtype="https://schema.org/ListItem">
+                     itemtype="https://schema.org/Product">
                 <div class="col-lg-12 border-top pt-3">
                     <h2 class="fw-bolder">
                         <img src="{{$alternative->logo}}" alt="{{$alternative->title}} logo"
                              title="{{$alternative->title}} logo"
                              class="img-fluid mb-3 "
-                             itemprop="image"
+                             itemprop="logo"
                              width="32"
                              loading="lazy"
                         >
@@ -27,7 +27,7 @@
                                 class="badge bg-light me-1">{{$tag->tag}}</span>@endforeach</li>
                     </ul>
                     @if($alternative->image_1)
-                        <img src="{{$alternative->image_1}}" alt="An image of {{$alternative->title}}." title="An image of {{$alternative->title}}." width="804" class="mb-3 w-100" loading="lazy">
+                        <img src="{{$alternative->image_1}}" alt="An image of {{$alternative->title}}." title="An image of {{$alternative->title}}." width="804" class="mb-3 w-100" loading="lazy" itemprop="image">
                     @endif
                     <p>{!! nl2br(e($alternative->description)) !!}</p>
                     <a href="{{route('ent', ["ent"=>$alternative->slug])}}" class="btn btn-outline-primary">More
