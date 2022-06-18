@@ -32,6 +32,7 @@ class SubmitController extends Controller
             "title" => "required|string|max:255|unique:entities,title",
             "description" => "required|string|max:10000|unique:entities,description",
             "logo" => "required|image|max:10000|mimes:jpg,bmp,png,webp,gif",
+            "image_1" => "required|image|max:10000|mimes:jpg,bmp,png,webp,gif",
             "category_id" => "required|integer|min:0",
             "link_1" => "required|url|unique:entities,link_1",
             "tags" => "required|string|min:1"
@@ -40,13 +41,21 @@ class SubmitController extends Controller
 
         if ($validator) {
 
-            // IMAGE
+            // LOGO
             $logo = $request->file("logo");
             $logoExtension = $logo->extension();
             $slug = Str::slug($request->title, "-");
-            $filename = "$slug.$logoExtension";
-            $path = public_path("img/logo/created/$filename");
-            $resize = Image::make($logo->getRealPath());
+            $logoFileName = "$slug.$logoExtension";
+            $logoPath = public_path("img/logo/created/$logoFileName");
+            $logoResize = Image::make($logo->getRealPath());
+
+//            SCREENSHOT
+            $screenshot = $request->file("logo");
+            $screenshotExtension = $logo->extension();
+            $screenshotFileName = "$slug.$logoExtension";
+            $screenshotPath = public_path("img/screenshot/created/$screenshotFileName");
+            $screenshotResize = Image::make($logo->getRealPath());
+
 
             // ENTITY
             $entity = Entity::create([
@@ -54,6 +63,7 @@ class SubmitController extends Controller
                 "title" => $request->title,
                 "description" => $request->description,
                 "logo" => asset('img/logo/created/' . $slug . "." . $logoExtension),
+                "image_1" => asset('img/screenshot/created/' . $slug . "." . $logoExtension),
                 "category_id" => Category::firstWhere("id", $request->category_id)->id,
                 "user_id" => Auth::id(),
                 "link_1" => $request->link_1,
@@ -85,13 +95,21 @@ class SubmitController extends Controller
 
 
             // CREATE IMAGE
-            if (File::exists($path)) {
-                File::delete($path);
+            if (File::exists($logoPath)) {
+                File::delete($logoPath);
             }
-            $resize->resize(100, 100, function ($constraint) {
+            $logoResize->resize(100, 100, function ($constraint) {
                 $constraint->aspectRatio();
                 $constraint->upsize();
-            })->save($path, 90);
+            })->save($logoPath, 90);
+
+            if (File::exists($screenshotPath)) {
+                File::delete($screenshotPath);
+            }
+            $screenshotResize->resize(804, null, function ($constraint) {
+                $constraint->aspectRatio();
+                $constraint->upsize();
+            })->save($screenshotPath, 90);
 
 
             // PING SITEMAP
@@ -119,6 +137,7 @@ class SubmitController extends Controller
             "title" => "string|required",
             "description" => "required|string|max:10000",
             "logo" => "nullable|image|max:10000",
+            "image_1" => "nullable|image|max:10000",
             "category_id" => "required|integer|min:0",
             "link_1" => "required|url",
             "tags" => "required|string|min:1"
@@ -189,6 +208,27 @@ class SubmitController extends Controller
                     $constraint->aspectRatio();
                     $constraint->upsize();
                 })->save($path, 90);
+            }
+
+            if ($request->image_1) {
+                //            SCREENSHOT
+                $screenshot = $request->file("image_1");
+                $screenshotExtension = $screenshot->extension();
+                $screenshotFileName = "$entity->slug.$screenshotExtension";
+
+                $entity->update(
+                    ["image_1" => asset('img/screenshot/created/' . $screenshotFileName)]
+                );
+
+                $screenshotPath = public_path("img/screenshot/created/$screenshotFileName");
+                $screenshotResize = Image::make($screenshot->getRealPath());
+                if (File::exists($screenshotPath)) {
+                    File::delete($screenshotPath);
+                }
+                $screenshotResize->resize(804, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                })->save($screenshotPath, 90);
             }
 
 

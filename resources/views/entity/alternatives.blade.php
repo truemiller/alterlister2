@@ -27,7 +27,7 @@
                                 class="badge bg-light me-1">{{$tag->tag}}</span>@endforeach</li>
                     </ul>
                     @if($alternative->image_1)
-                        <img src="{{$alternative->image_1}}" alt="An image of {{$alternative->title}}.">
+                        <img src="{{$alternative->image_1}}" alt="An image of {{$alternative->title}}." title="An image of {{$alternative->title}}." width="804" class="mb-3">
                     @endif
                     <p>{{ Str::words($alternative->description, "100", "...") }}</p>
                     <a href="{{route('ent', ["ent"=>$alternative->slug])}}" class="btn btn-outline-primary">More

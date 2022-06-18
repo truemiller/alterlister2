@@ -15,7 +15,7 @@ return new class extends Migration
     {
         //
         Schema::table('entities', function ($table) {
-            $table->boolean('active')->nullable();
+            $table->text('image_1')->nullable();
         });
     }
 
@@ -28,7 +28,7 @@ return new class extends Migration
     {
         //
         Schema::table('entities', function ($table) {
-            $table->dropColumn('active');
+            $table->dropColumn('image_1');
         });
     }
 };

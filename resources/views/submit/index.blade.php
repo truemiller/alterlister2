@@ -32,6 +32,9 @@
                             <label for="logo" class="form-label">Logo (Max Size 10MB)</label>
                             <input type="file" name="logo" class="form-control" required>
                             <br>
+                            <label for="image_1" class="form-label">Screenshot (Max Size 10MB)</label>
+                            <input type="file" name="image_1" class="form-control" required>
+                            <br>
                             <label for="logo" class="form-label">Platforms</label><br>
                             @foreach(\App\Models\Platform::all() as $platform)
                                 <div class="form-check form-check-inline">
