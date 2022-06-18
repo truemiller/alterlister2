@@ -138,7 +138,7 @@ class SubmitController extends Controller
             "description" => "required|string|max:10000",
             "logo" => "nullable|image|max:10000",
             "image_1" => "nullable|image|max:10000",
-            "category_id" => "required|integer|min:0",
+            "category_id" => "required|integer|min:0|exists:categories,id",
             "link_1" => "required|url",
             "tags" => "required|string|min:1"
         ]);
