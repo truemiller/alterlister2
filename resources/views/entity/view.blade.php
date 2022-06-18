@@ -75,9 +75,9 @@
                     <div class="card card-body">
                         <div class="row">
                             <div class="col-lg-1 text-center my-auto">
-                                <img data-src="{{$entity->logo}}" alt="{{"$entity->title logo"}}"
+                                <img src="{{$entity->logo}}" alt="{{"$entity->title logo"}}"
                                      title="{{"$entity->title logo"}}"
-                                     class="img-fluid me-2 lazyload" loading="lazy" width="86"></div>
+                                     class="img-fluid me-2" loading="lazy" width="86" height="86"></div>
                             <div class="col-lg-8 my-auto">
                                 <h1 class=""><a href="{{$entity->link_1}}"
                                                 title="{{$entity->title}}">{{$entity->title}}</a></h1>
