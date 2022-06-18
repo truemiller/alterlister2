@@ -18,6 +18,7 @@
                             rel="external"
                             class="text-primary"
                             title="{{$alternative->title}} alternatives"
+                            itemprop="url"
                         ><span itemprop="name">{{$alternative->title}}</span></a>
                     </h2>
                     <ul>
@@ -29,7 +30,7 @@
                     @if($alternative->image_1)
                         <img src="{{$alternative->image_1}}" alt="An image of {{$alternative->title}}." title="An image of {{$alternative->title}}." width="804" class="mb-3 w-100" loading="lazy" itemprop="image">
                     @endif
-                    <p>{!! nl2br(e($alternative->description)) !!}</p>
+                    <p itemprop="description">{!! nl2br(e($alternative->description)) !!}</p>
                     <a href="{{route('ent', ["ent"=>$alternative->slug])}}" class="btn btn-outline-primary">More
                         details</a>
                 </div>
