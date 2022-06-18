@@ -6,9 +6,9 @@
                      itemtype="https://schema.org/ListItem">
                 <div class="col-lg-12 border-top pt-3">
                     <h2 class="fw-bolder">
-                        <img src="{{$alternative->logo}}" alt="{{$alternative->title}} logo"
+                        <img data-src="{{$alternative->logo}}" alt="{{$alternative->title}} logo"
                              title="{{$alternative->title}} logo"
-                             class="img-fluid mb-3"
+                             class="img-fluid mb-3 lazyload"
                              itemprop="image"
                              width="32"
                         >
@@ -26,7 +26,7 @@
                                 class="badge bg-light me-1">{{$tag->tag}}</span>@endforeach</li>
                     </ul>
                     @if($alternative->image_1)
-                        <img src="{{$alternative->image_1}}" alt="An image of {{$alternative->title}}." title="An image of {{$alternative->title}}." width="804" class="mb-3 w-100">
+                        <img data-src="{{$alternative->image_1}}" alt="An image of {{$alternative->title}}." title="An image of {{$alternative->title}}." width="804" class="lazyload mb-3 w-100">
                     @endif
                     <p>{{ Str::words($alternative->description, "100", "...") }}</p>
                     <a href="{{route('ent', ["ent"=>$alternative->slug])}}" class="btn btn-outline-primary">More

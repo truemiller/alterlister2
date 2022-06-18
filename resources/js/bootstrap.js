@@ -12,6 +12,7 @@ try {
     Bloodhound = require('typeahead.js/dist/bloodhound.min');
     require('bootstrap/dist/js/bootstrap.bundle');
     require('typeahead.js/dist/typeahead.bundle');
+    require('lazyload');
 } catch (e) {}
 
 /**

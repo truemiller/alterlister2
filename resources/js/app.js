@@ -32,18 +32,22 @@ const entities = new Bloodhound({
     }
 });
 // make dropdown work
-$('#search').typeahead({
-        hint: true,
-        highlight: true,
-        minLength: 1
-    },
-    {
-        name: 'my-dataset',
-        source: entities,
-        display: 'title'
-    });
+if ($('#search')) {
+    $('#search').typeahead({
+            hint: true,
+            highlight: true,
+            minLength: 1
+        },
+        {
+            name: 'my-dataset',
+            source: entities,
+            display: 'title'
+        });
 // bind selected event
-$('#search').bind('typeahead:selected', function($obj, $datum, $name){
-    location.href="/"+($datum['slug']);
-});
+    $('#search').bind('typeahead:selected', function ($obj, $datum, $name) {
+        location.href = "/" + ($datum['slug']);
+    });
+}
 
+// lazyload images
+lazyload();

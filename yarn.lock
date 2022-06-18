@@ -3481,6 +3481,11 @@ laravel-mix@^6.0.6:
     webpackbar "^5.0.0-3"
     yargs "^17.2.1"
 
+lazyload@^2.0.0-rc.2:
+  version "2.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/lazyload/-/lazyload-2.0.0-rc.2.tgz#c774eb7966f334c9bed2f27580fc333a770eb256"
+  integrity sha512-v3OKwYrKHX09eAyeAmkpvVCF5qWZo8rxERT9AVOUFaRwlTIuCyMYVBfHYSra1uyBdKDEHnUkvpZTLgNWI9Y7lA==
+
 lilconfig@^2.0.3, lilconfig@^2.0.5:
   version "2.0.5"
   resolved "https://registry.npmjs.org/lilconfig/-/lilconfig-2.0.5.tgz"
