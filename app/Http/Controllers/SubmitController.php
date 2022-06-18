@@ -227,7 +227,7 @@ class SubmitController extends Controller
                 })->save($screenshotPath, 90);
             }
 
-
+            dd();
             // PING SITEMAP
             if (env("APP_ENV") === "production") {
                 $client = new Client();
