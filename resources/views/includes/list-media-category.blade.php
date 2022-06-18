@@ -1,7 +1,7 @@
 <div class="bg-white mb-3 p-3 shadow-sm border d-flex flex-row  align-items-center">
     <a class="text-decoration-none " href="{{ route('ent',['ent'=>$alternative->slug]) }}">
         <div class="d-flex flex-column">
-            <img src="{{$alternative->logo}}" alt="{{$alternative->title}} logo" title="{{$alternative->title}}" class="d-inline-block my-2 me-3" loading="lazy" width="50" height="50">
+            <img src="{{$alternative->logo}}" alt="{{$alternative->title}} logo" title="{{$alternative->title}}" class="d-inline-block my-2 me-3" loading="lazy" width="50" >
         </div>
     </a>
     <div class="d-flex flex-column">
