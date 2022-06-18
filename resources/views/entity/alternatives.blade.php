@@ -10,8 +10,8 @@
                              title="{{$alternative->title}} logo"
                              class="img-fluid mb-3"
                              loading="lazy"
-                             style="height: 1em"
                              itemprop="image"
+                             width="32"
                         >
                         <span itemprop="position">{{$loop->index+1}}</span>. <a
                             href="{{route('ent', ["ent"=>$alternative->slug])}}"
