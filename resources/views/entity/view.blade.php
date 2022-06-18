@@ -94,7 +94,7 @@
                                             more</a>
                                     </div>
                                     <div id="entity-long-desc" style="display: none">
-                                        {{ $entity->description }}
+                                        {!! nl2br(e($entity->description)) !!}
                                         <a href="#"
                                            onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read
                                             less</a>
