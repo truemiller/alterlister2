@@ -151,11 +151,7 @@ class SubmitController extends Controller
             $category = Category::firstWhere("id", $request->category_id);
 
             // ENTITY
-            (new \App\Models\Entity)->update(
-                [
-                    "slug" => $entity->slug,
-                    "user_id" => Auth::id()
-                ],
+            $entity->update(
                 [
                     "description" => $request->description,
                     "category_id" => $category->id,
