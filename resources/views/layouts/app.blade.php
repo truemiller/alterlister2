@@ -49,7 +49,8 @@
                   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 <nav
-    class="navbar navbar-expand-lg bg-white navbar-light sticky-top shadow-sm border-bottom">
+    class="navbar navbar-expand-lg bg-white navbar-light sticky-top shadow-sm border-bottom"
+itemscope itemtype="https://schema.org/SiteNavigationElement">
     <div class="container d-flex flex-row">
 
         <a href="{{route('home')}}" class="navbar-brand d-sm-flex mx-2">
