@@ -46,6 +46,7 @@
         alternatives. Including @foreach($alternatives->take(3) as $alternative){{$alternative->title}}, @endforeach ..."
          }
 
+
     </script>
 @endsection
 
@@ -81,7 +82,8 @@
                                 <h1 class=""><a href="{{$entity->link_1}}"
                                                 title="{{$entity->title}}">{{$entity->title}}</a></h1>
 
-                                <span class="badge bg-light mb-2">{{$entity->parent->title}}</span>
+                                <span class="badge bg-light mb-2"><a
+                                        href="{{ route('cat', ["cat"=>$entity->parent->id]) }}" class=" text-dark text-decoration-none">{{$entity->parent->title}}</a></span>
                                 <br>
                                 <strong>Description</strong>
                                 <div>
