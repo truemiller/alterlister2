@@ -26,6 +26,7 @@
     <meta name="theme-color" content="#ffffff">
     {{--    Title--}}
     <title>@yield('title') {{env('APP_NAME')}}</title>
+    <script async src="{{ asset('js/app.js') }}"></script>
 @yield('ld+json')
 
 @yield('og_tags')
@@ -102,7 +103,6 @@
 @include('includes/footer')
 
 <!-- Styles -->
-<script defer src="{{ asset('js/app.js') }}"></script>
 
 @include('includes/modalLogin')
 @include('includes/modalRegister')
