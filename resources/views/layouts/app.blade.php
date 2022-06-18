@@ -53,7 +53,7 @@
     <div class="container d-flex flex-row">
 
         <a href="{{route('home')}}" class="navbar-brand d-sm-flex mx-2">
-            <img src="{{asset('img/al.svg')}}" alt="{{config('app.name') . "logo"}}" style="height:32px; width:32px">
+            <img src="{{asset('img/al.svg')}}" alt="{{config('app.name') . "logo"}}" style="height:32px; width:32px" loading="lazy">
             <span class="ms-2 fw-bolder">Alterlister</span>
         </a>
 
