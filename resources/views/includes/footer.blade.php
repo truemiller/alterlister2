@@ -1,5 +1,5 @@
-<footer class="bg-secondary border-top mt-auto shadow">
-    <div class="container">
+<footer class="bg-secondary border-top mt-auto shadow ">
+    <div class="container mt-3">
         <div class="row py-3 mt-3">
             <div class="col-md-3">
                 <strong>{{env('APP_NAME')}}</strong>

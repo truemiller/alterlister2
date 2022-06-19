@@ -35,26 +35,46 @@
     </nav>
 
     <div class="container mt-4">
-        <section class="row">
-            <h1 itemprop="name">{{$category->title ?? ""}}</h1>
+        <h1 itemprop="name">{{$category->title ?? ""}}</h1>
 
-            {{--                <table class="table table-borderless">--}}
-            {{--                    @foreach($popular_entities as $alternative)--}}
-            {{--                        @include('includes.list-media-entity', ['alternative'=>$alternative])--}}
-            {{--                    @endforeach--}}
-            {{--                </table>--}}
-            <p class="lead">{{$category->description }}</p>
-            <div class="col">
-                <div class="row">
-                    @foreach($popular_entities as $alternative)
-                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
-                            @include('includes.list-media-category', ['alternative'=>$alternative])
-                        </div>
-                    @endforeach
+        {{--                <table class="table table-borderless">--}}
+        {{--                    @foreach($popular_entities as $alternative)--}}
+        {{--                        @include('includes.list-media-entity', ['alternative'=>$alternative])--}}
+        {{--                    @endforeach--}}
+        {{--                </table>--}}
+        <p class="lead">{{$category->description }}</p>
+        <div class="row">
+            @foreach($popular_entities as $alternative)
+                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                    @include('includes.list-media-category', ['alternative'=>$alternative])
+                </div>
+            @endforeach
+        </div>
+    </div>
+
+    @if($category->children->count() > 0)
+    <div class="container">
+        <h2>More in {{$category->title}}</h2>
+        <div class="row">
+            @foreach($category->children as $child)
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="fw-bold h5"><a class="text-primary text-decoration-none" href="{{route('cat', ["cat"=>$child->slug])}}">{{$child->title}}</a></h3>
+                        <p>{{$child->entities->count()}} ranked apps and software.</p>
+                        <strong>Popular in this category</strong>
+                        <ul>
+                            @foreach($child->entities->take(3) as $entity)
+                            <li><a href="{{route('ent',["ent"=>$entity->slug])}}">{{$entity->title}}</a></li>
+                                @endforeach
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </section>
+            @endforeach
+        </div>
     </div>
+    @endif
 @endsection
 
 
