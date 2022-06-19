@@ -8,8 +8,7 @@
                     <h2 class="fw-bolder">
                         <img src="{{$alternative->logo}}" alt="{{$alternative->title}} logo"
                              title="{{$alternative->title}} logo"
-                             class="img-fluid mb-3 "
-                             itemprop="logo"
+                             class="img-fluid mb-3"
                              width="32"
                              loading="lazy"
                         >
