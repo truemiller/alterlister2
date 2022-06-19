@@ -130,11 +130,11 @@
                                 <br><br>
                                 <strong>Links</strong>
                                 <br>
-                                <a href="{{$entity->link_1}}" class="btn btn-primary">Goto Homepage</a>
+                                <a href="{{$entity->link_1}}" class="btn btn-danger mb-3">Goto Homepage</a>
                             </div>
                             <div class="col-md-3 d-flex flex-column align-middle">
-                                <img src="{{$entity->image_1}}" alt="">
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                <img src="{{$entity->image_1}}" alt="Screenshot of {{$entity->title}}." title="Screenshot of {{$entity->title}}" class="mb-3" itemprop="image">
+                                <button type="button" class="btn btn-primary mt-auto" data-bs-toggle="modal"
                                         data-bs-target="{{Auth::check() ? "#reviewModal" : "#modalRegister"}}">
                                     Post a review
                                 </button>
