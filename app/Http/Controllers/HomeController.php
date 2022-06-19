@@ -49,6 +49,7 @@ class HomeController extends Controller
                                   })
                                   ->take(16);
 
+        $categories = Category::where("parent", null);
 
         return view('homepage')->with(
             [

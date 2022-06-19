@@ -44,6 +44,7 @@
         {{--                </table>--}}
         <p class="lead">{{$category->description }}</p>
         <div class="row">
+            <h2>Popular</h2>
             @foreach($popular_entities as $alternative)
                 <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
                     @include('includes.list-media-category', ['alternative'=>$alternative])
