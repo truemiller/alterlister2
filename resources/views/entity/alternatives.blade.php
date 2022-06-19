@@ -7,12 +7,12 @@
                 <div class="col-lg-12 border-top pt-3">
                     <img src="{{$alternative->logo}}" alt="{{$alternative->title}} logo"
                          title="{{$alternative->title}} logo"
-                         class="img-fluid mb-3"
+                         class="img-fluid mb-3 d-inline-block"
                          width="32"
                          loading="lazy"
                          itemprop="logo"
                     >
-                    <h2 class="fw-bolder">
+                    <h2 class="fw-bolder d-inline-block">
                         <span itemprop="position">{{$loop->index+1}}</span>. <a
                             href="{{route('ent', ["ent"=>$alternative->slug])}}"
                             rel="external"

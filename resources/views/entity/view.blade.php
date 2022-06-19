@@ -47,6 +47,8 @@
          }
 
 
+
+
     </script>
 @endsection
 
@@ -77,7 +79,8 @@
                             <div class="col text-center my-auto">
                                 <img src="{{$entity->logo}}" alt="{{"$entity->title logo"}}"
                                      title="{{"$entity->title logo"}}"
-                                     class="img-fluid me-2" loading="lazy" width="100" height="100" itemprop="logo"></div>
+                                     class="img-fluid me-2" loading="lazy" width="100" height="100" itemprop="logo">
+                            </div>
                             <div class="col-lg-8 my-auto">
                                 <span class="badge bg-light">{{$entity->getViews()}} views</span><br>
                                 <h1 class="">{{$entity->title}}</h1>
@@ -89,14 +92,14 @@
                                     <div id="entity-short-desc" itemprop="disambiguatingDescription">
                                         {{ Str::words($entity->description, "100", "...") }}
                                     </div>
-                                    <a href="#"
-                                       onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read
+                                    <a href="#" id="read-more"
+                                       onclick="$('#entity-short-desc,#read-more').hide();$('#entity-long-desc,#read-less').show();">Read
                                         more</a>
                                     <div id="entity-long-desc" style="display: none" itemprop="description">
                                         {!! nl2br(e($entity->description)) !!}
                                     </div>
-                                    <a href="#"
-                                       onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read
+                                    <a href="#" id="read-less" style="display: none"
+                                       onclick="$('#entity-long-desc,#read-less').hide();$('#entity-short-desc,#read-more').show();">Read
                                         less</a>
                                 </div>
                                 <br>
