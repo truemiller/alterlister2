@@ -1,7 +1,8 @@
 <nav aria-label="breadcrumb border-0">
     <ol itemscope itemtype="https://schema.org/BreadcrumbList" class="breadcrumb border-0 mb-0 mt-3">
-        <li class="breadcrumb-item">
-            <a href="{{route('home')}}">Home</a>
+        <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+            itemtype="https://schema.org/ListItem">
+            <a href="{{route('home')}}" itemprop="name">Home</a>
         </li>
         @if($entity->parents->first()->parents)
             <li class="breadcrumb-item" itemprop="itemListElement" itemscope
