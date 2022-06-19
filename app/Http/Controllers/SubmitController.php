@@ -139,9 +139,9 @@ class SubmitController extends Controller
                 $client->request('GET', 'http://www.google.com/webmasters/sitemaps/ping?sitemap=' . route('sitemap.index'));
             }
 
-            return Redirect::back()->with(["msg" => "Submitted successfully $slug", "class" => "alert-success"]);
+            return Redirect::back()->with(["alert" => "Submitted successfully $slug", "alert-class" => "alert-success"]);
         } else {
-            return Redirect::back()->with(["msg" => "There's something wrong with your submission.", "class" => "alert-danger"]);
+            return Redirect::back()->with(["alert" => "There's something wrong with your submission.", "alert-class" => "alert-danger"]);
         }
 
     }

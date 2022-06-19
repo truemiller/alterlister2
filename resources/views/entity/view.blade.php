@@ -72,32 +72,32 @@
         <div class="row mt-4">
             <article>
                 <header class="mb-2">
-                    <div class="card card-body">
+                    <div class="card card-body" itemscope itemtype="https://schema.org/Product">
                         <div class="row">
                             <div class="col text-center my-auto">
                                 <img src="{{$entity->logo}}" alt="{{"$entity->title logo"}}"
                                      title="{{"$entity->title logo"}}"
-                                     class="img-fluid me-2" loading="lazy" width="100" height="100"></div>
+                                     class="img-fluid me-2" loading="lazy" width="100" height="100" itemprop="logo"></div>
                             <div class="col-lg-8 my-auto">
                                 <span class="badge bg-light">{{$entity->getViews()}} views</span><br>
                                 <h1 class="">{{$entity->title}}</h1>
 
-                                <span class="badge bg-light mb-2">{{$entity?->parent?->title}}</span>
+                                <span class="badge bg-light mb-2" itemprop="name">{{$entity?->parent?->title}}</span>
                                 <br>
                                 <strong>Description</strong>
                                 <div>
-                                    <div id="entity-short-desc">
+                                    <div id="entity-short-desc" itemprop="disambiguatingDescription">
                                         {{ Str::words($entity->description, "100", "...") }}
-                                        <a href="#"
-                                           onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read
-                                            more</a>
                                     </div>
-                                    <div id="entity-long-desc" style="display: none">
+                                    <a href="#"
+                                       onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read
+                                        more</a>
+                                    <div id="entity-long-desc" style="display: none" itemprop="description">
                                         {!! nl2br(e($entity->description)) !!}
-                                        <a href="#"
-                                           onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read
-                                            less</a>
                                     </div>
+                                    <a href="#"
+                                       onclick="$('#entity-long-desc').toggle(); $('#entity-short-desc').toggle()">Read
+                                        less</a>
                                 </div>
                                 <br>
                                 <strong>Platforms</strong><br>

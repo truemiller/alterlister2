@@ -1,8 +1,8 @@
 @extends("layouts.app")
 
 @section("main")
-    <div class="alert {{Session::get("class")}}">
-        {{Session::get("msg")}}
+    <div class="alert {{Session::get("alert-class")}}">
+        {{Session::get("alert")}}
     </div>
     <div class="container">
         <div class="row">

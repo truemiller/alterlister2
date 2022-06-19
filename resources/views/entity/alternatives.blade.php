@@ -3,16 +3,16 @@
         <h2 id="alternatives" itemprop="name">Alternatives to {{$entity->title}}</h2>
         @foreach($alternatives as $alternative)
             <section class="row py-3" id="{{$alternative->slug}}" itemprop="itemListElement" itemscope
-                     itemtype="https://schema.org/SoftwareApplication">
+                     itemtype="https://schema.org/Product">
                 <div class="col-lg-12 border-top pt-3">
+                    <img src="{{$alternative->logo}}" alt="{{$alternative->title}} logo"
+                         title="{{$alternative->title}} logo"
+                         class="img-fluid mb-3"
+                         width="32"
+                         loading="lazy"
+                         itemprop="logo"
+                    >
                     <h2 class="fw-bolder">
-                        <img src="{{$alternative->logo}}" alt="{{$alternative->title}} logo"
-                             title="{{$alternative->title}} logo"
-                             class="img-fluid mb-3"
-                             width="32"
-                             loading="lazy"
-                             itemprop="image"
-                        >
                         <span itemprop="position">{{$loop->index+1}}</span>. <a
                             href="{{route('ent', ["ent"=>$alternative->slug])}}"
                             rel="external"
@@ -21,6 +21,7 @@
                         ><span itemprop="name">{{$alternative->title}}</span></a>
                     </h2>
                     <ul>
+                        <li><strong>Category</strong>: <a href="/category/{{$alternative->parent->slug}}" itemprop="category">{{$alternative->parent->title}}</a></li>
                         <li><strong>Platforms</strong>: @foreach($alternative->platforms as $platform)<span
                                 class="badge bg-light me-1"  itemprop="operatingSystem"><i class="{{$platform->fa}}"></i> {{$platform->title}}</span>@endforeach</li>
                         <li><strong>Tags</strong>: @foreach($alternative->tags as $tag)<span
