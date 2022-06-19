@@ -1,5 +1,13 @@
 @extends('layouts.app')
-
+@section("title")
+    About -
+@endsection
+@section("og_tags")
+    <meta property="og:title"
+          content="About - Alterlister"/>
+    <meta property="og:description"
+          content="All about Alterlister."/>
+@endsection
 @section('main')
     <div class="container mt-3">
         <div class="card" itemscope itemtype="https://schema.org/AboutPage">
