@@ -54,6 +54,9 @@ class SubmitController extends Controller
 
 
             // ENTITY
+            if (Entity::firstWhere("slug", $slug))
+                Redirect::back()->with(["alert"=>"Name taken, try another or edit the original.", "alert-class"=>"alert-danger"]);
+
             $entity = Entity::create([
                 "slug" => $slug,
                 "title" => $request->title,
