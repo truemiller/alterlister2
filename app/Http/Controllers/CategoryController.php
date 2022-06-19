@@ -19,13 +19,13 @@ class CategoryController extends Controller
         // get direct entities
         $entities->push(
             [
-                "category"=> $category,
+                "category" => $category,
                 "entities" => collect($category->entities)
             ]
         );
 
-        foreach ($category->children as $child){
-            $entities->push(["category"=>$child, "entities"=>collect($child->entities)]);
+        foreach ($category->children as $child) {
+            $entities->push(["category" => $child, "entities" => collect($child->entities)]);
         }
 
         return view('list', $entities->take(32));
@@ -39,21 +39,21 @@ class CategoryController extends Controller
         $latest = [];
         $popular = [];
         $categories = [];
-        $entities = collect($category->entities->where('active',true));
+        $entities = collect($category->entities->where('active', true));
 
         // Get Entities from the category
         foreach ($category->children as $child) {
             $entities = $entities->merge($child->entities);
-            foreach ($child->children as $childChild){
+            foreach ($child->children as $childChild) {
                 $entities = $entities->merge($childChild->entities);
-                foreach ($childChild->children as $childChildChild){
+                foreach ($childChild->children as $childChildChild) {
                     $entities = $entities->merge($childChildChild->entities);
                 }
             }
         }
 
-        $latest = $entities
-            ->sortByDesc('updated_at');
+//        $latest = $entities
+//            ->sortByDesc('updated_at');
 
         // Get the most popular entities by view count
 
@@ -62,13 +62,17 @@ class CategoryController extends Controller
                 return $_ent->getViews();
             });
 
+        if ($popular->children->count() > 0) {
+            $popular = $popular->take(16);
+        }
+
 //        $category =
 //            Category::where('slug', $category)->first();
 
         return view('category')->with(
             [
-                'latest_entities' => $latest,
-                'popular_entities' => $popular->take(16),
+//                'latest_entities' => $latest,
+                'popular_entities' => $popular,
                 'category' => $category
             ]
         );
