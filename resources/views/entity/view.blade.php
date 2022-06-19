@@ -49,22 +49,43 @@
 
 
 
+
     </script>
 @endsection
 
 @section('main')
-    <nav aria-label="breadcrumb" itemscope itemtype="">
+    <nav aria-label="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
         <ol class="breadcrumb">
             <div class="container flex-row d-flex">
-                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                    <a href="/" itemprop="item"><span itemprop="name">Home</span></a>
+                    <meta itemprop="position" content="1"/>
+                </li>
                 @if(isset($entity->parent->parent))
-                    <li class="breadcrumb-item"><a
-                            href="{{route("cat", ["cat"=>$entity->parent->parent->slug])}}">{{$entity->parent->parent->title}}</a>
+                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+                        itemtype="https://schema.org/ListItem">
+                        <a
+                            itemprop="item"
+                            href="{{route("cat", ["cat"=>$entity->parent->parent->slug])}}"
+                        ><span itemprop="name">{{$entity->parent->parent->title}}</span></a>
+                        <meta itemprop="position" content="2"/>
                     </li>
-                @endif
-                @if(isset($entity->parent))
-                    <li class="breadcrumb-item"><a
-                            href="{{route("cat", ["cat"=>$entity->parent->slug])}}">{{$entity->parent->title}}</a>
+                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+                        itemtype="https://schema.org/ListItem">
+                        <a
+                            itemprop="item"
+                            href="{{route("cat", ["cat"=>$entity->parent->slug])}}"
+                        ><span itemprop="name">{{$entity->parent->title}}</span></a>
+                        <meta itemprop="position" content="3"/>
+                    </li>
+                @elseif(isset($entity->parent))
+                    <li class="breadcrumb-item" itemprop="itemListElement" itemscope
+                        itemtype="https://schema.org/ListItem">
+                        <a
+                            itemprop="item"
+                            href="{{route("cat", ["cat"=>$entity->parent->slug])}}"
+                            itemprop="itemListElement"><span itemprop="name">{{$entity->parent->title}}</span></a>
+                        <meta itemprop="position" content="2"/>
                     </li>
                 @endif
             </div>
