@@ -86,11 +86,11 @@
             </div>
         </ol>
     </nav>
-    <div class="container">
+    <div class="container" itemscope itemtype="https://schema.org/Product">
         <div class="row mt-4">
             <article>
                 <header class="mb-2">
-                    <div class="card card-body" itemscope itemtype="https://schema.org/Product">
+                    <div class="card card-body">
                         <div class="row">
                             <div class="col text-center my-auto">
                                 <img src="{{$entity->logo}}" alt="{{"$entity->title logo"}}"
@@ -133,6 +133,7 @@
                                 <a href="{{$entity->link_1}}" class="btn btn-primary">Goto Homepage</a>
                             </div>
                             <div class="col-md-3 d-flex flex-column align-middle">
+                                <img src="{{$entity->image_1}}" alt="">
                                 <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                                         data-bs-target="{{Auth::check() ? "#reviewModal" : "#modalRegister"}}">
                                     Post a review

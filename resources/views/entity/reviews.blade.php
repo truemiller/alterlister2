@@ -4,50 +4,57 @@
 
         <!-- Modal -->
         @if(Auth::check())
-        <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Post a review</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
+            <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Post a review</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
 
-                    <form action="/review_post">
-                        <div class="modal-body">
-                            @csrf
-                            <input type="hidden" value="{{$entity->id}}" name="entity_id">
-                            <label class="form-label" for="stars">Stars</label>
-                            <select name="stars" id="" class="form-select">
-                                <option value="1">⭐</option>
-                                <option value="2">⭐⭐</option>
-                                <option value="3">⭐⭐⭐</option>
-                                <option value="4">⭐⭐⭐⭐</option>
-                                <option value="5">⭐⭐⭐⭐⭐</option>
-                            </select>
-                            <label for="review" class="form-label">Review</label>
-                            <textarea name="review" id="" cols="30" rows="10"
-                                      class="form-control-plaintext border p-3"></textarea>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Post review</button>
-                        </div>
-                    </form>
+                        <form action="/review_post">
+                            <div class="modal-body">
+                                @csrf
+                                <input type="hidden" value="{{$entity->id}}" name="entity_id">
+                                <label class="form-label" for="stars">Stars</label>
+                                <select name="stars" id="" class="form-select">
+                                    <option value="1">⭐</option>
+                                    <option value="2">⭐⭐</option>
+                                    <option value="3">⭐⭐⭐</option>
+                                    <option value="4">⭐⭐⭐⭐</option>
+                                    <option value="5">⭐⭐⭐⭐⭐</option>
+                                </select>
+                                <label for="review" class="form-label">Review</label>
+                                <textarea name="review" id="" cols="30" rows="10"
+                                          class="form-control-plaintext border p-3"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-primary">Post review</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
-        </div>
         @endif
 
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="{{Auth::check() ? "#reviewModal" : "#modalRegister"}}">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                data-bs-target="{{Auth::check() ? "#reviewModal" : "#modalRegister"}}">
             Post a review
         </button>
 
         @if(!$entity->reviews->isEmpty())
             @foreach($entity->reviews as $review)
-                <div class="card mt-3">
+                <div class="card mt-3" itemprop="review" itemscope="https://schema.org/Review">
                     <div class="card-body">
-                        <strong>{{$review->user->name}}</strong>
+                        @for($i=1;$i<=$review->stars; $i++) <i class="fa fa-star"></i>@endfor
                         <br>
-                        {{$review->review}}
+                        <strong itemprop="author">{{$review->user->name}}</strong>
+                        <meta itemprop="reviewRating" content="{{$review->stars}}">
+                        <br>
+                        <em>{{$entity->created_at}}</em>
+                        <br>
+                        <p itemprop="reviewBody">{{$review->review}}</p>
                     </div>
                 </div>
             @endforeach
