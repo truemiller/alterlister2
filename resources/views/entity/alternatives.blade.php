@@ -3,8 +3,8 @@
         <h2 id="alternatives" itemprop="name">Alternatives to {{$entity->title}}</h2>
         @foreach($alternatives as $alternative)
             <section class="row py-3" id="{{$alternative->slug}}" itemprop="itemListElement" itemscope
-                     itemtype="https://schema.org/Product">
-                <div class="col-lg-12 border-top pt-3">
+                     itemtype="https://schema.org/SoftwareApplication">
+                <div class="col-lg-12 border-top pt-3" itemscope itemprop="listItem" itemtype="https://schema.org/SoftwareApplication">
                     <h2 class="fw-bolder">
                         <img src="{{$alternative->logo}}" alt="{{$alternative->title}} logo"
                              title="{{$alternative->title}} logo"
@@ -13,7 +13,7 @@
                              width="32"
                              loading="lazy"
                         >
-                        <span>{{$loop->index+1}}</span>. <a
+                        <span itemprop="position">{{$loop->index+1}}</span>. <a
                             href="{{route('ent', ["ent"=>$alternative->slug])}}"
                             rel="external"
                             class="text-primary"
@@ -25,7 +25,7 @@
                         <li><strong>Platforms</strong>: @foreach($alternative->platforms as $platform)<span
                                 class="badge bg-light me-1">{{$platform->title}}</span>@endforeach</li>
                         <li><strong>Tags</strong>: @foreach($alternative->tags as $tag)<span
-                                class="badge bg-light me-1">{{$tag->tag}}</span>@endforeach</li>
+                                class="badge bg-light me-1" itemprop="operatingSystem">{{$tag->tag}}</span>@endforeach</li>
                     </ul>
                     @if($alternative->image_1)
                         <img src="{{$alternative->image_1}}" alt="An image of {{$alternative->title}}." title="An image of {{$alternative->title}}." width="804" class="mb-3 w-100" loading="lazy" itemprop="image">
