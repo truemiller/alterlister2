@@ -28,7 +28,7 @@
          "alternativeHeadline": "{{$entity->title}} Alternatives",
          "author": {
             "@type": "Person",
-            "name": {{$entity->user->name}},
+            "name": "{{$entity->user->name}}",
             "url": "https://alterlister.com"
          },
          "editor": "Josh Miller",
