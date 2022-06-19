@@ -137,6 +137,7 @@ class SubmitController extends Controller
             if (env("APP_ENV") === "production") {
                 $client = new Client();
                 $client->request('GET', 'http://www.google.com/webmasters/sitemaps/ping?sitemap=' . route('sitemap.index'));
+                $client->request('GET', "https://www.bing.com/indexnow?url=".route('ent',['ent'=>$entity->id])."&key=4caf7f23089c471c885542feb4615d4f");
             }
 
             return Redirect::back()->with(["alert" => "Submitted successfully $slug", "alert-class" => "alert-success"]);
