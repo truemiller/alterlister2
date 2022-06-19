@@ -21,7 +21,7 @@
                         ><span itemprop="name">{{$alternative->title}}</span></a>
                     </h2>
                     <ul>
-                        <li><strong>Category</strong>: <a href="/category/{{$alternative->parent->slug}}" itemprop="category">{{$alternative->parent->title}}</a></li>
+                        <li><strong>Category</strong>: <a href="/category/{{$alternative?->parent?->slug}}" itemprop="category">{{$alternative->parent->title}}</a></li>
                         <li><strong>Platforms</strong>: @foreach($alternative->platforms as $platform)<span
                                 class="badge bg-light me-1"  itemprop="operatingSystem"><i class="{{$platform->fa}}"></i> {{$platform->title}}</span>@endforeach</li>
                         <li><strong>Tags</strong>: @foreach($alternative->tags as $tag)<span

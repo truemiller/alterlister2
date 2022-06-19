@@ -53,7 +53,7 @@
 @endsection
 
 @section('main')
-    <nav aria-label="breadcrumb">
+    <nav aria-label="breadcrumb" itemscope itemtype="">
         <ol class="breadcrumb">
             <div class="container flex-row d-flex">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
