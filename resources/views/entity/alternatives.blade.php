@@ -22,7 +22,7 @@
                     </h2>
                     <ul>
                         <li><strong>Platforms</strong>: @foreach($alternative->platforms as $platform)<span
-                                class="badge bg-light me-1"  itemprop="operatingSystem">{{$platform->title}}</span>@endforeach</li>
+                                class="badge bg-light me-1"  itemprop="operatingSystem"><i class="{{$platform->fa}}"></i> {{$platform->title}}</span>@endforeach</li>
                         <li><strong>Tags</strong>: @foreach($alternative->tags as $tag)<span
                                 class="badge bg-light me-1" itemprop="keywords">{{$tag->tag}}</span>@endforeach</li>
                     </ul>

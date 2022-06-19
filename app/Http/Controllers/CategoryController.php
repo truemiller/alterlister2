@@ -28,7 +28,7 @@ class CategoryController extends Controller
             $entities->push(["category"=>$child, "entities"=>collect($child->entities)]);
         }
 
-        return view('list', $entities);
+        return view('list', $entities->take(32));
     }
 
     public function index($category)
