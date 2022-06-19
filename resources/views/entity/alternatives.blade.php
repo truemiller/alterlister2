@@ -2,8 +2,7 @@
     <div class="card-body" itemscope itemtype="https://schema.org/ItemList">
         <h2 id="alternatives" itemprop="name">Alternatives to {{$entity->title}}</h2>
         @foreach($alternatives as $alternative)
-            <section class="row py-3" id="{{$alternative->slug}}" itemprop="itemListElement" itemscope
-                     itemtype="https://schema.org/SoftwareApplication">
+            <section class="row py-3" id="{{$alternative->slug}}" itemprop="itemListElement">
                 <div class="col-lg-12 border-top pt-3" itemscope itemprop="listItem" itemtype="https://schema.org/SoftwareApplication">
                     <h2 class="fw-bolder">
                         <img src="{{$alternative->logo}}" alt="{{$alternative->title}} logo"
