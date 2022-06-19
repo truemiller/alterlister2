@@ -99,9 +99,9 @@
                             </div>
                             <div class="col-lg-8 my-auto">
                                 <span class="badge bg-light">{{$entity->getViews()}} views</span><br>
-                                <h1 class="">{{$entity->title}}</h1>
+                                <h1 class=""  itemprop="name">{{$entity->title}}</h1>
 
-                                <span class="badge bg-light mb-2" itemprop="name">{{$entity?->parent?->title}}</span>
+                                <span class="badge bg-light mb-2" itemprop="category">{{$entity?->parent?->title}}</span>
                                 <br>
                                 <strong>Description</strong>
                                 <div>
@@ -125,7 +125,7 @@
                                 <br><br>
                                 <strong>Tags</strong><br>
                                 @foreach($entity->tags as $tag)
-                                    <span class="badge bg-light me-1">{{$tag->tag}}</span>
+                                    <span class="badge bg-light me-1" itemprop="keywords">{{$tag->tag}}</span>
                                 @endforeach
                                 <br><br>
                                 <strong>Links</strong>
