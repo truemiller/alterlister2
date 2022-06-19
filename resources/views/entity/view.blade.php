@@ -79,6 +79,7 @@
                                      title="{{"$entity->title logo"}}"
                                      class="img-fluid me-2" loading="lazy" width="100" height="100"></div>
                             <div class="col-lg-8 my-auto">
+                                <span class="badge bg-light">{{$entity->getViews()}} views</span><br>
                                 <h1 class=""><a href="{{$entity->link_1}}"
                                                 title="{{$entity->title}}">{{$entity->title}}</a></h1>
 
