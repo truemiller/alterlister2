@@ -80,8 +80,7 @@
                                      class="img-fluid me-2" loading="lazy" width="100" height="100"></div>
                             <div class="col-lg-8 my-auto">
                                 <span class="badge bg-light">{{$entity->getViews()}} views</span><br>
-                                <h1 class=""><a href="{{$entity->link_1}}"
-                                                title="{{$entity->title}}">{{$entity->title}}</a></h1>
+                                <h1 class="">{{$entity->title}}</h1>
 
                                 <span class="badge bg-light mb-2"><a
                                         href="{{ route('cat', ["cat"=>$entity->parent->id]) }}" class=" text-dark text-decoration-none">{{$entity->parent->title}}</a></span>
