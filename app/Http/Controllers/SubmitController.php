@@ -44,12 +44,12 @@ class SubmitController extends Controller
 
             // LOGO
             $logo = $request->file("logo");
-            $logoExtension = $logo->extension();
+            $logoExtension = $logo->getClientOriginalExtension();
             $logoFileName = "$slug.$logoExtension";
 
 //            SCREENSHOT
             $screenshot = $request->file("image_1");
-            $screenshotExtension = $screenshot->extension();
+            $screenshotExtension = $screenshot->getClientOriginalExtension();
             $screenshotFileName = "$slug.$screenshotExtension";
 
 
