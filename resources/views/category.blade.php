@@ -57,7 +57,6 @@
             <h2>More in {{$category->title}}</h2>
             <div class="row">
                 @foreach($category->children as $child)
-                    @if($child->entities->count() > 0)
                         <div class="col-md-4">
                             <div class="card">
                                 <div class="card-body">
@@ -75,7 +74,6 @@
                                 </div>
                             </div>
                         </div>
-                    @endif
                 @endforeach
             </div>
         </div>
