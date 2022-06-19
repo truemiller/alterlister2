@@ -82,7 +82,7 @@
                                 <span class="badge bg-light">{{$entity->getViews()}} views</span><br>
                                 <h1 class="">{{$entity->title}}</h1>
 
-                                <span class="badge bg-light mb-2">{{$entity->parent->title}}</span>
+                                <span class="badge bg-light mb-2">{{$entity?->parent?->title}}</span>
                                 <br>
                                 <strong>Description</strong>
                                 <div>
