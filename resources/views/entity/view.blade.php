@@ -74,10 +74,10 @@
                 <header class="mb-2">
                     <div class="card card-body">
                         <div class="row">
-                            <div class="col-lg-1 text-center my-auto">
+                            <div class="col text-center my-auto">
                                 <img src="{{$entity->logo}}" alt="{{"$entity->title logo"}}"
                                      title="{{"$entity->title logo"}}"
-                                     class="img-fluid me-2" loading="lazy" width="86" height="86"></div>
+                                     class="img-fluid me-2" loading="lazy" width="100" height="100"></div>
                             <div class="col-lg-8 my-auto">
                                 <h1 class=""><a href="{{$entity->link_1}}"
                                                 title="{{$entity->title}}">{{$entity->title}}</a></h1>
