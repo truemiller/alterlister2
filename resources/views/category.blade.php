@@ -53,27 +53,32 @@
     </div>
 
     @if($category->children->count() > 0)
-    <div class="container">
-        <h2>More in {{$category->title}}</h2>
-        <div class="row">
-            @foreach($category->children as $child)
-            <div class="col-md-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h3 class="fw-bold h5"><a class="text-primary text-decoration-none" href="{{route('cat', ["cat"=>$child->slug])}}">{{$child->title}}</a></h3>
-                        <p>{{$child->entities->count()}} ranked apps and software.</p>
-                        <strong>Popular in this category</strong>
-                        <ul>
-                            @foreach($child->entities->take(3) as $entity)
-                            <li><a href="{{route('ent',["ent"=>$entity->slug])}}">{{$entity->title}}</a></li>
-                                @endforeach
-                        </ul>
-                    </div>
-                </div>
+        <div class="container">
+            <h2>More in {{$category->title}}</h2>
+            <div class="row">
+                @foreach($category->children as $child)
+                    @if($child->entities->count() > 0)
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3 class="fw-bold h5"><a class="text-primary text-decoration-none"
+                                                              href="{{route('cat', ["cat"=>$child->slug])}}">{{$child->title}}</a>
+                                    </h3>
+                                    <p>{{$child->entities->count()}} ranked apps and software.</p>
+                                    <strong>Popular in this category</strong>
+                                    <ul>
+                                        @foreach($child->entities->take(3) as $entity)
+                                            <li><a href="{{route('ent',["ent"=>$entity->slug])}}">{{$entity->title}}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    @endif
+                @endforeach
             </div>
-            @endforeach
         </div>
-    </div>
     @endif
 @endsection
 
