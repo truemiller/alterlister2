@@ -28,7 +28,7 @@
          "alternativeHeadline": "{{$entity->title}} Alternatives",
          "author": {
             "@type": "Person",
-            "name": "Alterlister",
+            "name": {{$entity->user->name}},
             "url": "https://alterlister.com"
          },
          "editor": "Josh Miller",
@@ -45,11 +45,6 @@
          "description": "A list of {{count($alternatives)}} {{$entity->title}}
         alternatives. Including @foreach($alternatives->take(3) as $alternative){{$alternative->title}}, @endforeach ..."
          }
-
-
-
-
-
     </script>
 @endsection
 
