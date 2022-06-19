@@ -68,7 +68,7 @@ class CategoryController extends Controller
         return view('category')->with(
             [
                 'latest_entities' => $latest,
-                'popular_entities' => $popular,
+                'popular_entities' => $popular->take(32),
                 'category' => $category
             ]
         );
