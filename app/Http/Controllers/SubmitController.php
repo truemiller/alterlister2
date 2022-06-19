@@ -28,7 +28,7 @@ class SubmitController extends Controller
     public function submit(Request $request)
     {
 
-        $validator = $request->validate([
+        $validator = Validator::make($request->all(),[
             "title" => "required|string|max:255|unique:entities,title",
             "description" => "required|string|max:10000|unique:entities,description",
             "logo" => "required|image|max:10000|mimes:jpg,bmp,png,webp,gif",
