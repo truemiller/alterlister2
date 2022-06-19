@@ -83,7 +83,7 @@
                                 <h1 class="">{{$entity->title}}</h1>
 
                                 <span class="badge bg-light mb-2"><a
-                                        href="{{ route('cat', ["cat"=>$entity->parent->id]) }}" class=" text-dark text-decoration-none">{{$entity->parent->title}}</a></span>
+                                        href="{{ route('cat', ["cat"=>$entity->parent()->id]) }}" class=" text-dark text-decoration-none">{{$entity->parent->title}}</a></span>
                                 <br>
                                 <strong>Description</strong>
                                 <div>
