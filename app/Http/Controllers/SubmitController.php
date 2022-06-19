@@ -40,21 +40,17 @@ class SubmitController extends Controller
 
 
         if ($validator) {
+            $slug = Str::slug($request->title, "-");
 
             // LOGO
             $logo = $request->file("logo");
             $logoExtension = $logo->extension();
-            $slug = Str::slug($request->title, "-");
             $logoFileName = "$slug.$logoExtension";
-            $logoPath = public_path("img/logo/created/$logoFileName");
-            $logoResize = Image::make($logo->getRealPath());
 
 //            SCREENSHOT
             $screenshot = $request->file("image_1");
             $screenshotExtension = $screenshot->extension();
             $screenshotFileName = "$slug.$screenshotExtension";
-            $screenshotPath = public_path("img/screenshot/created/$screenshotFileName");
-            $screenshotResize = Image::make($logo->getRealPath());
 
 
             // ENTITY
@@ -94,22 +90,44 @@ class SubmitController extends Controller
             }
 
 
-            // CREATE IMAGE
-            if (File::exists($logoPath)) {
-                File::delete($logoPath);
+            // IMAGES
+            if ($request->logo) {
+                $logo = $request->file("logo");
+                $logoExtension = $logo->extension();
+                $entity->update([
+                    "logo" => asset('img/logo/created/' . $entity->slug . "." . $logoExtension)]);
+                $filename = "$entity->slug.$logoExtension";
+                $path = public_path("img/logo/created/$filename");
+                $resize = Image::make($logo->getRealPath());
+                if (File::exists($path)) {
+                    File::delete($path);
+                }
+                $resize->resize(100, 100, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                })->save($path, 90);
             }
-            $logoResize->resize(100, 100, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            })->save($logoPath, 90);
 
-            if (File::exists($screenshotPath)) {
-                File::delete($screenshotPath);
+            if ($request->image_1) {
+                //            SCREENSHOT
+                $screenshot = $request->file("image_1");
+                $screenshotExtension = $screenshot->extension();
+                $screenshotFileName = "$entity->slug.$screenshotExtension";
+
+                $entity->update(
+                    ["image_1" => asset('img/screenshot/created/' . $screenshotFileName)]
+                );
+
+                $screenshotPath = public_path("img/screenshot/created/$screenshotFileName");
+                $screenshotResize = Image::make($screenshot->getRealPath());
+                if (File::exists($screenshotPath)) {
+                    File::delete($screenshotPath);
+                }
+                $screenshotResize->resize(804, null, function ($constraint) {
+                    $constraint->aspectRatio();
+                    $constraint->upsize();
+                })->save($screenshotPath, 90);
             }
-            $screenshotResize->resize(804, null, function ($constraint) {
-                $constraint->aspectRatio();
-                $constraint->upsize();
-            })->save($screenshotPath, 90);
 
 
             // PING SITEMAP
