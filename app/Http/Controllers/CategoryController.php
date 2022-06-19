@@ -62,7 +62,7 @@ class CategoryController extends Controller
                 return $_ent->getViews();
             });
 
-        if ($popular->children->count() > 0) {
+        if ($category->children->count() > 0) {
             $popular = $popular->take(16);
         }
 
