@@ -33,7 +33,7 @@ class HomeController extends Controller
         $latest_entities = Entity::
         where("active", true)
                                  ->orderBy('id', 'desc')
-                                 ->take(24)
+                                 ->take(16)
                                  ->get();
 
         // Get the most popular entities by view count
@@ -47,7 +47,7 @@ class HomeController extends Controller
                                   ->sortByDesc(function ($_ent) {
                                       return $_ent->getViews();
                                   })
-                                  ->take(24);
+                                  ->take(16);
 
 
         return view('homepage')->with(
