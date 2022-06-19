@@ -13,6 +13,28 @@
       0 => 'Akaunting\\Firewall\\Provider',
     ),
   ),
+  'htmlmin/htmlmin' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'HTMLMin\\HTMLMin\\HTMLMinServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'HTMLMin' => 'HTMLMin\\HTMLMin\\Facades\\HTMLMin',
+    ),
+  ),
+  'intervention/httpauth' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Intervention\\HttpAuth\\Laravel\\HttpAuthServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'HttpAuth' => 'Intervention\\HttpAuth\\Laravel\\Facades\\HttpAuth',
+    ),
+  ),
   'intervention/image' => 
   array (
     'providers' => 
