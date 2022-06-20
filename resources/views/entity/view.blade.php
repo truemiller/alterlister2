@@ -24,7 +24,7 @@
         "@context": "https://schema.org",
          "@type": "Article",
          "image": "{{$entity->logo}}",
-         "headline": "{{count($alternatives)}}+ Best {{$entity->title}} Alternatives for {{date("Y")}}",
+         "headline": "{{$entity->title}} Alternatives: {{count($alternatives)}}+ {{$entity->parent->title}} for {{date("Y")}}",
          "alternativeHeadline": "{{$entity->title}} Alternatives",
          "author": {
             "@type": "Person",
