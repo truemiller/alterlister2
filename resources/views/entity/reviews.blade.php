@@ -51,7 +51,7 @@
                         @for($i=1;$i<=$review->stars; $i++) <i class="fa fa-star"></i>@endfor
                         <br>
                         <strong itemprop="author">{{$review->user->name}}</strong>
-                        <meta itemprop="reviewRating" content="{{$review->stars}}">
+                        <meta itemprop="ratingValue" content="{{$review->stars}}">
                         <br>
                         <em>{{$entity->created_at}}</em>
                         <br>
