@@ -27,7 +27,7 @@
                         @endfor
                         <meta content="{{$alternative->reviews->avg("stars") ?? 0 }}" itemprop="ratingValue">
                         <meta content="5" itemprop="bestRating">
-                        <meta content="0" itemprop="worstRating">
+                        <meta content="1" itemprop="worstRating">
                         <meta content="{{$alternative->reviews->count()??0}}" itemprop="reviewCount">
                     </div>
                     <ul>
