@@ -2,6 +2,7 @@
     <div class="card-body">
         <h2 id="reviews">Reviews</h2>
 
+        <meta content="{{$entity->reviews->count() ?? 0 }}" itemprop="reviewCount">
         <!-- Modal -->
         @if(Auth::check())
             <div class="modal fade" id="reviewModal" tabindex="-1" aria-labelledby="exampleModalLabel"

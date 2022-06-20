@@ -20,6 +20,7 @@
                             title="{{$alternative->title}} alternatives"
                         ><span itemprop="name">{{$alternative->title}}</span></a>
                     </h2>
+                    <meta content="{{$alternative->reviews->avg("stars") ?? 0 }}" itemprop="aggregateRating">
                     <ul>
                         <li><strong>Category</strong>: <a href="/category/{{$alternative?->parent?->slug}}" itemprop="category">{{$alternative?->parent?->title}}</a></li>
                         <li><strong>Platforms</strong>: @foreach($alternative->platforms as $platform)<span
