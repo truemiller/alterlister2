@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::middleware("")->group(function (){
+
     Auth::routes();
     // Home
     Route::middleware("auth")->group(function(){
@@ -105,7 +105,7 @@ Route::middleware("")->group(function (){
 // Category
     Route::get('/category/{cat}', [CategoryController::class,'index'])
          ->name('cat');
-});
+
 
 
 
