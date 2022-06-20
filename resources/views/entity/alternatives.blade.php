@@ -20,9 +20,14 @@
                             title="{{$alternative->title}} alternatives"
                         ><span itemprop="name">{{$alternative->title}}</span></a>
                     </h2>
-                    <div class="rating" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">
+                    <div class="rating"  itemscope itemtype="https://schema.org/AggregateRating">
+                        <meta content="{{$alternative->reviews->avg("stars") ?? 0 }}" itemprop="aggregateRating">
+                        @for($i=1;$i<=round($alternative->reviews->avg("stars"));$i++)
+                            <i class="fa fa-star"></i>
+                        @endfor
                         <meta content="{{$alternative->reviews->avg("stars") ?? 0 }}" itemprop="ratingValue">
                         <meta content="5" itemprop="bestRating">
+                        <meta content="0" itemprop="worstRating">
                         <meta content="{{$alternative->reviews->count()??0}}" itemprop="reviewCount">
                     </div>
                     <ul>
