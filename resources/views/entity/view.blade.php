@@ -104,6 +104,7 @@
                                 @for($i=1; $i<=$entity->reviews->avg("stars"); $i++ )
                                 <i class="fa fa-star text-warning"></i>
                                 @endfor
+                                <br>
                                 <span class="badge bg-light mb-2" itemprop="category">{{$entity?->parent?->title}}</span>
                                 <br>
                                 <strong>Description</strong>
