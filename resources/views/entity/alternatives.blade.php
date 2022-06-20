@@ -21,7 +21,7 @@
                         ><span itemprop="name">{{$alternative->title}}</span></a>
                     </h2>
                     <div class="rating" itemprop="aggregateRating" itemtype="https://schema.org/AggregateRating">
-                        <meta content="{{$alternative->reviews->avg("stars") ?? 0 }}" itemprop="aggregateRating">
+                        <meta content="{{$alternative->reviews->avg("stars") ?? 0 }}">
                         @for($i=1;$i<=round($alternative->reviews->avg("stars"));$i++)
                             <i class="fa fa-star"></i>
                         @endfor
