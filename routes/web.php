@@ -53,6 +53,10 @@ Route::middleware("firewall.all")->group(function (){
         return view('pages.software');
     })->name('software');
 
+    Route::get('/categories', function (){
+        return view('pages.categories');
+    });
+
 // Sitemap
     Route::get('/sitemap.xml', [SitemapController::class,'index'])
          ->name('sitemap.index');

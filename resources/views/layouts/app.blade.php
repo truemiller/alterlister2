@@ -65,7 +65,7 @@ itemscope itemtype="https://schema.org/SiteNavigationElement">
                 <a href="/submissions" class="nav-link">Submissions</a>
                 @endif
             <div class="nav-item dropdown" onclick="$('.dropdown-menu').toggle()" onmouseenter="$('.dropdown-menu').toggle()" onmouseleave="$('.dropdown-menu').hide()">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <a class="nav-link dropdown-toggle" href="/categories" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Categories
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
