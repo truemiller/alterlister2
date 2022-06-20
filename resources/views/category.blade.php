@@ -5,6 +5,8 @@
 @endsection
 
 @section ('og_tags')
+    <meta property="description"
+          content="Find alternatives to the best {{$category->title}}.">
     <meta property="og:title"
           content="{{$category->title}}{{$category->parent ? " ".$category->parent->title." -":''}} AlterLister"/>
     <meta property="og:description"
@@ -14,8 +16,6 @@
     <meta property="og:locale" content="en_US"/>
     <meta property="og:site_name" content="{{config('app.name')}}"/>
 
-    <meta property="description"
-          content="Popular {{$category->title}} software, apps and services.">
 @endsection
 
 @section('main')
