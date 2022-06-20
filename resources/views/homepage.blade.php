@@ -36,7 +36,6 @@
             </div>
         </div>
     </div>
-    </div>
     <div class="container mt-4">
         <section class="row">
             <div class="col">
