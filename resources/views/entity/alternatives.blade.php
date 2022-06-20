@@ -28,7 +28,7 @@
                         <meta content="{{$alternative->reviews->avg("stars") ?? 0 }}" itemprop="ratingValue">
                         <meta content="5" itemprop="bestRating">
                         <meta content="0" itemprop="worstRating">
-                        <meta content="{{$alternative->reviews->count()??0}}" itemprop="reviewCount">
+                        <meta content="{{$alternative->reviews->count()??0}}" itemprop="ratingCount">
                     </div>
                     <ul>
                         <li><strong>Category</strong>: <a href="/category/{{$alternative?->parent?->slug}}"
