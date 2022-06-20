@@ -101,7 +101,7 @@
                                 <span class="badge bg-light">{{$entity->getViews()}} views</span><br>
                                 <h1 class=""  itemprop="name">{{$entity->title}}</h1>
                                 <meta content="{{$entity->reviews->avg("stars") ?? 0 }}" itemprop="aggregateRating">
-                                @for($i; $i<=$entity->reviews->avg("stars"); $i++ )
+                                @for($i=1; $i<=$entity->reviews->avg("stars"); $i++ )
                                 <i class="fa fa-star text-warning"></i>
                                 @endfor
                                 <span class="badge bg-light mb-2" itemprop="category">{{$entity?->parent?->title}}</span>
