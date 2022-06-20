@@ -5,21 +5,23 @@
             <section class="row py-3" id="{{$alternative->slug}}" itemprop="itemListElement" itemscope
                      itemtype="https://schema.org/Product">
                 <div class="col-lg-12 border-top pt-3">
-                    <img src="{{$alternative->logo}}" alt="{{$alternative->title}} logo"
-                         title="{{$alternative->title}} logo"
-                         class="img-fluid mb-3 d-inline-block"
-                         width="32"
-                         loading="lazy"
-                         itemprop="logo"
-                    >
-                    <h2 class="fw-bolder d-inline-block">
-                        <span>{{$loop->index+1}}</span>. <a
-                            href="{{route('ent', ["ent"=>$alternative->slug])}}"
-                            rel="external"
-                            class="text-primary"
-                            title="{{$alternative->title}} alternatives"
-                        ><span itemprop="name">{{$alternative->title}}</span></a>
-                    </h2>
+                    <header class="d-flex flex-row">
+                        <h2 class="fw-bolder d-inline-block">
+                            <span>{{$loop->index+1}}</span>. <a
+                                href="{{route('ent', ["ent"=>$alternative->slug])}}"
+                                rel="external"
+                                class="text-primary"
+                                title="{{$alternative->title}} alternatives"
+                            ><span itemprop="name">{{$alternative->title}}</span></a>
+                        </h2>
+                        <img src="{{$alternative->logo}}" alt="{{$alternative->title}} logo"
+                             title="{{$alternative->title}} logo"
+                             class="img-fluid mb-3 ms-auto d-inline-block"
+                             width="32"
+                             loading="lazy"
+                             itemprop="logo"
+                        >
+                    </header>
                     <div class="rating" itemprop="aggregateRating" itemtype="https://schema.org/AggregateRating" itemscope>
                         <meta content="{{$alternative->reviews->avg("stars") ?? 0 }}">
                         @for($i=1;$i<=round($alternative->reviews->avg("stars"));$i++)
