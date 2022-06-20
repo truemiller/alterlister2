@@ -100,7 +100,7 @@
                             <div class="col-lg-8 my-auto">
                                 <span class="badge bg-light">{{$entity->getViews()}} views</span><br>
                                 <h1 class=""  itemprop="name">{{$entity->title}}</h1>
-
+                                <meta content="{{$entity->reviews->avg("stars") ?? 0 }}" itemprop="aggregateRating">
                                 <span class="badge bg-light mb-2" itemprop="category">{{$entity?->parent?->title}}</span>
                                 <br>
                                 <strong>Description</strong>
