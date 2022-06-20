@@ -57,7 +57,10 @@ class Entity extends Model
         $alternatives = collect();
 
         foreach($this->tags as $tag){
-            $alternatives=$alternatives->merge($tag->entities->where("slug","!=", $this->slug));
+            $alternatives=$alternatives->merge($tag->entities->map(function ($ent){
+                $ent["views"]=$ent->getViews();
+                return $ent;
+            })->where("slug","!=", $this->slug))->sortBy("views");
         }
 
         $counter = $alternatives->countBy(function($alt){
