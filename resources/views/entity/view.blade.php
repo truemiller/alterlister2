@@ -48,6 +48,7 @@
          }
 
 
+
     </script>
 @endsection
 
@@ -112,18 +113,9 @@
                                 <br>
                                 <strong>Description</strong>
                                 <div>
-                                    <div id="entity-short-desc" itemprop="disambiguatingDescription">
-                                        {{ Str::words($entity->description, "100", "...") }}
-                                    </div>
-                                    <a href="#" id="read-more"
-                                       onclick="$('#entity-short-desc,#read-more').hide();$('#entity-long-desc,#read-less').show();">Read
-                                        more</a>
-                                    <div id="entity-long-desc" style="display: none" itemprop="description">
+                                    <p itemprop="description">
                                         {!! nl2br(e($entity->description)) !!}
-                                    </div>
-                                    <a href="#" id="read-less" style="display: none"
-                                       onclick="$('#entity-long-desc,#read-less').hide();$('#entity-short-desc,#read-more').show();">Read
-                                        less</a>
+                                    </p>
                                 </div>
                                 <br>
                                 <strong>Platforms</strong><br>
