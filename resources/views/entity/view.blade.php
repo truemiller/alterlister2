@@ -24,7 +24,8 @@
         "@context": "https://schema.org",
          "@type": "Article",
          "image": "{{$entity->logo}}",
-         "headline": "{{$entity->title}} Alternatives: {{count($alternatives)}}+ {{$entity->parent->title}} for {{date("Y")}}",
+         "headline": "{{$entity->title}} Alternatives: {{count($alternatives)}}+ {{$entity->parent->title}}
+        for {{date("Y")}}",
          "alternativeHeadline": "{{$entity->title}} Alternatives",
          "author": {
             "@type": "Person",
@@ -45,6 +46,8 @@
          "description": "A list of {{count($alternatives)}} {{$entity->title}}
         alternatives. Including @foreach($alternatives->take(3) as $alternative){{$alternative->title}}, @endforeach ..."
          }
+
+
     </script>
 @endsection
 
@@ -99,12 +102,13 @@
                             </div>
                             <div class="col-lg-8 my-auto">
                                 <span class="badge bg-light">{{$entity->getViews()}} views</span><br>
-                                <h1 class=""  itemprop="name">{{$entity->title}}</h1>
+                                <h1 class="" itemprop="name">{{$entity->title}}</h1>
                                 @for($i=1; $i<=$entity->reviews->avg("stars"); $i++ )
-                                <i class="fa fa-star text-warning"></i>
+                                    <i class="fa fa-star text-warning"></i>
                                 @endfor
                                 <br>
-                                <span class="badge bg-light mb-2" itemprop="category">{{$entity?->parent?->title}}</span>
+                                <span class="badge bg-light mb-2"
+                                      itemprop="category">{{$entity?->parent?->title}}</span>
                                 <br>
                                 <strong>Description</strong>
                                 <div>
@@ -136,7 +140,8 @@
                                 <a href="{{$entity->link_1}}" class="btn btn-danger mb-3">Goto Homepage</a>
                             </div>
                             <div class="col-md-3 d-flex flex-column align-middle">
-                                <img src="{{$entity->image_1}}" alt="Screenshot of {{$entity->title}}." title="Screenshot of {{$entity->title}}" class="mb-3" itemprop="image">
+                                <img src="{{$entity->image_1}}" alt="Screenshot of {{$entity->title}}."
+                                     title="Screenshot of {{$entity->title}}" class="mb-3" itemprop="image">
                                 <button type="button" class="btn btn-primary mt-auto" data-bs-toggle="modal"
                                         data-bs-target="{{Auth::check() ? "#reviewModal" : "#modalRegister"}}">
                                     Post a review
@@ -156,11 +161,20 @@
                         <div class="card">
                             <div class="card-body">
                                 <h2>Table of Contents</h2>
-                                <div class="list-group list-group-flush">
-                                    <a class="list-group-item list-group-item-action"
-                                       href="#alternatives">Alternatives</a>
-                                    <a class="list-group-item list-group-item-action" href="#reviews">Reviews</a>
-                                </div>
+                                <ul class="">
+                                    <li>
+                                        <a class=""
+                                           href="#alternatives">Alternatives</a></li>
+                                    <ol class=" ">
+                                        @foreach($alternatives as $alternative)
+                                            <li>
+                                                <a href="#{{$alternative->slug}}"
+                                                   class="">{{$alternative->title}}</a>
+                                            </li>
+                                        @endforeach
+                                    </ol>
+                                    <li><a class="" href="#reviews">Reviews</a></li>
+                                </ul>
                             </div>
                         </div>
                     </aside>

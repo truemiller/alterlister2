@@ -4,7 +4,6 @@
 @endsection
 @section('main')
     <form method="POST" action="{{ route('register') }}">
-
         @csrf
         <div class="modal-body">
 
