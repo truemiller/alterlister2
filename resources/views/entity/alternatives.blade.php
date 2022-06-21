@@ -22,7 +22,7 @@
                              itemprop="logo"
                         >
                     </header>
-                    <div class="rating" itemtype="https://schema.org/AggregateRating" itemscope>
+                    <div class="rating" itemprop="aggregateRating" itemtype="https://schema.org/AggregateRating" itemscope>
                         <meta content="{{$alternative->reviews->avg("stars") ?? 5 }}">
                         @for($i=1;$i<=round($alternative->reviews->avg("stars"));$i++)
                             <i class="fa fa-star text-warning"></i>
