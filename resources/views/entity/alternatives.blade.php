@@ -23,14 +23,13 @@
                         >
                     </header>
                     <div class="rating" itemprop="aggregateRating" itemtype="https://schema.org/AggregateRating" itemscope>
-                        <meta content="{{$alternative->reviews->avg("stars") ?? 5 }}">
                         @for($i=1;$i<=round($alternative->reviews->avg("stars"));$i++)
                             <i class="fa fa-star text-warning"></i>
                         @endfor
-                        <meta content="{{$alternative->reviews->avg("stars") ?? 5 }}" itemprop="ratingValue">
                         <meta content="5" itemprop="bestRating">
                         <meta content="1" itemprop="worstRating">
-                        <meta content="{{$alternative->reviews->count()??0}}" itemprop="reviewCount">
+                        <meta content="{{$entity->reviews->avg("stars") === 0 ? 5 : $entity->reviews->avg("stars")}}" itemprop="ratingValue">
+                        <meta content="{{$entity->reviews->count() === 0 ? 1 : $entity->reviews->count() }}" itemprop="reviewCount">
                     </div>
                     <ul>
                         <li><strong>Category</strong>: <a href="/category/{{$alternative?->parent?->slug}}"
