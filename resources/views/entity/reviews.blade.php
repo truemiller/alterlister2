@@ -1,9 +1,9 @@
 <div class="card mt-3">
     <div class="card-body">
         <h2 id="reviews">Reviews</h2>
-        <div itemscope itemprop="aggregateRating" itemtype="https://schema.org/AggregateRating">
-            <meta content="{{$entity->reviews->count() ?? 5}}" itemprop="ratingValue">
-            <meta content="{{$entity->reviews->count() ?? 1 }}" itemprop="reviewCount">
+        <div itemscope  itemtype="https://schema.org/AggregateRating">
+            <meta content="{{$entity->reviews->count() === 0 ? 5 : $entity->reviews->count()}}" itemprop="ratingValue">
+            <meta content="{{$entity->reviews->count() === 0 ? 1 : $entity->reviews->count() }}" itemprop="reviewCount">
         </div>
 {{--        <meta content="{{$entity->reviews->count() ?? 1 }}" itemprop="reviewCount">--}}
         <!-- Modal -->
