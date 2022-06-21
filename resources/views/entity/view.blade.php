@@ -100,7 +100,6 @@
                             <div class="col-lg-8 my-auto">
                                 <span class="badge bg-light">{{$entity->getViews()}} views</span><br>
                                 <h1 class=""  itemprop="name">{{$entity->title}}</h1>
-                                <meta content="{{$entity->reviews->avg("stars") ?? 5 }}" itemprop="aggregateRating">
                                 @for($i=1; $i<=$entity->reviews->avg("stars"); $i++ )
                                 <i class="fa fa-star text-warning"></i>
                                 @endfor
