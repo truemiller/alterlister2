@@ -1,7 +1,10 @@
 <div class="card mt-3">
     <div class="card-body">
         <h2 id="reviews">Reviews</h2>
-
+        <div itemscope itemprop="aggregateRating" itemtype="AggregateRating">
+            <meta content="{{$entity->reviews->count() ?? 5}}" itemprop="ratingValue">
+            <meta content="{{$entity->reviews->count() ?? 1 }}" itemprop="reviewCount">
+        </div>
 {{--        <meta content="{{$entity->reviews->count() ?? 1 }}" itemprop="reviewCount">--}}
         <!-- Modal -->
         @if(Auth::check())
