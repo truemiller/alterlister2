@@ -1,14 +1,14 @@
 @extends('layouts.app')
 
 @section('title')
-    {{$category->title}}{{$category->parent ? " ".$category->parent->title:''}} -
+    Best {{$category->title}} -
 @endsection
 
 @section ('og_tags')
     <meta property="description"
           content="Find alternatives to the best {{$category->title}}.">
     <meta property="og:title"
-          content="{{$category->title}}{{$category->parent ? " ".$category->parent->title." -":''}} AlterLister"/>
+          content="Best {{$category->title}} - AlterLister"/>
     <meta property="og:description"
           content="Popular {{$category->title}} software, apps and services."/>
     <meta property="og:image" content=""/>
