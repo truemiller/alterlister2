@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
+    Alterlister: Find the best software alternatives.
 @endsection
 
 @section ('og_tags')
