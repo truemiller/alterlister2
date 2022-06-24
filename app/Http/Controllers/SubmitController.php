@@ -96,12 +96,12 @@ class SubmitController extends Controller
             // IMAGES
             if ($request->logo) {
                 $logo = $request->file("logo");
-                $logoExtension = $logo->extension();
+                $logoExtension = "webp";
                 $entity->update([
                     "logo" => asset('img/logo/created/' . $entity->slug . "." . $logoExtension)]);
                 $filename = "$entity->slug.$logoExtension";
                 $path = public_path("img/logo/created/$filename");
-                $resize = Image::make($logo->getRealPath());
+                $resize = Image::make($logo->getRealPath())->encode("webp", 90);
                 if (File::exists($path)) {
                     File::delete($path);
                 }
@@ -114,7 +114,7 @@ class SubmitController extends Controller
             if ($request->image_1) {
                 //            SCREENSHOT
                 $screenshot = $request->file("image_1");
-                $screenshotExtension = $screenshot->extension();
+                $screenshotExtension = "webp";
                 $screenshotFileName = "$entity->slug.$screenshotExtension";
 
                 $entity->update(
@@ -122,7 +122,7 @@ class SubmitController extends Controller
                 );
 
                 $screenshotPath = public_path("img/screenshot/created/$screenshotFileName");
-                $screenshotResize = Image::make($screenshot->getRealPath());
+                $screenshotResize = Image::make($screenshot->getRealPath())->encode("webp", 90);
                 if (File::exists($screenshotPath)) {
                     File::delete($screenshotPath);
                 }
@@ -215,7 +215,7 @@ class SubmitController extends Controller
             // IMAGE
             if ($request->logo) {
                 $logo = $request->file("logo");
-                $logoExtension = $logo->extension();
+                $logoExtension = "webp";
                 $entity->update([
                     "logo" => asset('img/logo/created/' . $entity->slug . "." . $logoExtension)]);
                 $filename = "$entity->slug.$logoExtension";
@@ -233,7 +233,7 @@ class SubmitController extends Controller
             if ($request->image_1) {
                 //            SCREENSHOT
                 $screenshot = $request->file("image_1");
-                $screenshotExtension = $screenshot->extension();
+                $screenshotExtension = "webp";
                 $screenshotFileName = "$entity->slug.$screenshotExtension";
 
                 $entity->update(
@@ -260,7 +260,6 @@ class SubmitController extends Controller
 
             return Redirect::back()->with(["alert" => "Submitted successfully $entity->slug", "alert-class" => "alert-success"]);
         }
-
 
     }
 
