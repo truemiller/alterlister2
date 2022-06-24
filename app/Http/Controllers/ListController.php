@@ -24,7 +24,8 @@ class ListController extends Controller
         // Get the most popular entities by view count
         $popular = Entity::get()
             ->sortByDesc(function ($_ent) {
-                return $_ent->getViews();
+                //return $_ent->getViews();
+                return $_ent->views;
             });//->take(4);
 
         $categories = Category::whereHas('entities', function ($q) {
@@ -64,7 +65,8 @@ class ListController extends Controller
         // Get the most popular entities by view count
         $popular = $entities
             ->sortByDesc(function ($_ent) {
-                return $_ent->getViews();
+                //return $_ent->getViews();
+                return $_ent->views;
             });
         //->take(4);
 
@@ -97,7 +99,8 @@ class ListController extends Controller
         // Get the most popular entities by view count
         $popular = Entity::get()
             ->sortByDesc(function ($_ent) {
-                return $_ent->getViews();
+                //return $_ent->getViews();
+                return $_ent->views;
             });//->take(4);
 
         $categories = Category::whereHas('entities', function ($q) {

@@ -20,7 +20,8 @@ class Entity extends Model
         'link_1',
         "category_id",
         "user_id",
-        "active"
+        "active",
+        "views"
     ];
 
     #region Relations
@@ -57,10 +58,7 @@ class Entity extends Model
         $alternatives = collect();
 
         foreach($this->tags as $tag){
-            $alternatives=$alternatives->merge($tag->entities->map(function ($ent){
-                $ent["views"]=$ent->getViews();
-                return $ent;
-            })->where("slug","!=", $this->slug))->sortBy("views");
+            $alternatives=$alternatives->merge($tag->entities->where("slug","!=", $this->slug))->sortBy("views");
         }
 
         $counter = $alternatives->countBy(function($alt){
@@ -91,10 +89,11 @@ class Entity extends Model
     public function getViews()
     {
         //return 0;
-        return $this->events()
-            ->where('event_type_id', 1)
-            //->distinct('ip_address')
-            ->count();
+        return $this["views"];
+//        return $this->events()
+//            ->where('event_type_id', 1)
+//            //->distinct('ip_address')
+//            ->count();
     }
 
     // View count

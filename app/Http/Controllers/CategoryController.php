@@ -59,7 +59,8 @@ class CategoryController extends Controller
 
         $popular = $entities
             ->sortByDesc(function ($_ent) {
-                return $_ent->getViews();
+//                return $_ent->getViews();
+                return $_ent->views;
             });
 
         if ($category->children->count() > 0) {

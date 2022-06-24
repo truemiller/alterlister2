@@ -12,7 +12,8 @@ class SidebarController extends Controller
         if (is_numeric($n)) {
             return Entity::with('events')->get()
                 ->sortBy(function ($entity) {
-                    return $entity->getViews();
+//                    return $entity->getViews();
+                    return $entity->views;
                 });//->take($n);
         } else {
             return null;

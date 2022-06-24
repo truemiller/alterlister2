@@ -45,7 +45,8 @@ class HomeController extends Controller
 
         $popular_entities = Entity::where("active", true)->get()
                                   ->sortByDesc(function ($_ent) {
-                                      return $_ent->getViews();
+                                      //return $_ent->getViews();
+                                      return $_ent->views;
                                   })
                                   ->take(16);
 

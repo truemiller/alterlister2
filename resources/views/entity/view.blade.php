@@ -102,6 +102,7 @@
                                      class="img-fluid me-2" loading="lazy" width="100" height="100" itemprop="logo">
                             </div>
                             <div class="col-lg-8 my-auto">
+                                <span class="badge bg-light mb-2">{{$entity->views}} <i class="fa fa-eye"></i></span>
                                 <h1 class="" itemprop="name">{{$entity->title}}</h1>
                                 @for($i=1; $i<=$entity->reviews->avg("stars"); $i++ )
                                     <i class="fa fa-star text-warning"></i>

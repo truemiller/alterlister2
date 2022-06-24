@@ -19,18 +19,19 @@ class EntityController extends Controller
             ->where(['slug' => $ent, "active" => true])
             ->firstOrFail();
 
-        EventController::createEventEntity('view', $ent);
+        EventController::createEventEntity('view', $entity->slug);
 
         $alternatives = $entity->alternatives();
 
-        $views = $entity->events->count();
+        $entity->update(["views"=> ($entity->views ?? 0) + 1]);
+
 
         // Return the view to the user
         return view('entity.view')
             ->with([
                 'entity' => $entity,
                 'alternatives' => $alternatives,
-                'views' => $views
+                'views' => $entity->views
             ]);
     }
 

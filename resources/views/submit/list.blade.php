@@ -25,7 +25,7 @@
                             <td>{{$submission->title}}</td>
                             <td>{{$submission->created_at}}</td>
                             <td>{{$submission->active ? "Yes" : "No"}}</td>
-                            <td>{{$submission->getViews()}}</td>
+                            <td>{{$submission->views}}</td>
                             <td><a href="{{route('entity.edit', ["entity_id"=>$submission->id])}}">Edit</a></td>
                             <td>
                                 <a href="{{route('entity.delete', ["entity_id"=>$submission->id])}}">Delete</a>
