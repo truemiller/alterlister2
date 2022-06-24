@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+    <link rel="prefetch" href="{{config('app.url')}}">
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -26,14 +27,12 @@
     <meta name="theme-color" content="#ffffff">
     {{--    Title--}}
     <title>@yield('title') {{env('APP_NAME')}}</title>
-    <script async src="{{ asset('js/app.js') }}"></script>
+    <script defer src="{{ asset('js/app.js') }}"></script>
 @yield('ld+json')
 
 @yield('og_tags')
 <!-- Scripts -->
     <link rel="canonical" href="{{url()->current()}}">
-    <link rel="prefetch" href="{{config('app.url')}}">
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <style>
         button {
             text-decoration: none;
@@ -108,5 +107,6 @@ itemscope itemtype="https://schema.org/SiteNavigationElement">
 @include('includes/modalLogin')
 @include('includes/modalRegister')
 
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </body>
 </html>
