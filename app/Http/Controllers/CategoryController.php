@@ -10,7 +10,7 @@ class CategoryController extends Controller
     //
     public function get($category_slug)
     {
-        $category = Category::firstWhere("slug", $category_slug);
+        $category = Category::where("slug", $category_slug)->firstOrFail();
         $subcategories = collect();
 
         $entities = collect();
