@@ -150,7 +150,7 @@ class SubmitController extends Controller
     public function list()
     {
         if (Auth::check() and Auth::user()->admin) {
-            return view('submit.list', ["submissions" => Auth::user()->entities]);
+            return view('submit.list', ["submissions" => Auth::user()->entities->sortByDesc("id")]);
         } else {
             abort(403);
         }
