@@ -59,8 +59,8 @@ itemscope itemtype="https://schema.org/SiteNavigationElement">
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <a href="/" class="nav-link">Home</a>
-            <a href="/submit" class="nav-link">Submit</a>
-            @if(Auth::check())
+            @if(Auth::check() and Auth::user()->admin)
+                <a href="/submit" class="nav-link">Submit</a>
                 <a href="/submissions" class="nav-link">Submissions</a>
                 @endif
             <div class="nav-item dropdown" onclick="$('.dropdown-menu').toggle()" onmouseenter="$('.dropdown-menu').toggle()" onmouseleave="$('.dropdown-menu').hide()">
@@ -75,10 +75,6 @@ itemscope itemtype="https://schema.org/SiteNavigationElement">
             </div>
 
         </div>
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
 
         <div class="btn-group">
             @if(Auth::check())
