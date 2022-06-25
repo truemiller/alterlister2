@@ -39,8 +39,8 @@
         }
     </style>
 {{--    Adsense --}}
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3541252731032050"
-            crossorigin="anonymous"></script>
+{{--    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3541252731032050"--}}
+{{--            crossorigin="anonymous"></script>--}}
 </head>
 <body class="bg-light vh-100 d-flex flex-column" itemscope itemtype="https://schema.org/WebPage">
 <!-- Google Tag Manager (noscript) -->
