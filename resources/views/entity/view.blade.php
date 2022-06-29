@@ -47,8 +47,6 @@
         alternatives. Including @foreach($alternatives->take(3) as $alternative){{$alternative->title}}, @endforeach ..."
          }
 
-
-
     </script>
 @endsection
 
@@ -94,51 +92,59 @@
         <div class="row mt-4">
             <article>
                 <header class="mb-2">
-                    <div class="card card-body">
-                        <div class="row">
-                            <div class="col text-center my-auto">
-                                <img src="{{$entity->logo}}" alt="{{"$entity->title logo"}}"
-                                     title="{{"$entity->title logo"}}"
-                                     class="img-fluid me-2" loading="lazy" width="100" height="100" itemprop="logo">
-                            </div>
-                            <div class="col-lg-8 my-auto">
-                                <span class="badge bg-light mb-2">{{$entity->views}} <i class="fa fa-eye"></i></span>
-                                <h1 class="" itemprop="name">{{$entity->title}}</h1>
-                                @for($i=1; $i<=$entity->reviews->avg("stars"); $i++ )
-                                    <i class="fa fa-star text-warning"></i>
-                                @endfor
-                                <br>
-                                <span class="badge bg-light mb-2"
-                                      itemprop="category">{{$entity?->parent?->title}}</span>
-                                <br>
-                                <strong>Description</strong>
-                                <div>
-                                    <p itemprop="description">
-                                        {!! nl2br(e($entity->description)) !!}
-                                    </p>
-                                </div>
-                                <br>
-                                <strong>Platforms</strong><br>
-                                @foreach($entity->platforms as $platform)<span
-                                    class="badge bg-light me-1">{{$platform->title}}</span>@endforeach
-                                <br><br>
-                                <strong>Tags</strong><br>
-                                @foreach($entity->tags as $tag)
-                                    <span class="badge bg-light me-1" itemprop="keywords">{{$tag->tag}}</span>
+                    <div class="row">
+                        <div class="col text-center my-auto">
+                            <img src="{{$entity->logo}}" alt="{{"$entity->title logo"}}"
+                                 title="{{"$entity->title logo"}}"
+                                 class="img-fluid me-2" loading="lazy" width="100" height="100" itemprop="logo">
+                        </div>
+                        <div class="col-lg-8 my-auto">
+                            <span class="badge bg-light mb-2">{{$entity->views}} <i class="fa fa-eye"></i></span>
+                            <h1 class="" itemprop="name">{{$entity->title}}</h1>
+                            @for($i=1; $i<=$entity->reviews->avg("stars"); $i++ )
+                                <i class="fa fa-star text-warning"></i>
+                            @endfor
+                            <br>
+                            <span class="badge bg-light mb-2"
+                                  itemprop="category">{{$entity?->parent?->title}}</span>
+                            <br>
+                            <strong>What are the best {{$entity->title}} alternative?</strong>
+                            <p>
+                                We have {{$alternatives->count()}} alternatives to {{$entity->title}}. The
+                                best {{$entity->title}} alternatives
+                                are @foreach($entity->alternatives()->take(3) as $alternative)
+                                    {{$loop->index === 2 ? "and " : ""}}<a href="/{{$alternative->slug}}">{{$alternative->title}}</a>{{$loop->index === 2 ? "." : ","}}
                                 @endforeach
-                                <br><br>
-                                <strong>Links</strong>
-                                <br>
-                                <a href="{{$entity->link_1}}" class="btn btn-danger mb-3">Goto Homepage</a>
+                            </p>
+                            <br>
+                            <strong>What is {{$entity->title}}?</strong>
+                            <div>
+                                <p itemprop="description">
+                                    {!! nl2br(e($entity->description)) !!}
+                                </p>
                             </div>
-                            <div class="col-md-3 d-flex flex-column align-middle">
-                                <img src="{{$entity->image_1}}" alt="Screenshot of {{$entity->title}}."
-                                     title="Screenshot of {{$entity->title}}" class="mb-3" itemprop="image">
-                                <button type="button" class="btn btn-primary mt-auto" data-bs-toggle="modal"
-                                        data-bs-target="{{Auth::check() ? "#reviewModal" : "#modalRegister"}}">
-                                    Post a review
-                                </button>
-                            </div>
+                            <br>
+                            <strong>What platforms does {{$entity->title}} run on?</strong><br>
+                            <p>
+                                {{$entity->title}} runs on
+                                @foreach($entity->platforms as $platform){{$platform->title}}{{$loop->index === 2 ? "." : ", "}}@endforeach</p>
+                            <br><br>
+                            <strong>Tags</strong><br>
+                            @foreach($entity->tags as $tag)
+                                <span class="badge bg-light me-1" itemprop="keywords">{{$tag->tag}}</span>
+                            @endforeach
+                            <br><br>
+                            <strong>Links</strong>
+                            <br>
+                            <a href="{{$entity->link_1}}" class="btn btn-danger mb-3">Goto Homepage</a>
+                        </div>
+                        <div class="col-md-3 d-flex flex-column align-middle">
+                            <img src="{{$entity->image_1}}" alt="Screenshot of {{$entity->title}}."
+                                 title="Screenshot of {{$entity->title}}" class="mb-3" itemprop="image">
+                            <button type="button" class="btn btn-primary mt-auto" data-bs-toggle="modal"
+                                    data-bs-target="{{Auth::check() ? "#reviewModal" : "#modalRegister"}}">
+                                Post a review
+                            </button>
                         </div>
                     </div>
                 </header>
@@ -150,25 +156,21 @@
                         @include('entity.reviews')
                     </main>
                     <aside class="col-lg-4 py-3">
-                        <div class="card">
-                            <div class="card-body">
-                                <h2>Table of Contents</h2>
-                                <ul class="">
+                        <h2>Table of Contents</h2>
+                        <ul class="">
+                            <li>
+                                <a class=""
+                                   href="#alternatives">Alternatives</a></li>
+                            <ol class=" ">
+                                @foreach($alternatives as $alternative)
                                     <li>
-                                        <a class=""
-                                           href="#alternatives">Alternatives</a></li>
-                                    <ol class=" ">
-                                        @foreach($alternatives as $alternative)
-                                            <li>
-                                                <a href="#{{$alternative->slug}}"
-                                                   class="">{{$alternative->title}}</a>
-                                            </li>
-                                        @endforeach
-                                    </ol>
-                                    <li><a class="" href="#reviews">Reviews</a></li>
-                                </ul>
-                            </div>
-                        </div>
+                                        <a href="#{{$alternative->slug}}"
+                                           class="">{{$alternative->title}}</a>
+                                    </li>
+                                @endforeach
+                            </ol>
+                            <li><a class="" href="#reviews">Reviews</a></li>
+                        </ul>
                     </aside>
                 </div>
             </article>

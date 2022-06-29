@@ -1,5 +1,4 @@
-<div class="card mt-3">
-    <div class="card-body">
+
         <h2 id="reviews">Reviews</h2>
         <div itemscope itemprop="aggregateRating" itemtype="https://schema.org/AggregateRating">
             <meta content="{{$entity->reviews->avg("stars") === 0 ? 5 : $entity->reviews->avg("stars")}}" itemprop="ratingValue">
@@ -65,5 +64,3 @@
         @else
             <p>There are no reviews at this time.</p>
         @endif
-    </div>
-</div>
