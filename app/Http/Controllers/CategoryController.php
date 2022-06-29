@@ -33,7 +33,7 @@ class CategoryController extends Controller
 
     public function index($category)
     {
-        $category = Category::firstWhere('slug', $category);
+        $category = Category::where('slug', $category)->firstOrFail();
 
         // Variables that will hold the entities for the homepage
         $latest = [];
