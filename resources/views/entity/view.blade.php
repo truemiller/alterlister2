@@ -108,7 +108,7 @@
                             <span class="badge bg-light mb-2"
                                   itemprop="category">{{$entity?->parent?->title}}</span>
                             <br>
-                            <strong>What are the best {{$entity->title}} alternative?</strong>
+                            <strong>What are the best {{$entity->title}} alternatives?</strong>
                             <p>
                                 We have {{$alternatives->count()}} alternatives to {{$entity->title}}. The
                                 best {{$entity->title}} alternatives
@@ -127,7 +127,7 @@
                             <strong>What platforms does {{$entity->title}} run on?</strong><br>
                             <p>
                                 {{$entity->title}} runs on
-                                @foreach($entity->platforms as $platform){{$platform->title}}{{$loop->index === 2 ? "." : ", "}}@endforeach</p>
+                                @foreach($entity->platforms as $platform){{$platform->title}}{{$loop->index === $entity->platforms->count() - 1 ? "." : ", "}}@endforeach</p>
                             <br><br>
                             <strong>Tags</strong><br>
                             @foreach($entity->tags as $tag)
