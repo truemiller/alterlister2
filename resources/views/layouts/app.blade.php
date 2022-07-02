@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <link rel="prefetch" href="{{config('app.url')}}">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
                 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -103,6 +103,5 @@ itemscope itemtype="https://schema.org/SiteNavigationElement">
 @include('includes/modalLogin')
 @include('includes/modalRegister')
 
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </body>
 </html>
