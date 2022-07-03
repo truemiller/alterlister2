@@ -60,13 +60,7 @@
                 "name": "What are the best {{$entity->title}} alternatives?",
                 "acceptedAnswer": {
                   "@type": "Answer",
-                  "text": "<p>We have {{$alternatives->count()}} alternatives to {{$entity->title}}. The
-                                best {{$entity->title}} alternatives
-                                are @foreach($entity->alternatives()->take(3) as $alternative)
-                    {{$loop->index === $entity->alternatives()->take(3)->count() - 1 ? "and " : ""}}{{$alternative->title}}
-                    {{$loop->index === $entity->alternatives()->take(3)->count() - 1 ? "." : ","}}
-                @endforeach
-                </p>"
+                  "text": "We have {{$alternatives->count()}} alternatives to {{$entity->title}}. The best {{$entity->title}} alternatives are @foreach($entity->alternatives()->take(3) as $alternative){{$loop->index === $entity->alternatives()->take(3)->count() - 1 ? "and " : ""}}{{$alternative->title}}{{$loop->index === $entity->alternatives()->take(3)->count() - 1 ? "." : ","}}@endforeach"
 }
 }, {
 "@type": "Question",
