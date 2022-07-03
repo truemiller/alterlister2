@@ -50,10 +50,12 @@
             @foreach($entity->reviews as $review)
                 <div class="card mt-3" itemprop="review" itemscope itemtype="https://schema.org/Review">
                     <div class="card-body">
-                        @for($i=1;$i<=$review->stars; $i++) <i class="fa fa-star text-warning"></i>@endfor
+                        <span itemprop="reviewRating" itemtype="https://schema.org/Rating" itemscope>
+                            <meta itemprop="ratingValue" content="{{$review->stars}}">
+                            @for($i=1;$i<=$review->stars; $i++) <i class="fa fa-star text-warning"></i>@endfor
+                        </span>
                         <br>
                         <strong itemprop="author">{{$review?->user?->name ?? "Removed"}}</strong>
-                        <meta itemprop="ratingValue" content="{{$review->stars}}">
                         <br>
                         <em>{{$entity->created_at}}</em>
                         <br>
