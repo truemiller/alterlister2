@@ -63,9 +63,8 @@
                   "text": "<p>We have {{$alternatives->count()}} alternatives to {{$entity->title}}. The
                                 best {{$entity->title}} alternatives
                                 are @foreach($entity->alternatives()->take(3) as $alternative)
-                    {{$loop->index === $entity->alternatives()->take(3)->count() - 1 ? "and " : ""}}<a
-                                                                    href="/{{$alternative->slug}}">{{$alternative->title}}
-                    </a>{{$loop->index === $entity->alternatives()->take(3)->count() - 1 ? "." : ","}}
+                    {{$loop->index === $entity->alternatives()->take(3)->count() - 1 ? "and " : ""}}{{$alternative->title}}
+                    {{$loop->index === $entity->alternatives()->take(3)->count() - 1 ? "." : ","}}
                 @endforeach
                 </p>"
 }
