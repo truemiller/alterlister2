@@ -21,31 +21,65 @@
 @section('ld+json')
     <script type="application/ld+json">
         {
-        "@context": "https://schema.org",
-         "@type": "Article",
-         "image": "{{$entity->logo}}",
-         "headline": "{{$entity->title}} Alternatives: {{count($alternatives)}}+ {{$entity->parent->title}}
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "image": "{{$entity->logo}}",
+            "headline": "{{$entity->title}} Alternatives: {{count($alternatives)}}+ {{$entity->parent->title}}
         for {{date("Y")}}",
-         "alternativeHeadline": "{{$entity->title}} Alternatives",
-         "author": {
-            "@type": "Person",
-            "name": "{{$entity->user->name}}",
-            "url": "https://alterlister.com"
-         },
-         "editor": "Josh Miller",
-         "keywords": "@foreach($entity->tags as $tag){{`$tag->title `}}@endforeach",
-        "publisher": {
-            "@type": "Organization",
-            "name": "Alterlister"
-          },
-         "url": "{{\Route::current()->url}}",
-           "mainEntityOfPage": {
-            "@type": "WebPage",
-            "@id": "https://google.com/article"
-          },
-         "description": "A list of {{count($alternatives)}} {{$entity->title}}
+            "alternativeHeadline": "{{$entity->title}} Alternatives",
+                "author": {
+                "@type": "Person",
+                "name": "{{$entity->user->name}}",
+                "url": "https://alterlister.com"
+            },
+            "editor": "Josh Miller",
+            "keywords": "@foreach($entity->tags as $tag){{`$tag->title `}}@endforeach",
+            "publisher": {
+                "@type": "Organization",
+                "name": "Alterlister"
+            },
+            "url": "{{\Route::current()->url}}",
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": "https://google.com/article"
+            },
+            "description": "A list of {{count($alternatives)}} {{$entity->title}}
         alternatives. Including @foreach($alternatives->take(3) as $alternative){{$alternative->title}}, @endforeach ..."
          }
+
+
+
+
+    </script>
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [{
+                "@type": "Question",
+                "name": "What are the best {{$entity->title}} alternatives?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "<p>We have {{$alternatives->count()}} alternatives to {{$entity->title}}. The
+                                best {{$entity->title}} alternatives
+                                are @foreach($entity->alternatives()->take(3) as $alternative)
+                    {{$loop->index === $entity->alternatives()->take(3)->count() - 1 ? "and " : ""}}<a
+                                                                    href="/{{$alternative->slug}}">{{$alternative->title}}
+                    </a>{{$loop->index === $entity->alternatives()->take(3)->count() - 1 ? "." : ","}}
+                @endforeach
+                </p>"
+}
+}, {
+"@type": "Question",
+"name": "What is {{$entity->title}}?",
+"acceptedAnswer": {
+"@type": "Answer",
+"text": "{!! nl2br(e($entity->description)) !!}"
+}]
+}
+
+
+
 
     </script>
 @endsection
@@ -113,7 +147,8 @@
                                 We have {{$alternatives->count()}} alternatives to {{$entity->title}}. The
                                 best {{$entity->title}} alternatives
                                 are @foreach($entity->alternatives()->take(3) as $alternative)
-                                    {{$loop->index === 2 ? "and " : ""}}<a href="/{{$alternative->slug}}">{{$alternative->title}}</a>{{$loop->index === 2 ? "." : ","}}
+                                    {{$loop->index === 2 ? "and " : ""}}<a
+                                        href="/{{$alternative->slug}}">{{$alternative->title}}</a>{{$loop->index === 2 ? "." : ","}}
                                 @endforeach
                             </p>
                             <br>
