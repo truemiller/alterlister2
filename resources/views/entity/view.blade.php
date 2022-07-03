@@ -71,6 +71,14 @@
                         "@type": "Answer",
                         "text": "{!! nl2br(e($entity->description)) !!}"
                     }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What platforms does {{$entity->title}} run on?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "{{$entity->title}} runs on @foreach($entity->platforms as $platform){{$platform->title}}{{$loop->index === $entity->platforms->count() - 1 ? "." : ", "}}@endforeach"
+                    }
                 }
             ]
         }
