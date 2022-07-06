@@ -23,7 +23,9 @@
         {
             "@context": "https://schema.org",
             "@type": "Article",
-            "image": "{{$entity->logo}}",
+            "image": "{{$entity->image_1}}",
+            "datePublished": "{{$entity->created_at->tz('UTC')->toAtomString()}}",
+            "dateModified" : "{{$entity->updated_at->tz('UTC')->toAtomString()}}",
             "headline": "{{$entity->title}} Alternatives: {{count($alternatives)}}+ {{$entity->parent->title}}
         for {{date("Y")}}",
             "alternativeHeadline": "{{$entity->title}} Alternatives",
@@ -33,7 +35,7 @@
                 "url": "https://alterlister.com"
             },
             "editor": "Josh Miller",
-            "keywords": "@foreach($entity->tags as $tag){{`$tag->title `}}@endforeach",
+            "keywords": "@foreach($entity->tags as $tag){{`$tag->title, `}}@endforeach",
             "publisher": {
                 "@type": "Organization",
                 "name": "Alterlister"
@@ -46,10 +48,6 @@
             "description": "A list of {{count($alternatives)}} {{$entity->title}}
         alternatives. Including @foreach($alternatives->take(3) as $alternative){{$alternative->title}}, @endforeach ..."
          }
-
-
-
-
     </script>
     <script type="application/ld+json">
         {
