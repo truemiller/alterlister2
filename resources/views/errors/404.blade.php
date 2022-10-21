@@ -1,5 +1,9 @@
 @extends("layouts.app")
 
+@section('title')
+    404: Not Found
+@endsection
+
 @section("main")
     <div class="container mt-3">
         <h1>404</h1>

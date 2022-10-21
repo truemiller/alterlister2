@@ -26,7 +26,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name="theme-color" content="#ffffff">
     {{--    Title--}}
-    <title>@yield('title') {{env('APP_NAME')}}</title>
+    <title>@yield('title') - {{env('APP_NAME')}}</title>
     <script defer src="{{ asset('js/app.js') }}"></script>
 @yield('ld+json')
 
