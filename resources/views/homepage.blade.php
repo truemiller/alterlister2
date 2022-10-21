@@ -48,7 +48,7 @@
                         </div>
                     @endforeach
                 </div>
-                <h2>Latest</h2>
+                <h2>Latest {{$latest_entities->count()}}</h2>
                 <div class="row">
                     @foreach($latest_entities as $alternative)
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">

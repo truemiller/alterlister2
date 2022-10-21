@@ -24,39 +24,23 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // Variables that will hold the entities for the homepage
-        $newest = [];
-        $popular = [];
-        $categories = [];
 
-        // Get the newest entities by view count
-        $latest_entities = Entity::
-        where("active", true)
+        $latest_entities = Entity::where("active", true)
                                  ->orderBy('id', 'desc')
                                  ->take(16)
                                  ->get();
 
-        // Get the most popular entities by view count
-//        $trending_entities = Entity::get()
-//            ->sortByDesc(function ($_ent) {
-//                return $_ent->getViews();
-//            })
-//            ->take(132);
 
         $popular_entities = Entity::where("active", true)->get()
                                   ->sortByDesc(function ($_ent) {
-                                      //return $_ent->getViews();
                                       return $_ent->views;
                                   })
                                   ->take(16);
 
-        $categories = Category::where("parent", null);
-
         return view('homepage')->with(
             [
                 'latest_entities' => $latest_entities,
-                'popular_entities' => $popular_entities,
-//                'trending_entities' => $trending_entities
+                'popular_entities' => $popular_entities
             ]
         );
     }
