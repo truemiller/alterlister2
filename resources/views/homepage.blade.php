@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    AlterLister: Find the best software alternatives.
+    Find the Best Software Alternatives
 @endsection
 
 @section ('og_tags')

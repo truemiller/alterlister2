@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Searching for "{{$query}}"
+@endsection
+
 @section('main')
     <div class="container mt-3">
         <h1>Search results for: {{{$query}}}</h1>

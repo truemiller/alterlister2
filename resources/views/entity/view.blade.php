@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    {{$entity->title}} Alternatives: {{count($alternatives)}}+ {{$entity->parent->title}} for {{date("Y")}} -
+    {{$entity->title}} Alternatives: {{count($alternatives)}}+ {{$entity->parent->title}} for {{date("Y")}}
 @endsection
 
 @section ('og_tags')

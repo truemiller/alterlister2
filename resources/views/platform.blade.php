@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    {{$category->title}}{{$category->parent ? " ".$category->parent->title:''}} -
+    {{$category->title}}{{$category->parent ? " ".$category->parent->title:''}}
 @endsection
 
 @section ('og_tags')

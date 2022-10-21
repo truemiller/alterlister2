@@ -1,35 +1,6 @@
 @extends('layouts.app')
 
 @section('main')
-{{--    <div class="card shadow-sm mt-3 px-0">--}}
-{{--                        <div class="card-body p-0">--}}
-{{--                            <div class="table-responsive">--}}
-{{--                                <table class="table table-hover table-condensed mb-0">--}}
-{{--                                    <thead>--}}
-{{--                                    <tr>--}}
-{{--                                        <th>#</th>--}}
-{{--                                        <th>Logo</th>--}}
-{{--                                        <th>Name</th>--}}
-{{--                                        <th>Description</th>--}}
-{{--                                        <th><i class="far fa-eye"></i></th>--}}
-{{--                                    </tr>--}}
-{{--                                    </thead>--}}
-{{--                                    <tbody>--}}
-{{--                                    @foreach($popular ?? '' as $entity)--}}
-{{--                                        <tr>--}}
-{{--                                            <td>{{$loop->index+1}}</td>--}}
-{{--                                            <td class="align-top text-center"><img src="{{$entity->logo}}" alt="{{$entity->title}}" width="32"></td>--}}
-{{--                                            <td><a href="{{route('ent', ['ent'=>$entity->slug])}}">{{$entity->title}}</a></td>--}}
-{{--                                            <td>{{$entity->description}}</td>--}}
-{{--                                            <td>{{$entity->getViews()}}</td>--}}
-{{--                                        </tr>--}}
-{{--                                    @endforeach--}}
-{{--                                    </tbody>--}}
-{{--                                </table>--}}
-{{--                            </div>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-
 <div class="container mt-4">
     <section class="row">
         <div class="col-lg-12">

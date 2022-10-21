@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-    Best {{$category->title}} -
+    Best {{$category->title}}
 @endsection
 
 @section ('og_tags')
