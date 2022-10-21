@@ -1,7 +1,7 @@
 @extends("layouts.app")
 
 @section('title')
-    Privacy Policy -
+    Privacy Policy
 @endsection
 
 @section("og_tags")

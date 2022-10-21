@@ -1,7 +1,7 @@
 @extends("layouts.app")
 
 @section('title')
-    Terms of Service -
+    Terms of Service
 @endsection
 
 @section("og_tags")

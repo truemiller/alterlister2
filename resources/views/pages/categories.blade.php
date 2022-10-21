@@ -1,4 +1,9 @@
 @extends('layouts.app')
+
+@section('title')
+    Categories
+@endsection
+
 @section('main')
     <div class="container">
         <div class="card">

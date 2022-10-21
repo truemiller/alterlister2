@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section("title")
-    About -
+    About
 @endsection
 @section("og_tags")
     <meta property="og:title"
