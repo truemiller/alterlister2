@@ -109,3 +109,7 @@ p {
     line-height: 1.6;
     font-size: 1em;
 }
+
+main article img {
+    @apply py-3;
+}
