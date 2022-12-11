@@ -51,8 +51,13 @@
     class="navbar navbar-expand-lg bg-white navbar-light sticky-top shadow-sm border-bottom"
 itemscope itemtype="https://schema.org/SiteNavigationElement">
     <div class="container d-flex flex-row">
+
+        <a href="{{route('home')}}" class="navbar-brand d-sm-flex mx-2">
+            <img src="{{asset('img/al.svg')}}" alt="{{config('app.name') . "logo"}}" style="height:32px; width:32px" loading="lazy">
+            <span class="ms-2 fw-bolder">Alterlister</span>
+        </a>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <a href="/" class="nav-link">Home</a>
             @if(Auth::check() and Auth::user()->admin)
                 <a href="/submit" class="nav-link">Submit</a>
                 <a href="/submissions" class="nav-link">Submissions</a>
