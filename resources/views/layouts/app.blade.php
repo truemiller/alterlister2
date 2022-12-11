@@ -82,8 +82,8 @@ itemscope itemtype="https://schema.org/SiteNavigationElement">
                     <input type="submit" class="btn btn-danger" value="Logout">
                 </form>
             @else
-            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalLogin">Login</button>
-            <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#modalRegister">Register</button>
+            <a class="btn btn-primary" href="/login">Login</a>
+            <a class="btn btn-light" href="/register" >Register</a>
             @endif
         </div>
 
@@ -97,9 +97,6 @@ itemscope itemtype="https://schema.org/SiteNavigationElement">
 @include('includes/footer')
 
 <!-- Styles -->
-
-@include('includes/modalLogin')
-@include('includes/modalRegister')
 
 </body>
 </html>
