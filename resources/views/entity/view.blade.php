@@ -49,38 +49,6 @@
         alternatives. Including @foreach($alternatives->take(3) as $alternative){{$alternative->title}}, @endforeach ..."
          }
     </script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-                {
-                    "@type": "Question",
-                    "name": "What are the best {{$entity->title}} alternatives?",
-                    "acceptedAnswer": {
-                      "@type": "Answer",
-                      "text": "We have {{$alternatives->count()}} alternatives to {{$entity->title}}. The best {{$entity->title}} alternatives are @foreach($entity->alternatives()->take(3) as $alternative){{$loop->index === $entity->alternatives()->take(3)->count() - 1 ? "and " : ""}}{{$alternative->title}}{{$loop->index === $entity->alternatives()->take(3)->count() - 1 ? "." : ","}}@endforeach"
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "What is {{$entity->title}}?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "{!! nl2br(e($entity->description)) !!}"
-                    }
-                },
-                {
-                    "@type": "Question",
-                    "name": "What platforms does {{$entity->title}} run on?",
-                    "acceptedAnswer": {
-                        "@type": "Answer",
-                        "text": "{{$entity->title}} runs on @foreach($entity->platforms as $platform){{$platform->title}}{{$loop->index === $entity->platforms->count() - 1 ? "." : ", "}}@endforeach"
-                    }
-                }
-            ]
-        }
-    </script>
 @endsection
 
 @section('main')
@@ -121,95 +89,29 @@
             </div>
         </ol>
     </nav>
-    <div class="container" itemscope itemtype="https://schema.org/Product">
-        <div class="row mt-4">
-            <article>
-                <header class="mb-2">
-                    <div class="row">
-                        <div class="col text-center my-auto">
-                            <img src="{{$entity->logo}}" alt="{{"$entity->title logo"}}"
-                                 title="{{"$entity->title logo"}}"
-                                 class="img-fluid me-2" loading="lazy" width="100" height="100" itemprop="logo">
-                        </div>
-                        <div class="col-lg-8 my-auto">
-                            <span class="badge bg-light mb-2">{{$entity->views}} <i class="fa fa-eye"></i></span>
-                            <h1 class="" itemprop="name">{{$entity->title}}</h1>
-                            @for($i=1; $i<=$entity->reviews->avg("stars"); $i++ )
-                                <i class="fa fa-star text-warning"></i>
-                            @endfor
-                            <br>
-                            <span class="badge bg-light mb-2"
-                                  itemprop="category">{{$entity?->parent?->title}}</span>
-                            <br>
-                            <strong>What are the best {{$entity->title}} alternatives?</strong>
-                            <p>
-                                We have {{$alternatives->count()}} alternatives to {{$entity->title}}. The
-                                best {{$entity->title}} alternatives
-                                are @foreach($entity->alternatives()->take(3) as $alternative)
-                                    {{$loop->index === 2 ? "and " : ""}}<a
-                                        href="/{{$alternative->slug}}">{{$alternative->title}}</a>{{$loop->index === 2 ? "." : ","}}
-                                @endforeach
-                            </p>
-                            <br>
-                            <strong>What is {{$entity->title}}?</strong>
-                            <div>
-                                <p itemprop="description">
-                                    {!! nl2br(e($entity->description)) !!}
-                                </p>
-                            </div>
-                            <br>
-                            <strong>What platforms does {{$entity->title}} run on?</strong><br>
-                            <p>
-                                {{$entity->title}} runs on
-                                @foreach($entity->platforms as $platform){{$platform->title}}{{$loop->index === $entity->platforms->count() - 1 ? "." : ", "}}@endforeach</p>
-                            <br><br>
-                            <strong>Tags</strong><br>
-                            @foreach($entity->tags as $tag)
-                                <span class="badge bg-light me-1" itemprop="keywords">{{$tag->tag}}</span>
-                            @endforeach
-                            <br><br>
-                            <strong>Links</strong>
-                            <br>
-                            <a href="{{$entity->link_1}}" class="btn btn-danger mb-3">Goto Homepage</a>
-                        </div>
-                        <div class="col-md-3 d-flex flex-column align-middle">
-                            <img src="{{$entity->image_1}}" alt="Screenshot of {{$entity->title}}."
-                                 title="Screenshot of {{$entity->title}}" class="mb-3" itemprop="image">
-                            <button type="button" class="btn btn-primary mt-auto" data-bs-toggle="modal"
-                                    data-bs-target="{{Auth::check() ? "#reviewModal" : "#modalRegister"}}">
-                                Post a review
-                            </button>
-                        </div>
-                    </div>
-                </header>
-                <div class="row">
-                    <main class="col-lg-8 py-3">
-                        <section>
-                            @include('entity.alternatives')
-                        </section>
-                        @include('entity.reviews')
-                    </main>
-                    <aside class="col-lg-4 py-3">
-                        <h2>Table of Contents</h2>
-                        <ul class="">
-                            <li>
-                                <a class=""
-                                   href="#alternatives">Alternatives</a></li>
-                            <ol class=" ">
-                                @foreach($alternatives as $alternative)
-                                    <li>
-                                        <a href="#{{$alternative->slug}}"
-                                           class="">{{$alternative->title}}</a>
-                                    </li>
-                                @endforeach
-                            </ol>
-                            <li><a class="" href="#reviews">Reviews</a></li>
-                        </ul>
-                    </aside>
-                </div>
-            </article>
-        </div>
+    <main class="container">
+        <article class="row col-md-8">
+            <h1 class="" itemprop="name">{{$entity->title}} alternatives</h1>
+            <p>
+                We have {{$alternatives->count()}} alternatives to {{$entity->title}}. The
+                best {{$entity->title}} alternatives
+                are @foreach($entity->alternatives()->take(3) as $alternative)
+                    {{$loop->index === 2 ? "and " : ""}}<a
+                        href="{{$alternative->link_1}}">{{$alternative->title}}</a>{{$loop->index === 2 ? "." : ","}}
+                @endforeach
+            </p>
+            <p>
+                {!! nl2br(e($entity->description)) !!}
+            </p>
+            <p>
+                {{$entity->title}} runs on
+                @foreach($entity->platforms as $platform){{$platform->title}}{{$loop->index === $entity->platforms->count() - 1 ? "." : ", "}}@endforeach
+            </p>
 
-    </div>
+            @include('entity.alternatives')
+{{--            @include('entity.reviews')--}}
+
+        </article>
+    </main>
 @endsection
 

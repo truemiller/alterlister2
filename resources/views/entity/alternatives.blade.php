@@ -1,56 +1,17 @@
-<div itemscope itemtype="https://schema.org/ItemList">
-    <h2 id="alternatives" itemprop="name">{{$entity->title}} alternatives</h2>
-    @foreach($alternatives as $alternative)
-        <section class="row py-3" id="{{$alternative->slug}}" itemprop="itemListElement" itemscope
-                 itemtype="https://schema.org/Product">
-            <div class="col-lg-12 border-top pt-3">
-                <header class="d-flex flex-row">
-                    <h3 class="fw-bolder d-inline-block">
-                        <span>{{$loop->index+1}}</span>. <a
-                            href="{{route('ent', ["ent"=>$alternative->slug])}}"
-                            rel="external"
-                            class="text-primary"
-                            title="{{$alternative->title}} alternatives"
-                        ><span itemprop="name">{{$alternative->title}}</span></a>
-                    </h3>
-                    <img src="{{$alternative->logo}}" alt="{{$alternative->title}} logo"
-                         title="{{$alternative->title}} logo"
-                         class="img-fluid mb-3 ms-auto d-inline-block"
-                         width="32"
-                         loading="lazy"
-                         itemprop="logo"
-                    >
-                </header>
-                <div class="rating" itemprop="aggregateRating" itemtype="https://schema.org/AggregateRating" itemscope>
-                    @for($i=1;$i<=round($alternative->reviews->avg("stars"));$i++)
-                        <i class="fa fa-star text-warning"></i>
-                    @endfor
-                    <meta content="5" itemprop="bestRating">
-                    <meta content="1" itemprop="worstRating">
-                    <meta content="{{$entity->reviews->avg("stars") === 0 ? 5 : $entity->reviews->avg("stars")}}"
-                          itemprop="ratingValue">
-                    <meta content="{{$entity->reviews->count() === 0 ? 1 : $entity->reviews->count() }}"
-                          itemprop="reviewCount">
-                </div>
-                <ul>
-                    <li><strong>Category</strong>: <a href="/category/{{$alternative?->parent?->slug}}"
-                                                      itemprop="category">{{$alternative?->parent?->title}}</a></li>
-                    <li><strong>Platforms</strong>: @foreach($alternative->platforms as $platform)<span
-                            class="badge bg-light me-1"><i
-                                class="{{$platform->fa}}"></i> {{$platform->title}}</span>@endforeach</li>
-                    <li><strong>Tags</strong>: @foreach($alternative->tags as $tag)<span
-                            class="badge bg-light me-1" itemprop="keywords">{{$tag->tag}}</span>@endforeach</li>
-                </ul>
-                @if($alternative->image_1)
-                    <img src="{{$alternative->image_1}}" alt="An image of {{$alternative->title}}."
-                         title="An image of {{$alternative->title}}." width="804" class="mb-3 w-100" loading="lazy"
-                         itemprop="image">
-                @endif
-                <p itemprop="description">{!! nl2br(e(Str::words($alternative->description, 50, "..."))) !!}</p>
-                <a href="{{route('ent', ["ent"=>$alternative->slug])}}" class="btn btn-outline-primary">More
-                    details</a>
-            </div>
-        </section>
-    @endforeach
-</div>
+@foreach($alternatives as $alternative)
+    <h2 class="fw-bolder d-inline-block">
+        <span>{{$loop->index+1}}</span>. <a
+            href="{{$alternative->link_1}}"
+            rel="external"
+            class="text-primary"
+            title="{{$alternative->title}} alternatives"
+        >{{$alternative->title}}</a>
+    </h2>
+    <img src="{{$alternative->image_1}}" alt="Screenshot of {{$alternative->title}}.">
+    <p>
+        {{$alternative->title}} runs on
+        @foreach($alternative->platforms as $platform){{$platform->title}}{{$loop->index === $alternative->platforms->count() - 1 ? "." : ", "}}@endforeach
+    </p>
+    <p itemprop="description">{!! nl2br(e($alternative->description)) !!}</p>
+@endforeach
 

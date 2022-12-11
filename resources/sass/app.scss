@@ -12,10 +12,10 @@
 //@import "~bootstrap/scss/bootstrap";
 
 ////@import 'variables';
-@import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,800,900&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Inter:400,600,700,800,900&display=swap');
 
 * {
-    font-family: "Poppins";
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
 .breadcrumb {
@@ -106,6 +106,6 @@ h3 a {
 }
 
 p {
-    font-size: 18px;
-    line-height: 35px;
+    line-height: 1.6;
+    font-size: 1em;
 }

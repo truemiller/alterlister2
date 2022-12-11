@@ -92,9 +92,8 @@ itemscope itemtype="https://schema.org/SiteNavigationElement">
 
 </nav>
 
-<div class="main">
-    @yield('main')
-</div>
+
+@yield('main')
 
 @include('includes/footer')
 
