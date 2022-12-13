@@ -40,18 +40,18 @@
     <div class="container mt-4">
         <section class="row">
             <div class="col">
-                <h2>Popular Software</h2>
+                <h2>Popular</h2>
                 <div class="row">
                     @foreach($popular_entities as $alternative)
-                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="col-xl-4 col-lg-6">
                             @include('includes.list-media-category', ['alternative'=>$alternative])
                         </div>
                     @endforeach
                 </div>
-                <h2>Latest Software</h2>
+                <h2>Latest</h2>
                 <div class="row">
                     @foreach($latest_entities as $alternative)
-                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                        <div class="col-lg-4 col-md-6 col-sm-12">
                             @include('includes.list-media-category', ['alternative'=>$alternative])
                         </div>
                     @endforeach

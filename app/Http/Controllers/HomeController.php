@@ -27,7 +27,7 @@ class HomeController extends Controller
 
         $latest_entities = Entity::where("active", true)
                                  ->orderBy('id', 'desc')
-                                 ->take(16)
+                                 ->take(18)
                                  ->get();
 
 
@@ -35,7 +35,7 @@ class HomeController extends Controller
                                   ->sortByDesc(function ($_ent) {
                                       return $_ent->views;
                                   })
-                                  ->take(16);
+                                  ->take(18);
 
         return view('homepage')->with(
             [

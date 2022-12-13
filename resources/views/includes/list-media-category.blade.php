@@ -6,11 +6,8 @@
     </a>
     <div class="d-flex flex-column">
         <a class="text-decoration-none text-dark" href="{{ route('ent',['ent'=>$alternative->slug]) }}">
-            <h3 class="d-inline-block mb-0 fw-bold h5 text-primary" itemprop="itemListElement">{{$alternative->title}}</h3>
+            <h3 class="d-inline-block mb-0 fw-bold h5 text-primary">{{$alternative->title}} alternatives</h3>
         </a>
-        <span>@for($i=1;$i<=$alternative->reviews->avg("stars");$i++)
-                <i class="fa fa-star text-warning"></i>
-                @endfor</span>
         <span class="text-muted">{{$alternative->parent?->title}}</span>
         <small>{{$alternative->alternatives()->count()}} alternatives</small>
     </div>

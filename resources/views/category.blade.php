@@ -69,7 +69,7 @@
         <div class="row">
             <h2>Popular</h2>
             @foreach($popular_entities as $alternative)
-                <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12">
+                <div class="col-lg-4 col-md-6 col-sm-12">
                     @include('includes.list-media-category', ['alternative'=>$alternative])
                 </div>
             @endforeach
@@ -91,7 +91,7 @@
                                     <strong>Popular in this category</strong>
                                     <ul>
                                         @foreach($child->entities->take(3) as $entity)
-                                            <li><a href="{{route('ent',["ent"=>$entity->slug])}}">{{$entity->title}}</a>
+                                            <li><a href="{{route('ent',["ent"=>$entity->slug])}}">{{$entity->title}} alternatives</a>
                                             </li>
                                         @endforeach
                                     </ul>
