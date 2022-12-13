@@ -92,14 +92,14 @@
     <main class="container">
         <article class="row col-md-8">
             <h1 class="" itemprop="name">{{$entity->title}} alternatives</h1>
-            <p>
+            <strong class="mb-3">
                 We have {{$alternatives->count()}} alternatives to {{$entity->title}}. The
                 best {{$entity->title}} alternatives
                 are @foreach($entity->alternatives()->take(3) as $alternative)
                     {{$loop->index === 2 ? "and " : ""}}<a
                         href="{{$alternative->link_1}}">{{$alternative->title}}</a>{{$loop->index === 2 ? "." : ","}}
                 @endforeach
-            </p>
+            </strong>
             <p>
                 {!! nl2br(e($entity->description)) !!}
             </p>
