@@ -103,10 +103,24 @@
             <p>
                 {!! nl2br(e($entity->description)) !!}
             </p>
-            <p>
-                {{$entity->title}} runs on
-                @foreach($entity->platforms as $platform){{$platform->title}}{{$loop->index === $entity->platforms->count() - 1 ? "." : ", "}}@endforeach
-            </p>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Platforms</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($entity->alternatives() as $alternative)
+                    <tr>
+                        <td><a href="{{$alternative->link_1}}">{{$alternative->title}}</a></td>
+                        <td>@foreach($alternative->platforms as $platform){{$platform->title}}{{$loop->index === $alternative->platforms->count() - 1 ? "." : ", "}}@endforeach</td>
+
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
 
             @include('entity.alternatives')
 {{--            @include('entity.reviews')--}}
