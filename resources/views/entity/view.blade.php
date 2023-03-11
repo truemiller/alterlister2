@@ -6,7 +6,7 @@
 
 @section ('og_tags')
     <meta property="og:title"
-          content="Similar Software to {{$entity->title}}"/>
+          content="Similar Software to {{$entity->title}}: {{$alternatives->count()}} best alternatives for 2023"/>
     <meta property="og:description"
           content="A list of {{count($alternatives)}} {{$entity->title}}+ alternatives. Including @foreach($alternatives->take(3) as $alternative){{$alternative->title}}, @endforeach ..."/>
     <meta property="og:image" content="{{$entity->image_1}}"/>
@@ -26,7 +26,7 @@
             "image": "{{$entity->image_1}}",
             "datePublished": "{{$entity->created_at->tz('UTC')->toAtomString()}}",
             "dateModified" : "{{$entity->updated_at->tz('UTC')->toAtomString()}}",
-            "headline": "Similar Software to {{$entity->title}}",
+            "headline": "Similar Software to {{$entity->title}}: {{$alternatives->count()}} best alternatives for 2023",
             "alternativeHeadline": "Similar software to {{$entity->title}}",
                 "author": {
                 "@type": "Person",
@@ -90,7 +90,7 @@
     </nav>
     <main class="container">
         <article class="row col-md-8">
-            <h1 class="" itemprop="name">Similar Software to {{$entity->title}}</h1>
+            <h1 class="" itemprop="name">Similar Software to {{$entity->title}}: {{$alternatives->count()}} best alternatives for 2023</h1>
             <strong class="mb-3">
                 We have {{$alternatives->count()}} alternatives to {{$entity->title}}. The
                 best {{$entity->title}} alternatives
@@ -117,7 +117,7 @@
                     @endforeach
                 </tbody>
             </table>
-            
+
             <p>
                 {!! nl2br(e($entity->description)) !!}
             </p>
