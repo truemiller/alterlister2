@@ -99,9 +99,6 @@
                         href="{{$alternative->link_1}}">{{$alternative->title}}</a>{{$loop->index === 2 ? "." : ","}}
                 @endforeach
             </strong>
-            <p>
-                {!! nl2br(e($entity->description)) !!}
-            </p>
 
             <table class="table">
                 <thead>
@@ -120,6 +117,10 @@
                     @endforeach
                 </tbody>
             </table>
+            
+            <p>
+                {!! nl2br(e($entity->description)) !!}
+            </p>
 
             @include('entity.alternatives')
 {{--            @include('entity.reviews')--}}
