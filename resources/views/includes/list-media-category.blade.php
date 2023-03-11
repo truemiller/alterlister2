@@ -6,7 +6,7 @@
     </a>
     <div class="d-flex flex-column">
         <a class="text-decoration-none text-dark" href="{{ route('ent',['ent'=>$alternative->slug]) }}">
-            <h3 class="d-inline-block mb-0 fw-bold h5 text-primary">{{$alternative->title}} alternatives</h3>
+            <h3 class="d-inline-block mb-0 fw-bold h5 text-primary">{{$alternative->title}}</h3>
         </a>
         <span class="text-muted">{{$alternative->parent?->title}}</span>
         <small>{{$alternative->alternatives()->count()}} alternatives</small>

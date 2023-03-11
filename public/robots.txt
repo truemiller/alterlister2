@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://alterlister.com/sitemap.xml
+Sitemap: https://similar.software/sitemap.xml

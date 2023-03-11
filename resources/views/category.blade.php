@@ -8,7 +8,7 @@
     <meta property="description"
           content="Find alternatives to the best {{$category->title}}.">
     <meta property="og:title"
-          content="Best {{$category->title}} - AlterLister"/>
+          content="Best {{$category->title}} - Similar Software"/>
     <meta property="og:description"
           content="Popular {{$category->title}} software, apps and services."/>
     <meta property="og:image" content=""/>

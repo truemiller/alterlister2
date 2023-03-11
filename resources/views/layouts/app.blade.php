@@ -54,7 +54,7 @@ itemscope itemtype="https://schema.org/SiteNavigationElement">
 
         <a href="{{route('home')}}" class="navbar-brand d-sm-flex mx-2">
             <img src="{{asset('img/al.svg')}}" alt="{{config('app.name') . "logo"}}" style="height:32px; width:32px" loading="lazy">
-            <span class="ms-2 fw-bolder">Alterlister</span>
+            <span class="ms-2 fw-bolder">Similar Software</span>
         </a>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">

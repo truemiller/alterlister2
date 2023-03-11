@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
 @section('title')
-    {{$entity->title}} Alternatives: {{count($alternatives)}}+ {{$entity->parent->title}} for {{date("Y")}}
+    Similar Software to {{$entity->title}}
 @endsection
 
 @section ('og_tags')
     <meta property="og:title"
-          content="{{count($alternatives)}}+ Best {{$entity->title}} Alternatives for {{date("Y")}} - {{config('app.name')}}"/>
+          content="Similar Software to {{$entity->title}}"/>
     <meta property="og:description"
           content="A list of {{count($alternatives)}} {{$entity->title}}+ alternatives. Including @foreach($alternatives->take(3) as $alternative){{$alternative->title}}, @endforeach ..."/>
     <meta property="og:image" content="{{$entity->image_1}}"/>
@@ -26,19 +26,18 @@
             "image": "{{$entity->image_1}}",
             "datePublished": "{{$entity->created_at->tz('UTC')->toAtomString()}}",
             "dateModified" : "{{$entity->updated_at->tz('UTC')->toAtomString()}}",
-            "headline": "{{$entity->title}} Alternatives: {{count($alternatives)}}+ {{$entity->parent->title}}
-        for {{date("Y")}}",
-            "alternativeHeadline": "{{$entity->title}} Alternatives",
+            "headline": "Similar Software to {{$entity->title}}",
+            "alternativeHeadline": "Similar software to {{$entity->title}}",
                 "author": {
                 "@type": "Person",
                 "name": "{{$entity->user->name}}",
-                "url": "https://alterlister.com"
+                "url": "https://similar.software"
             },
             "editor": "Josh Miller",
             "keywords": "@foreach($entity->tags as $tag){{`$tag->title, `}}@endforeach",
             "publisher": {
                 "@type": "Organization",
-                "name": "Alterlister"
+                "name": "Similar Software"
             },
             "url": "{{\Route::current()->url}}",
             "mainEntityOfPage": {
@@ -91,7 +90,7 @@
     </nav>
     <main class="container">
         <article class="row col-md-8">
-            <h1 class="" itemprop="name">{{$entity->title}} alternatives</h1>
+            <h1 class="" itemprop="name">Similar Software to {{$entity->title}}</h1>
             <strong class="mb-3">
                 We have {{$alternatives->count()}} alternatives to {{$entity->title}}. The
                 best {{$entity->title}} alternatives
