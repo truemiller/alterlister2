@@ -38,15 +38,19 @@
             text-decoration: none;
         }
     </style>
-{{--    Adsense --}}
-{{--    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3541252731032050"--}}
-{{--            crossorigin="anonymous"></script>--}}
 </head>
 <body class="vh-100 d-flex flex-column" itemscope itemtype="https://schema.org/WebPage">
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WH2KTPT"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z1KSJ3YJJ2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-Z1KSJ3YJJ2');
+</script>
+
 <nav
     class="navbar navbar-expand-lg bg-white navbar-light sticky-top shadow-sm border-bottom"
 itemscope itemtype="https://schema.org/SiteNavigationElement">
